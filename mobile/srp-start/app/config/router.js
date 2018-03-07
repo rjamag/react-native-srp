@@ -1,7 +1,7 @@
 import React from "react";
 import { TabNavigator, StackNavigator } from "react-navigation";
-//import { Icon } from "react-native-elements";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { Icon } from "react-native-elements";
+//import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import Feed from "../screens/Feed";
 import Settings from "../screens/Settings";
@@ -30,7 +30,16 @@ export const Tabs = TabNavigator({
       tabBarLabel: "Explore",
       tabBarOptions: { showIcon: true },
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="access-point" size={30} color="black" />
+        <Icon
+          name="list"
+          size={30}
+          iconStyle={{
+            width: 30,
+            height: 30
+          }}
+          type="material"
+          color={tintColor}
+        />
       )
     }
   },
@@ -39,7 +48,18 @@ export const Tabs = TabNavigator({
     navigationOptions: {
       tabBarLabel: "Saved",
       tabBarOptions: { showIcon: true },
-      tabBarIcon: ({ tintColor }) => <Icon name="list" size={35} color="#900" />
+      tabBarIcon: ({ tintColor }) => (
+        <Icon
+          name="star-border"
+          type="material"
+          iconStyle={{
+            width: 30,
+            height: 30
+          }}
+          size={30}
+          color={tintColor}
+        />
+      )
     }
   },
   Feed3: {
@@ -48,7 +68,16 @@ export const Tabs = TabNavigator({
       tabBarLabel: "Services",
       tabBarOptions: { showIcon: true },
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="list" size={35} color={tintColor} />
+        <Icon
+          name="ios-construct"
+          type="ionicon"
+          iconStyle={{
+            width: 30,
+            height: 30
+          }}
+          size={30}
+          color={tintColor}
+        />
       )
     }
   },
@@ -58,7 +87,16 @@ export const Tabs = TabNavigator({
       tabBarLabel: "Messages",
       tabBarOptions: { showIcon: true },
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="list" size={35} color={tintColor} />
+        <Icon
+          name="message"
+          type="material"
+          iconStyle={{
+            width: 30,
+            height: 30
+          }}
+          size={30}
+          color={tintColor}
+        />
       )
     }
   },
@@ -67,7 +105,16 @@ export const Tabs = TabNavigator({
     navigationOptions: {
       tabBarLabel: "Me",
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="account-circle" size={35} color={tintColor} />
+        <Icon
+          name="account-circle"
+          type="material"
+          iconStyle={{
+            width: 30,
+            height: 30
+          }}
+          size={30}
+          color={tintColor}
+        />
       )
     }
   }
