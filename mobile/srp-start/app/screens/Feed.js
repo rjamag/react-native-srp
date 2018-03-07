@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, ScrollView } from "react-native";
 import { List, ListItem } from "react-native-elements";
-import { users } from "../config/data";
+import { users } from "../config/Data";
 
 class Feed extends Component {
   onLearnMore = user => {
