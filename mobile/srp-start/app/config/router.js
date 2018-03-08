@@ -12,11 +12,11 @@ import Saved from "../screens/Saved";
 import Orders from "../screens/Orders";
 import Messages from "../screens/Messages";
 
-export const FeedStack = StackNavigator({
-  Feed: {
-    screen: Feed,
+export const MessagesStack = StackNavigator({
+  Messages: {
+    screen: Messages,
     navigationOptions: {
-      title: "Feed"
+      title: "Messages"
     }
   },
   Details: {
@@ -29,13 +29,13 @@ export const FeedStack = StackNavigator({
 
 export const Tabs = TabNavigator({
   Feed: {
-    screen: FeedStack,
+    screen: Feed,
     navigationOptions: {
-      tabBarLabel: "Explore",
+      tabBarLabel: "Home",
       tabBarOptions: { showIcon: true },
       tabBarIcon: ({ tintColor }) => (
         <Icon
-          name="list"
+          name="home"
           size={30}
           iconStyle={{
             width: 30,
@@ -86,7 +86,7 @@ export const Tabs = TabNavigator({
     }
   },
   Messages: {
-    screen: Messages,
+    screen: MessagesStack,
     navigationOptions: {
       tabBarLabel: "Messages",
       tabBarOptions: { showIcon: true },
