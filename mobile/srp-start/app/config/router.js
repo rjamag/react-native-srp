@@ -1,12 +1,16 @@
 import React from "react";
+
 import { TabNavigator, StackNavigator } from "react-navigation";
 import { Icon } from "react-native-elements";
-//import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import Feed from "../screens/Feed";
 import Settings from "../screens/Settings";
 import UserDetail from "../screens/UserDetail";
+
 import Me from "../screens/Me";
+import Saved from "../screens/Saved";
+import Orders from "../screens/Orders";
+import Messages from "../screens/Messages";
 
 export const FeedStack = StackNavigator({
   Feed: {
@@ -43,8 +47,8 @@ export const Tabs = TabNavigator({
       )
     }
   },
-  Feed2: {
-    screen: FeedStack,
+  Saved: {
+    screen: Saved,
     navigationOptions: {
       tabBarLabel: "Saved",
       tabBarOptions: { showIcon: true },
@@ -62,8 +66,8 @@ export const Tabs = TabNavigator({
       )
     }
   },
-  Feed3: {
-    screen: FeedStack,
+  Orders: {
+    screen: Orders,
     navigationOptions: {
       tabBarLabel: "Services",
       tabBarOptions: { showIcon: true },
@@ -81,8 +85,8 @@ export const Tabs = TabNavigator({
       )
     }
   },
-  Feed4: {
-    screen: FeedStack,
+  Messages: {
+    screen: Messages,
     navigationOptions: {
       tabBarLabel: "Messages",
       tabBarOptions: { showIcon: true },
