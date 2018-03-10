@@ -20,6 +20,9 @@ import Login from "../modules/auth/scenes/Login";
 import ForgotPassword from "../modules/auth/scenes/ForgotPassword";
 import Home from "../modules/home/scenes/Home/Home";
 
+//Tab
+import { Icon } from "react-native-elements";
+
 //Import Store, actions
 import store from "../redux/store";
 import { checkLoginStatus } from "../modules/auth/actions";
@@ -79,7 +82,7 @@ export default class extends React.Component {
             />
           </Stack>
 
-          <Stack key="Main" initial={this.state.isLoggedIn}>
+          <Stack key="OldMain" initial={this.state.isLoggedIn}>
             <Scene
               key="Home"
               component={Home}
@@ -88,6 +91,90 @@ export default class extends React.Component {
               type={ActionConst.REPLACE}
             />
           </Stack>
+
+          <Scene key="Main" tabs={true} initial={this.state.isLoggedIn}>
+            <Scene
+              key="Tab1"
+              title="Home"
+              initial={true}
+              icon={({ tintColor }) => (
+                <Icon
+                  name="home"
+                  size={30}
+                  iconStyle={{ width: 30, height: 30 }}
+                  type="material"
+                  color={tintColor}
+                />
+              )}
+              type={ActionConst.REPLACE}
+            >
+              <Scene key="Tab1_1" component={Home} title="Home" />
+              <Scene key="Tab1_2" component={Home} title="Home" />
+            </Scene>
+
+            <Scene key="Tab2" title="Saved">
+              <Scene
+                key="Tab2_1"
+                component={Home}
+                title="Saved"
+                icon={({ tintColor }) => (
+                  <Icon
+                    name="star-border"
+                    size={30}
+                    iconStyle={{ width: 30, height: 30 }}
+                    type="material"
+                    color={tintColor}
+                  />
+                )}
+              />
+              <Scene key="Tab2_2" component={Home} title="Saved" />
+            </Scene>
+
+            <Scene
+              key="Tab3"
+              component={Home}
+              title="Services"
+              icon={({ tintColor }) => (
+                <Icon
+                  name="ios-construct"
+                  size={30}
+                  iconStyle={{ width: 30, height: 30 }}
+                  type="ionicon"
+                  color={tintColor}
+                />
+              )}
+            />
+
+            <Scene
+              key="Tab4"
+              component={Home}
+              title="Messages"
+              icon={({ tintColor }) => (
+                <Icon
+                  name="message"
+                  size={30}
+                  iconStyle={{ width: 30, height: 30 }}
+                  type="material"
+                  color={tintColor}
+                />
+              )}
+            />
+
+            <Scene
+              key="Tab5"
+              component={Home}
+              title="Me"
+              icon={({ tintColor }) => (
+                <Icon
+                  name="account-circle"
+                  size={30}
+                  iconStyle={{ width: 30, height: 30 }}
+                  type="material"
+                  color={tintColor}
+                />
+              )}
+            />
+          </Scene>
         </Scene>
       </Router>
     );
