@@ -58,9 +58,6 @@ export function signOut(successCB, errorCB) {
 export function checkLoginStatus(callback) {
   return dispatch => {
     firebase.auth().onAuthStateChanged(user => {
-      //firebase.auth.checkLoginStatus(user => {
-      //const user = firebase.auth.currentUser;
-
       let isLoggedIn = user !== null;
 
       if (isLoggedIn) {

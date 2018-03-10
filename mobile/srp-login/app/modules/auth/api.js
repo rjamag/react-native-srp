@@ -4,7 +4,6 @@ import { AccessToken, LoginManager } from "react-native-fbsdk";
 const auth = firebase.auth();
 const database = firebase.database();
 
-//Register the user using email and password
 export function register(data, callback) {
   const { email, password } = data;
   auth
@@ -13,7 +12,6 @@ export function register(data, callback) {
     .catch(error => callback(false, null, error));
 }
 
-//Create the user object in realtime database
 export function createUser(user, callback) {
   database
     .ref("users")
@@ -23,7 +21,6 @@ export function createUser(user, callback) {
     .catch(error => callback(false, null, { message: error }));
 }
 
-//Sign the user in with their email and password
 export function login(data, callback) {
   const { email, password } = data;
   auth
@@ -32,7 +29,6 @@ export function login(data, callback) {
     .catch(error => callback(false, null, error));
 }
 
-//Get the user object from the realtime database
 export function getUser(user, callback) {
   database
     .ref("users")
@@ -50,7 +46,6 @@ export function getUser(user, callback) {
     .catch(error => callback(false, null, error));
 }
 
-//Send Password Reset Email
 export function resetPassword(data, callback) {
   const { email } = data;
   auth
@@ -58,15 +53,6 @@ export function resetPassword(data, callback) {
     .then(user => callback(true, null, null))
     .catch(error => callback(false, null, error));
 }
-
-//Sign user in using Facebook
-// export function signInWithFacebook(fbToken, callback) {
-//   const credential = provider.credential(fbToken);
-//   auth
-//     .signInWithCredential(credential)
-//     .then(user => callback(true, user, null))
-//     .catch(error => callback(false, null, error));
-// }
 
 export function signOut(callback) {
   auth
@@ -79,44 +65,12 @@ export function signOut(callback) {
     });
 }
 
-// const provider = firebase.auth.FacebookAuthProvider;
-
-// export function signInWithFacebook(fbToken, callback) {
-//   const credential = provider.credential(fbToken);
-//   auth
-//     .signInWithCredential(credential)
-//     .then(user => getUser(user, callback))
-//     .catch(error => callback(false, null, error));
-// }
-
-//const provider = firebase.auth.FacebookAuthProvider;
+const provider = firebase.auth.FacebookAuthProvider;
 
 export function signInWithFacebook(fbToken, callback) {
-  LoginManager.logInWithReadPermissions(["public_profile", "email"])
-    .then(result => {
-      if (result.isCancelled) {
-        return Promise.reject(new Error("The user cancelled the request"));
-      }
-      // Retrieve the access token
-      return AccessToken.getCurrentAccessToken();
-    })
-    .then(data => {
-      // Create a new Firebase credential with the token
-      const credential = firebase.auth.FacebookAuthProvider.credential(
-        data.accessToken
-      );
-      // Login with the credential
-      return firebase.auth().signInWithCredential(credential);
-    })
-    .then(user => {
-      // If you need to do anything with the user, do it here
-      // The user will be logged in automatically by the
-      // `onAuthStateChanged` listener we set up in App.js earlier
-    })
-    .catch(error => {
-      const { code, message } = error;
-      // For details of error codes, see the docs
-      // The message contains the default Firebase string
-      // representation of the error
-    });
+  const credential = provider.credential(fbToken);
+  auth
+    .signInWithCredential(credential)
+    .then(user => getUser(user, callback))
+    .catch(error => callback(false, null, error));
 }
