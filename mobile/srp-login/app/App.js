@@ -40,6 +40,7 @@ export default class App extends Component {
     //     />
     //   );
     // }
+    console.disableYellowBox = true;
 
     return (
       <Provider store={store}>

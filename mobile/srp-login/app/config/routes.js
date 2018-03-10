@@ -119,7 +119,7 @@ export default class extends React.Component {
                 title="Saved"
                 icon={({ tintColor }) => (
                   <Icon
-                    name="star-border"
+                    name="star"
                     size={30}
                     iconStyle={{ width: 30, height: 30 }}
                     type="material"
