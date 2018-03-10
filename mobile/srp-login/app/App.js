@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import Router from "./config/routes";
 import store from "./redux/store";
 
+import firebase from "react-native-firebase";
+
 function cacheFonts(fonts) {
   return fonts.map(font => Font.loadAsync(font));
 }

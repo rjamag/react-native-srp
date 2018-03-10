@@ -57,26 +57,26 @@ export function signOut(successCB, errorCB) {
 
 export function checkLoginStatus(callback) {
   return dispatch => {
-    //    firebase.auth().onAuthStateChanged(user => {
-    //firebase.auth.checkLoginStatus(user => {
-    const user = firebase.auth.currentUser;
+    firebase.auth().onAuthStateChanged(user => {
+      //firebase.auth.checkLoginStatus(user => {
+      //const user = firebase.auth.currentUser;
 
-    let isLoggedIn = user !== null;
+      let isLoggedIn = user !== null;
 
-    if (isLoggedIn) {
-      //get the user object from the Async storage
-      AsyncStorage.getItem("user", (err, user) => {
-        if (user === null)
-          isLoggedIn = false; //set the loggedIn value to false
-        else dispatch({ type: t.LOGGED_IN, data: JSON.parse(user) });
+      if (isLoggedIn) {
+        //get the user object from the Async storage
+        AsyncStorage.getItem("user", (err, user) => {
+          if (user === null)
+            isLoggedIn = false; //set the loggedIn value to false
+          else dispatch({ type: t.LOGGED_IN, data: JSON.parse(user) });
 
+          callback(isLoggedIn);
+        });
+      } else {
+        dispatch({ type: t.LOGGED_OUT });
         callback(isLoggedIn);
-      });
-    } else {
-      dispatch({ type: t.LOGGED_OUT });
-      callback(isLoggedIn);
-    }
-    // });
+      }
+    });
   };
 }
 
