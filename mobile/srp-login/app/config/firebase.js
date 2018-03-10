@@ -1,4 +1,5 @@
-import * as firebase from "firebase";
+//import * as firebase from "react-native-firebase";
+import firebase from "react-native-firebase";
 
 import {
   FIREBASE_API_KEY,
@@ -19,7 +20,10 @@ var config = {
   messagingSenderId: FIREBASE_MESSAGING_SENDER_ID
 };
 
-firebase.initializeApp(config);
+// Information:
+// The default app is pre-initialized natively therefore there is no need to call initializeApp for the default app instance.
+
+//firebase.initializeApp(config);
 
 export default firebase;
 

@@ -1,8 +1,8 @@
 import firebase from "../../config/firebase";
+import { AccessToken, LoginManager } from "react-native-fbsdk";
 
 const auth = firebase.auth();
 const database = firebase.database();
-const provider = firebase.auth.FacebookAuthProvider;
 
 //Register the user using email and password
 export function register(data, callback) {
@@ -27,7 +27,7 @@ export function createUser(user, callback) {
 export function login(data, callback) {
   const { email, password } = data;
   auth
-    .signInWithEmailAndPassword(email, password)
+    .signInAndRetrieveDataWithEmailAndPassword(email, password)
     .then(user => getUser(user, callback))
     .catch(error => callback(false, null, error));
 }
@@ -79,10 +79,44 @@ export function signOut(callback) {
     });
 }
 
+// const provider = firebase.auth.FacebookAuthProvider;
+
+// export function signInWithFacebook(fbToken, callback) {
+//   const credential = provider.credential(fbToken);
+//   auth
+//     .signInWithCredential(credential)
+//     .then(user => getUser(user, callback))
+//     .catch(error => callback(false, null, error));
+// }
+
+//const provider = firebase.auth.FacebookAuthProvider;
+
 export function signInWithFacebook(fbToken, callback) {
-  const credential = provider.credential(fbToken);
-  auth
-    .signInWithCredential(credential)
-    .then(user => getUser(user, callback))
-    .catch(error => callback(false, null, error));
+  LoginManager.logInWithReadPermissions(["public_profile", "email"])
+    .then(result => {
+      if (result.isCancelled) {
+        return Promise.reject(new Error("The user cancelled the request"));
+      }
+      // Retrieve the access token
+      return AccessToken.getCurrentAccessToken();
+    })
+    .then(data => {
+      // Create a new Firebase credential with the token
+      const credential = firebase.auth.FacebookAuthProvider.credential(
+        data.accessToken
+      );
+      // Login with the credential
+      return firebase.auth().signInWithCredential(credential);
+    })
+    .then(user => {
+      // If you need to do anything with the user, do it here
+      // The user will be logged in automatically by the
+      // `onAuthStateChanged` listener we set up in App.js earlier
+    })
+    .catch(error => {
+      const { code, message } = error;
+      // For details of error codes, see the docs
+      // The message contains the default Firebase string
+      // representation of the error
+    });
 }

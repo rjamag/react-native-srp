@@ -5,6 +5,8 @@ import { Button, SocialIcon, Divider } from "react-native-elements";
 import { Actions } from "react-native-router-flux";
 import { connect } from "react-redux";
 //import { Facebook } from "expo";
+import firebase from "../../../../config/firebase";
+import { AccessToken, LoginManager } from "react-native-fbsdk";
 
 import { actions as auth, constants as c } from "../../index";
 const { signInWithFacebook } = auth;
@@ -24,15 +26,44 @@ class Welcome extends React.Component {
 
   //get users permission authorization (ret: facebook token)
   async onSignInWithFacebook() {
-    const options = { permissions: ["public_profile", "email"] };
-    const { type, token } = await Facebook.logInWithReadPermissionsAsync(
-      c.FACEBOOK_APP_ID,
-      options
-    );
+    LoginManager.logInWithReadPermissions(["public_profile", "email"])
+      .then(result => {
+        if (result.isCancelled) {
+          return Promise.reject(new Error("The user cancelled the request"));
+        }
+        // Retrieve the access token
+        return AccessToken.getCurrentAccessToken();
+      })
+      .then(data => {
+        // Create a new Firebase credential with the token
+        const credential = firebase.auth.FacebookAuthProvider.credential(
+          data.accessToken
+        );
+        // Login with the credential
+        return firebase.auth().signInWithCredential(credential);
+      })
+      .then(user => {
+        // If you need to do anything with the user, do it here
+        // The user will be logged in automatically by the
+        // `onAuthStateChanged` listener we set up in App.js earlier
+        Actions.CompleteProfile({ user });
+      })
+      .catch(error => {
+        const { code, message } = error;
+        // For details of error codes, see the docs
+        // The message contains the default Firebase string
+        // representation of the error
+        alert("code: " + code + ", message: " + message);
+      });
+    // const options = { permissions: ["public_profile", "email"] };
+    // const { type, token } = await Facebook.logInWithReadPermissionsAsync(
+    //   c.FACEBOOK_APP_ID,
+    //   options
+    // );
 
-    if (type === "success") {
-      this.props.signInWithFacebook(token, this.onSuccess, this.onError);
-    }
+    // if (type === "success") {
+    //   this.props.signInWithFacebook(token, this.onSuccess, this.onError);
+    // }
   }
 
   onSuccess({ exists, user }) {
