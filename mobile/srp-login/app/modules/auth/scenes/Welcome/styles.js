@@ -15,23 +15,26 @@ const styles = StyleSheet.create({
     paddingBottom: padding * 2,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FF553F"
+    //backgroundColor: "#FF553F"
+    backgroundColor: color.light_grey
   },
 
   image: {
-    height: 100,
-    width: 100,
-    backgroundColor: color.grey,
+    height: 250,
+    width: 250,
+    backgroundColor: color.light_grey,
+    marginTop: padding * 7,
     marginBottom: padding,
     resizeMode
   },
 
   title: {
-    fontSize: fontSize.large + 2,
+    fontSize: fontSize.large + 5,
     lineHeight: fontSize.large + 4,
-    fontFamily: fontFamily.bold,
-    color: color.white,
-    letterSpacing: 1
+    fontFamily: fontFamily.regular,
+    color: color.light_black,
+    marginTop: padding * 3,
+    letterSpacing: 5
   },
 
   subText: {
@@ -44,7 +47,7 @@ const styles = StyleSheet.create({
   //===============================
 
   bottomContainer: {
-    backgroundColor: "white",
+    backgroundColor: "#ffffff",
     paddingVertical: padding * 3,
     shadowColor: "#000000",
     shadowOpacity: 0.8,
@@ -72,7 +75,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#FF553F",
+    backgroundColor: "#C0C0C0",
     height: normalize(55)
   },
 

@@ -12,7 +12,7 @@ const { signOut } = auth;
 
 const { color } = theme;
 
-class Home extends React.Component {
+class Messages extends React.Component {
   constructor() {
     super();
     this.state = {};
@@ -35,10 +35,10 @@ class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Home</Text>
+        <Text>Messages</Text>
       </View>
     );
   }
 }
 
-export default connect(null, { signOut })(Home);
+export default connect(null, { signOut })(Messages);

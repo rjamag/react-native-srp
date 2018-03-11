@@ -19,6 +19,10 @@ import CompleteProfile from "../modules/auth/scenes/CompleteProfile";
 import Login from "../modules/auth/scenes/Login";
 import ForgotPassword from "../modules/auth/scenes/ForgotPassword";
 import Home from "../modules/home/scenes/Home/Home";
+import Favorites from "../modules/home/scenes/Favorites/Favorites";
+import Services from "../modules/home/scenes/Services/Services";
+import Messages from "../modules/home/scenes/Messages/Messages";
+import Me from "../modules/home/scenes/Me/Me";
 
 //Tab
 import { Icon } from "react-native-elements";
@@ -112,11 +116,11 @@ export default class extends React.Component {
               <Scene key="Tab1_2" component={Home} title="Home" />
             </Scene>
 
-            <Scene key="Tab2" title="Saved">
+            <Scene key="Tab2" title="Favorites">
               <Scene
                 key="Tab2_1"
-                component={Home}
-                title="Saved"
+                component={Favorites}
+                title="Favorites"
                 icon={({ tintColor }) => (
                   <Icon
                     name="star"
@@ -127,12 +131,12 @@ export default class extends React.Component {
                   />
                 )}
               />
-              <Scene key="Tab2_2" component={Home} title="Saved" />
+              <Scene key="Tab2_2" component={Favorites} title="Favorites" />
             </Scene>
 
             <Scene
               key="Tab3"
-              component={Home}
+              component={Services}
               title="Services"
               icon={({ tintColor }) => (
                 <Icon
@@ -147,7 +151,7 @@ export default class extends React.Component {
 
             <Scene
               key="Tab4"
-              component={Home}
+              component={Messages}
               title="Messages"
               icon={({ tintColor }) => (
                 <Icon
@@ -162,7 +166,7 @@ export default class extends React.Component {
 
             <Scene
               key="Tab5"
-              component={Home}
+              component={Me}
               title="Me"
               icon={({ tintColor }) => (
                 <Icon

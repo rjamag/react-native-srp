@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, View, TouchableOpacity, Image } from "react-native";
+import {
+  SafeAreaView,
+  SafeView,
+  Text,
+  View,
+  TouchableOpacity,
+  Image
+} from "react-native";
 
 import { Button, SocialIcon, Divider } from "react-native-elements";
 import { Actions } from "react-native-router-flux";
@@ -56,8 +63,11 @@ class Welcome extends React.Component {
       <AuthContainer>
         <View style={styles.container}>
           <View style={styles.topContainer}>
-            <Image style={styles.image} source={{ uri: "" }} />
-            <Text style={styles.title}>Quotes</Text>
+            <Image
+              style={styles.image}
+              source={require("../../../../assets/icons/icon.png")}
+            />
+            <Text style={styles.title}>D î m e</Text>
           </View>
 
           <View style={styles.bottomContainer}>
