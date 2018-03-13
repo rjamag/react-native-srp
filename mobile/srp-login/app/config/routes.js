@@ -18,6 +18,8 @@ import Register from "../modules/auth/scenes/Register";
 import CompleteProfile from "../modules/auth/scenes/CompleteProfile";
 import Login from "../modules/auth/scenes/Login";
 import ForgotPassword from "../modules/auth/scenes/ForgotPassword";
+
+//User Scenes
 import Home from "../modules/home/scenes/Home/Home";
 import Favorites from "../modules/home/scenes/Favorites/Favorites";
 import Services from "../modules/home/scenes/Services/Services";
@@ -86,16 +88,6 @@ export default class extends React.Component {
             />
           </Stack>
 
-          <Stack key="OldMain" initial={this.state.isLoggedIn}>
-            <Scene
-              key="Home"
-              component={Home}
-              title="Home"
-              initial={true}
-              type={ActionConst.REPLACE}
-            />
-          </Stack>
-
           <Scene key="Main" tabs={true} initial={this.state.isLoggedIn}>
             <Scene
               key="Tab1"
@@ -131,7 +123,6 @@ export default class extends React.Component {
                   />
                 )}
               />
-              <Scene key="Tab2_2" component={Favorites} title="Favorites" />
             </Scene>
 
             <Scene

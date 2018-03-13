@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import styles from "./styles";
 
 import { actions as auth, theme } from "../../../auth/index";
+import { authReducer } from "../../../auth/index";
 
 import { ScrollView } from "react-native";
 import { Tile, List, ListItem, Button } from "react-native-elements";
@@ -23,8 +24,19 @@ class Me extends React.Component {
     this.onSignOut = this.onSignOut.bind(this);
   }
 
-  onSignOut() {
-    this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this));
+  onSignOut(data) {
+    //this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this));
+
+    //const { user } = this.props;
+    //data["uid"] = user.uid;
+
+    //console.log("---> data.user: " + JSON.stringify(data.uid));
+
+    console.log("---> this.props: " + JSON.stringify(this.props));
+
+    //const { user } = this.props;
+
+    //console.log("---> user: " + user);
   }
 
   onSuccess() {
@@ -57,11 +69,7 @@ class Me extends React.Component {
         </List>
 
         <List>
-          <ListItem
-            title="Username"
-            rightTitle={me.login.username}
-            hideChevron
-          />
+          <ListItem title="Username" rightTitle={me.username} hideChevron />
         </List>
 
         <List>
@@ -73,7 +81,17 @@ class Me extends React.Component {
   }
 }
 
-export default connect(null, { signOut })(Me);
+function mapStateToProps({ profile }) {
+  const { userInfo, error, isSaved } = profile;
+  return { userInfo, error, isSaved };
+}
+
+export default connect(mapStateToProps, {
+  signOut,
+  initProfile,
+  getCurrentUserInfo,
+  updateProfile
+})(Me);
 
 export const me = {
   gender: "male",
