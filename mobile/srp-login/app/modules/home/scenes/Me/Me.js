@@ -43,6 +43,10 @@ class Me extends React.Component {
         this.onError2.bind(this)
       );
     });
+
+    console.log(
+      "componentDidMount - this.props: " + JSON.stringify(this.props)
+    );
   }
 
   onSuccess2(data) {
@@ -69,6 +73,10 @@ class Me extends React.Component {
       const isLoading = false;
       this.setState({ username, isLoading });
     }
+
+    console.log(
+      "componentWillReceiveProps - this.props: " + JSON.stringify(this.props)
+    );
   }
 
   onSignOut(data) {
@@ -76,7 +84,7 @@ class Me extends React.Component {
 
     console.log("---> this.props: " + JSON.stringify(this.props));
 
-    console.log("---> this.props.user: " + this.props.user);
+    console.log("---> this.props.user: " + JSON.stringify(this.props.user));
 
     console.log("---> this.props.isSaved: " + this.props.isSaved);
 
