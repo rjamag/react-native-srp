@@ -28,7 +28,10 @@ class Me extends React.Component {
     this.state = {
       isLoading: false,
       profileUrl: "",
-      username: ""
+      username: "",
+      displayName: "",
+      email: "",
+      phone: ""
     };
 
     this.onSignOut = this.onSignOut.bind(this);
@@ -54,8 +57,18 @@ class Me extends React.Component {
     if (data.exists) {
       console.log("onSuccess2 - 2");
       this.setState({
-        profileUrl: data.user.profileUrl,
+        profileUrl: data.user.profileFacebookPhotoUrlLarge
+          ? data.user.profileFacebookPhotoUrlLarge
+          : data.user.profileUrl,
         username: data.user.username,
+        displayName: data.user.profileFacebookDisplayName
+          ? data.user.profileFacebookDisplayName
+          : "",
+        email: data.user.profileFacebookEmail
+          ? data.user.profileFacebookEmail
+          : "",
+        birthday: "",
+        city: "",
         isLoading: data.user.isLoading
       });
     }
@@ -115,8 +128,8 @@ class Me extends React.Component {
               : { uri: me.picture.large }
           }
           featured
-          title={`${me.name.first.toUpperCase()} ${me.name.last.toUpperCase()}`}
-          caption={me.email}
+          title={`${this.state.displayName.toUpperCase()}`}
+          caption={this.state.email}
         />
 
         <Button
@@ -126,8 +139,8 @@ class Me extends React.Component {
         />
 
         <List>
-          <ListItem title="Email" rightTitle={me.email} hideChevron />
-          <ListItem title="Phone" rightTitle={me.phone} hideChevron />
+          <ListItem title="Email" rightTitle={this.state.email} hideChevron />
+          <ListItem title="Phone" rightTitle={this.state.phone} hideChevron />
         </List>
 
         <List>
@@ -139,8 +152,12 @@ class Me extends React.Component {
         </List>
 
         <List>
-          <ListItem title="Birthday" rightTitle={me.dob} hideChevron />
-          <ListItem title="City" rightTitle={me.location.city} hideChevron />
+          <ListItem
+            title="Birthday"
+            rightTitle={this.state.birthday}
+            hideChevron
+          />
+          <ListItem title="City" rightTitle={this.state.city} hideChevron />
         </List>
       </ScrollView>
     );
