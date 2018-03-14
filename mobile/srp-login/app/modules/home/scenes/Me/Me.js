@@ -67,7 +67,7 @@ class Me extends React.Component {
     if (user) {
       const { username } = user;
       const isLoading = false;
-      this.setState({ profileUrl, username, isLoading });
+      this.setState({ username, isLoading });
     }
   }
 
@@ -140,15 +140,13 @@ class Me extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { isSaved: state.isSaved, user: state.user };
-};
+  console.log("mapStateToProps - isSaved: " + state.homeReducer.isSaved);
+  console.log(
+    "mapStateToProps - user: " + JSON.stringify(state.homeReducer.user)
+  );
 
-// function mapStateToProps(state) {
-//   return {
-//     isSaved: state.isSaved,
-//     user: state.user
-//   };
-// }
+  return { isSaved: state.homeReducer.isSaved, user: state.homeReducer.user };
+};
 
 export default connect(mapStateToProps, {
   signOut,

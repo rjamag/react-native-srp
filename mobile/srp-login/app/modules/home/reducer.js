@@ -6,12 +6,22 @@ let initialState = { isSaved: false, user: null };
 const homeReducer = (state = initialState, action) => {
   const user = action.data;
 
+  console.log("homeReducer - action.data: " + action.data);
+  console.log("homeReducer - action.type: " + action.type);
+  console.log("homeReducer - t.GET_PROFILE: " + t.GET_PROFILE);
+
   switch (action.type) {
     case t.GET_PROFILE:
+      console.log("GET_PROFILE 1 - isSaved: " + state.isSaved);
+      console.log("GET_PROFILE 1 - user: " + state.user);
+
       state = Object.assign({}, state, {
         isSaved: false,
         user: user
       });
+
+      console.log("GET_PROFILE 2 - isSaved: " + state.isSaved);
+      console.log("GET_PROFILE 2 - user: " + JSON.stringify(state.user));
 
       return state;
 

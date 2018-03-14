@@ -8,7 +8,7 @@ export function getCurrentUserProfile(successCB, errorCB) {
         console.log(
           "action getCurrentUserProfile data: " + JSON.stringify(data)
         );
-        dispatch({ type: t.GET_PROFILE });
+        dispatch({ type: t.GET_PROFILE, data });
         successCB(data);
       } else if (error) errorCB(error);
     });
