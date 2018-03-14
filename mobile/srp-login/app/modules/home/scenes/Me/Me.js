@@ -9,6 +9,9 @@ import styles from "./styles";
 import { actions as auth, theme } from "../../../auth/index";
 import { authReducer } from "../../../auth/index";
 
+import { actions as userprof } from "../../../home/index";
+import { homeReducer } from "../../../home/index";
+
 import { ScrollView } from "react-native";
 import { Tile, List, ListItem, Button } from "react-native-elements";
 
@@ -16,27 +19,74 @@ const { signOut } = auth;
 
 const { color } = theme;
 
+const { getCurrentUserProfile, updateCurrentUserProfile } = userprof;
+
 class Me extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoading: false,
+      profileUrl: "",
+      username: ""
+    };
 
     this.onSignOut = this.onSignOut.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ isLoading: true }, () => {
+      console.log("componentDidMount");
+
+      this.props.getCurrentUserProfile(
+        this.onSuccess2.bind(this),
+        this.onError2.bind(this)
+      );
+    });
+  }
+
+  onSuccess2(data) {
+    console.log("onSuccess2 - 1");
+    if (data.exists) {
+      console.log("onSuccess2 - 2");
+      this.setState({
+        profileUrl: data.user.profileUrl,
+        username: data.user.username,
+        isLoading: data.user.isLoading
+      });
+    }
+    console.log("onSuccess2 - 3");
+  }
+
+  onError2(error) {
+    Alert.alert("Oops!", error.message);
+  }
+
+  componentWillReceiveProps(props) {
+    const { user, isSaved } = props;
+    if (user) {
+      const { username } = user;
+      const isLoading = false;
+      this.setState({ profileUrl, username, isLoading });
+    }
   }
 
   onSignOut(data) {
     //this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this));
 
-    //const { user } = this.props;
-    //data["uid"] = user.uid;
-
-    //console.log("---> data.user: " + JSON.stringify(data.uid));
-
     console.log("---> this.props: " + JSON.stringify(this.props));
 
-    //const { user } = this.props;
+    console.log("---> this.props.user: " + this.props.user);
 
-    //console.log("---> user: " + user);
+    console.log("---> this.props.isSaved: " + this.props.isSaved);
+
+    console.log("---> this.state.profileUrl: " + this.state.profileUrl);
+    console.log("---> this.state.username: " + this.state.username);
+
+    //const { user } = this.props;
+    //console.log("---> data: " + data);
+    //console.log("---> data.user: " + data.user);
+    //console.log("---> data.userid: " + data.userid);
   }
 
   onSuccess() {
@@ -51,7 +101,11 @@ class Me extends React.Component {
     return (
       <ScrollView>
         <Tile
-          imageSrc={{ uri: me.picture.large }}
+          imageSrc={
+            this.state.profileUrl
+              ? { uri: this.state.profileUrl }
+              : { uri: me.picture.large }
+          }
           featured
           title={`${me.name.first.toUpperCase()} ${me.name.last.toUpperCase()}`}
           caption={me.email}
@@ -69,7 +123,11 @@ class Me extends React.Component {
         </List>
 
         <List>
-          <ListItem title="Username" rightTitle={me.username} hideChevron />
+          <ListItem
+            title="Username"
+            rightTitle={this.state.username}
+            hideChevron
+          />
         </List>
 
         <List>
@@ -81,16 +139,21 @@ class Me extends React.Component {
   }
 }
 
-function mapStateToProps({ profile }) {
-  const { userInfo, error, isSaved } = profile;
-  return { userInfo, error, isSaved };
-}
+const mapStateToProps = state => {
+  return { isSaved: state.isSaved, user: state.user };
+};
+
+// function mapStateToProps(state) {
+//   return {
+//     isSaved: state.isSaved,
+//     user: state.user
+//   };
+// }
 
 export default connect(mapStateToProps, {
   signOut,
-  initProfile,
-  getCurrentUserInfo,
-  updateProfile
+  getCurrentUserProfile,
+  updateCurrentUserProfile
 })(Me);
 
 export const me = {

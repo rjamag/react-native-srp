@@ -156,7 +156,7 @@ export default class extends React.Component {
             />
 
             <Scene
-              key="Tab5"
+              key="Me"
               component={Me}
               title="Me"
               icon={({ tintColor }) => (

@@ -1,4 +1,2 @@
-export const INIT_PROFILE = "profile/INIT_PROFILE";
-export const GET_PROFILE_SUCCESS = "profile/GET_PROFILE_SUCCESS";
-export const UPDATE_PROFILE_SUCCESS = "profile/UPDATE_PROFILE_SUCCESS";
-export const UPDATE_PROFILE_FAIL = "profile/UPDATE_PROFILE_FAIL";
+export const GET_PROFILE = "profile/GET_PROFILE";
+export const UPDATE_PROFILE = "profile/UPDATE_PROFILE";

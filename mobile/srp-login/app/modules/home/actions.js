@@ -1,44 +1,38 @@
 import * as t from "./actionTypes";
 import * as api from "./api";
 
-export function register(data, successCB, errorCB) {
+export function getCurrentUserProfile(successCB, errorCB) {
   return dispatch => {
-    api.register(data, function(success, data, error) {
-      if (success) successCB(data);
-      else if (error) errorCB(error);
+    api.getCurrentUserProfile(function(success, data, error) {
+      if (success) {
+        console.log(
+          "action getCurrentUserProfile data: " + JSON.stringify(data)
+        );
+        dispatch({ type: t.GET_PROFILE });
+        successCB(data);
+      } else if (error) errorCB(error);
     });
   };
 }
 
-export const initProfile = () => {
-  return { type: INIT_PROFILE };
-};
+// export function signOut(successCB, errorCB) {
+//   return dispatch => {
+//     api.signOut(function(success, data, error) {
+//       if (success) {
+//         dispatch({ type: t.LOGGED_OUT });
+//         successCB();
+//       } else if (error) errorCB(error);
+//     });
+//   };
+// }
 
-export const getCurrentUserInfo = () => {
-  return {
-    type: GET_PROFILE_SUCCESS,
-    userInfo: sbGetCurrentInfo()
-  };
-};
-
-export const updateProfile = nickname => {
+export function updateCurrentUserProfile(successCB, errorCB) {
   return dispatch => {
-    sbUpdateProfile(nickname)
-      .then(user => updateSuccess(dispatch, user))
-      .catch(error => updateFail(dispatch, error));
+    api.updateCurrentUserProfile(function(success, data, error) {
+      if (success) {
+        dispatch({ type: t.UPDATE_PROFILE, data });
+        successCB(data);
+      } else if (error) errorCB(error);
+    });
   };
-};
-
-const updateFail = (dispatch, error) => {
-  dispatch({
-    type: UPDATE_PROFILE_FAIL,
-    error: error
-  });
-};
-
-const updateSuccess = (dispatch, user) => {
-  dispatch({
-    type: UPDATE_PROFILE_SUCCESS,
-    userInfo: sbGetCurrentInfo()
-  });
-};
+}
