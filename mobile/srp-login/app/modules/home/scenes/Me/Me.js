@@ -96,18 +96,15 @@ class Me extends React.Component {
     //this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this));
 
     console.log("---> this.props: " + JSON.stringify(this.props));
-
     console.log("---> this.props.user: " + JSON.stringify(this.props.user));
-
     console.log("---> this.props.isSaved: " + this.props.isSaved);
-
     console.log("---> this.state.profileUrl: " + this.state.profileUrl);
     console.log("---> this.state.username: " + this.state.username);
 
-    //const { user } = this.props;
-    //console.log("---> data: " + data);
-    //console.log("---> data.user: " + data.user);
-    //console.log("---> data.userid: " + data.userid);
+    this.props.updateCurrentUserProfile(
+      this.onSuccess3.bind(this),
+      this.onError3.bind(this)
+    );
   }
 
   onSuccess() {
@@ -115,6 +112,13 @@ class Me extends React.Component {
   }
 
   onError(error) {
+    Alert.alert("Oops!", error.message);
+  }
+  onSuccess3() {
+    Actions.reset("Auth");
+  }
+
+  onError3(error) {
     Alert.alert("Oops!", error.message);
   }
 
@@ -139,14 +143,24 @@ class Me extends React.Component {
         />
 
         <List>
-          <ListItem title="Email" rightTitle={this.state.email} hideChevron />
-          <ListItem title="Phone" rightTitle={this.state.phone} hideChevron />
+          <ListItem
+            title="Username"
+            rightTitle={"@" + this.state.username}
+            hideChevron
+          />
         </List>
 
         <List>
           <ListItem
-            title="Username"
-            rightTitle={this.state.username}
+            title="Email"
+            rightTitle={this.state.email}
+            leftIcon={{ name: "email" }}
+            hideChevron
+          />
+          <ListItem
+            title="Phone"
+            rightTitle={this.state.phone}
+            leftIcon={{ name: "phone" }}
             hideChevron
           />
         </List>
@@ -155,9 +169,15 @@ class Me extends React.Component {
           <ListItem
             title="Birthday"
             rightTitle={this.state.birthday}
+            leftIcon={{ name: "cake" }}
             hideChevron
           />
-          <ListItem title="City" rightTitle={this.state.city} hideChevron />
+          <ListItem
+            title="Location"
+            rightTitle={this.state.city}
+            leftIcon={{ name: "room" }}
+            onPress={() => Alert.alert("hey")}
+          />
         </List>
       </ScrollView>
     );

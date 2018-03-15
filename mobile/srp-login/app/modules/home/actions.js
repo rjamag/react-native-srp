@@ -19,6 +19,10 @@ export function updateCurrentUserProfile(successCB, errorCB) {
   return dispatch => {
     api.updateCurrentUserProfile(function(success, data, error) {
       if (success) {
+        console.log(
+          "action updateCurrentUserProfile data: " + JSON.stringify(data)
+        );
+
         dispatch({ type: t.UPDATE_PROFILE, data });
         successCB(data);
       } else if (error) errorCB(error);

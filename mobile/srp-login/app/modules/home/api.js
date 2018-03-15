@@ -14,52 +14,24 @@ export function getCurrentUserProfile(callback) {
       // If the user exist in the DB, replace the user variable with the returned snapshot
       if (exists) user = snapshot.val();
 
-      // https://firebase.google.com/docs/auth/web/manage-users#get_a_users_provider-specific_profile_information
+      auth.currentUser.providerData.forEach(function(profile) {
+        console.log("Sign-in provider: " + profile.providerId);
+        console.log("  Provider-specific UID: " + profile.uid);
+        console.log("  Name: " + profile.displayName);
+        console.log("  Email: " + profile.email);
+        console.log("  Phone: " + profile.phoneNumber);
+        console.log("  Photo URL: " + profile.photoURL);
 
-      //console.log("currentUser.provider.uid: " + auth.currentUser.providerId);
-
-      //var user = auth.currentUser;
-
-      if (auth.currentUser != null) {
-        auth.currentUser.providerData.forEach(function(profile) {
-          console.log("Sign-in provider: " + profile.providerId);
-          console.log("  Provider-specific UID: " + profile.uid);
-          console.log("  Name: " + profile.displayName);
-          console.log("  Email: " + profile.email);
-          console.log("  Phone: " + profile.phoneNumber);
-          console.log("  Photo URL: " + profile.photoURL);
-
-          if (profile.providerId === "facebook.com") {
-            user["profileFacebookEmail"] = profile.email;
-            user["profileFacebookId"] = profile.uid;
-            user["profileFacebookDisplayName"] = profile.displayName;
-            user["profileFacebookPhoneNumber"] = profile.phoneNumber;
-            user["profileFacebookPhotoUrl"] = profile.photoURL;
-            user["profileFacebookPhotoUrlLarge"] =
-              "https://graph.facebook.com/" +
-              profile.uid +
-              "/picture?height=500";
-
-            // https://graph.facebook.com/1840988689253265/picture?height=350
-          }
-        });
-      }
-
-      // if (auth.currentUser.providerId.equals("facebook.com")) {
-      //   console.log("PHOTO URL: " + auth.currentUser.photoURL);
-      //   user["profileUrl"] = auth.currentUser.photoURL;
-      // }
-
-      //       for (currentUser.provider.UserInfo userinfo: currentUser.provider.UserInfogetProviderData()) {
-      //   if (user.getProviderId().equals("facebook.com")) {
-      //     System.out.println("User is signed in with Facebook");
-      //   }
-      // }
-      // Add profile fields from facebook - https://stackoverflow.com/questions/39094657/android-how-to-get-larger-profile-pic-from-fb-using-firebaseauth
-      // console.log("PHOTO URL: " + auth.currentUser.photoURL);
-      // user["profileUrl"] = auth.currentUser.photoURL;
-      // user["displayName"] = auth.currentUser.displayName;
-      // user["email"] = auth.currentUser.email;
+        if (profile.providerId === "facebook.com") {
+          user["profileFacebookEmail"] = profile.email;
+          user["profileFacebookId"] = profile.uid;
+          user["profileFacebookDisplayName"] = profile.displayName;
+          user["profileFacebookPhoneNumber"] = profile.phoneNumber;
+          user["profileFacebookPhotoUrl"] = profile.photoURL;
+          user["profileFacebookPhotoUrlLarge"] =
+            "https://graph.facebook.com/" + profile.uid + "/picture?height=500";
+        }
+      });
 
       console.log("getCurrentUserProfile - user: " + JSON.stringify(user));
       console.log("getCurrentUserProfile - exists: " + exists);
@@ -71,6 +43,8 @@ export function getCurrentUserProfile(callback) {
 }
 
 export function updateCurrentUserProfile(callback) {
+  console.log("updateCurrentUserProfile - user: " + JSON.stringify(user));
+
   database
     .ref("users")
     .child(auth.currentUser.uid)

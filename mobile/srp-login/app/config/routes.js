@@ -146,7 +146,7 @@ export default class extends React.Component {
               title="Messages"
               icon={({ tintColor }) => (
                 <Icon
-                  name="message"
+                  name="mail"
                   size={30}
                   iconStyle={{ width: 30, height: 30 }}
                   type="material"
@@ -161,7 +161,7 @@ export default class extends React.Component {
               title="Me"
               icon={({ tintColor }) => (
                 <Icon
-                  name="account-circle"
+                  name="person"
                   size={30}
                   iconStyle={{ width: 30, height: 30 }}
                   type="material"

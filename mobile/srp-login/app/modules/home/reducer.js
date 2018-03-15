@@ -8,7 +8,6 @@ const homeReducer = (state = initialState, action) => {
 
   console.log("homeReducer - action.data: " + action.data);
   console.log("homeReducer - action.type: " + action.type);
-  console.log("homeReducer - t.GET_PROFILE: " + t.GET_PROFILE);
 
   switch (action.type) {
     case t.GET_PROFILE:
