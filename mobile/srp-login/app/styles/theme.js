@@ -23,12 +23,6 @@ const fontSize = {
   large: normalize(22)
 };
 
-// const fontFamily = {
-//   bold: "RobotoBold",
-//   medium: "RobotoMedium",
-//   regular: "RobotoRegular",
-//   light: "RobotoLight"
-// };
 const fontFamily = {
   bold: "Roboto-Bold",
   medium: "Roboto-Medium",

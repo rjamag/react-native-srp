@@ -145,11 +145,7 @@ class Me extends React.Component {
     return (
       <ScrollView>
         <Tile
-          imageSrc={
-            this.state.profileUrl
-              ? { uri: this.state.profileUrl }
-              : { uri: me.picture.large }
-          }
+          imageSrc={this.state.profileUrl ? { uri: this.state.profileUrl } : ""}
           featured
           title={`${this.state.displayName.toUpperCase()}`}
           caption={this.state.email}

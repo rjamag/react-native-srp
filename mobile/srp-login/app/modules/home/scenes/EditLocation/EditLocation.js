@@ -116,12 +116,24 @@ class EditLocation extends React.Component {
   }
 
   render() {
-    // const user2 = this.props.user.user;
+    console.log("---> RENDER inicio ");
+    if (this.props.user.user) {
+      console.log(
+        "---> RENDER this.props.user.user: " +
+          JSON.stringify(this.props.user.user)
+      );
+      const user2 = this.props.user.user;
 
-    // fields[0].value = user2.location.street;
-    // fields[1].value = user2.location.city;
-    // fields[2].value = user2.location.state;
-    // fields[3].value = user2.location.zip;
+      console.log(
+        "---> RENDER user2.location: " + JSON.stringify(user2.location)
+      );
+
+      fields[0].value = user2.location.street;
+      fields[1].value = user2.location.city;
+      fields[2].value = user2.location.state;
+      fields[3].value = user2.location.zip;
+    }
+    console.log("---> RENDER fim ");
 
     return (
       <AuthContainer>
@@ -129,7 +141,7 @@ class EditLocation extends React.Component {
           fields={fields}
           showLabel={false}
           onSubmit={this.onSubmit}
-          buttonTitle={"SAVE LOCATION"}
+          buttonTitle={"SAVE"}
           error={this.state.error}
         />
       </AuthContainer>
