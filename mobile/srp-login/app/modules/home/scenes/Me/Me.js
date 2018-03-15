@@ -171,24 +171,9 @@ class Me extends React.Component {
 
         <List>
           <ListItem
-            title="Email"
-            rightTitle={this.state.email}
-            leftIcon={{ name: "email" }}
-            hideChevron
-          />
-          <ListItem
             title="Phone"
             rightTitle={this.state.phone}
             leftIcon={{ name: "phone" }}
-            hideChevron
-          />
-        </List>
-
-        <List>
-          <ListItem
-            title="Birthday"
-            rightTitle={this.state.birthday}
-            leftIcon={{ name: "cake" }}
             hideChevron
           />
           <ListItem
@@ -196,7 +181,18 @@ class Me extends React.Component {
             rightTitle=""
             leftIcon={{ name: "room" }}
             onPress={this.editLocation}
+          />{" "}
+          <ListItem
+            title="Payment"
+            rightTitle=""
+            leftIcon={{ name: "payment" }}
           />
+        </List>
+
+        <List>
+          <ListItem title="Support" rightTitle="" hideChevron />
+          <ListItem title="Feedback" rightTitle="" hideChevron />
+          <ListItem title="Terms of Service" rightTitle="" />
         </List>
       </ScrollView>
     );
