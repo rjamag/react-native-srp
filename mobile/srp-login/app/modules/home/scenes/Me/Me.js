@@ -79,6 +79,10 @@ class Me extends React.Component {
     Alert.alert("Oops!", error.message);
   }
 
+  editLocation({ user }) {
+    Actions.EditLocation({ user });
+  }
+
   componentWillReceiveProps(props) {
     const { user, isSaved } = props;
     if (user) {
@@ -176,7 +180,7 @@ class Me extends React.Component {
             title="Location"
             rightTitle={this.state.city}
             leftIcon={{ name: "room" }}
-            onPress={() => Alert.alert("hey")}
+            onPress={this.editLocation}
           />
         </List>
       </ScrollView>

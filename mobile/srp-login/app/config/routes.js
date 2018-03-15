@@ -25,6 +25,7 @@ import Favorites from "../modules/home/scenes/Favorites/Favorites";
 import Services from "../modules/home/scenes/Services/Services";
 import Messages from "../modules/home/scenes/Messages/Messages";
 import Me from "../modules/home/scenes/Me/Me";
+import EditLocation from "../modules/home/scenes/EditLocation/EditLocation";
 
 //Tab
 import { Icon } from "react-native-elements";
@@ -156,8 +157,7 @@ export default class extends React.Component {
             />
 
             <Scene
-              key="Me"
-              component={Me}
+              key="Tab5"
               title="Me"
               icon={({ tintColor }) => (
                 <Icon
@@ -168,7 +168,15 @@ export default class extends React.Component {
                   color={tintColor}
                 />
               )}
-            />
+            >
+              <Scene key="Me" component={Me} title="Me" initial={true} />
+              <Scene
+                key="EditLocation"
+                component={EditLocation}
+                title="Location"
+                initial={false}
+              />
+            </Scene>
           </Scene>
         </Scene>
       </Router>
