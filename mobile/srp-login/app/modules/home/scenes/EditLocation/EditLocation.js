@@ -1,44 +1,101 @@
 import React from "react";
-var { Text, View, StyleSheet, Alert } = require("react-native");
-
-import { Button } from "react-native-elements";
 import { Actions } from "react-native-router-flux";
 import { connect } from "react-redux";
 
-import styles from "./styles";
+import { actions as auth } from "../../index";
+const { createUser } = auth;
 
-import { actions as auth, theme } from "../../../auth/index";
-const { signOut } = auth;
+import Form from "../../components/Form";
+import AuthContainer from "../../components/AuthContainer";
 
-const { color } = theme;
+const fields = [
+  {
+    key: "location",
+    label: "Location",
+    placeholder: "Location",
+    autoFocus: false,
+    secureTextEntry: false,
+    value: "",
+    type: "text"
+  }
+];
+
+const error = {
+  general: "",
+  location: ""
+};
 
 class EditLocation extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      error: error
+    };
 
-    this.onSignOut = this.onSignOut.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onSuccess = this.onSuccess.bind(this);
+    this.onError = this.onError.bind(this);
   }
 
-  onSignOut() {
-    this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this));
+  onSubmit(data) {
+    const user = this.props.user.user;
+    user.location = data.location;
+
+    console.log("---> this.props: " + JSON.stringify(this.props));
+    console.log("---> this.props.user: " + JSON.stringify(this.props.user));
+    console.log("---> data: " + JSON.stringify(data));
+
+    this.setState({ error: error }); //clear out error messages
+
+    //attach user id
+    // const { user } = this.props;
+    // data["uid"] = user.uid;
+
+    this.props.createUser(user, this.onSuccess, this.onError);
   }
 
   onSuccess() {
-    Actions.reset("Auth");
+    console.log("---------- SUCCESS: Actions.Me");
+    Actions.Me();
   }
 
   onError(error) {
-    Alert.alert("Oops!", error.message);
+    let errObj = this.state.error;
+
+    if (error.hasOwnProperty("message")) {
+      errObj["general"] = error.message;
+    } else {
+      let keys = Object.keys(error);
+      keys.map((key, index) => {
+        errObj[key] = error[key];
+      });
+    }
+
+    this.setState({ error: errObj });
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Edit Location</Text>
-      </View>
+      <AuthContainer>
+        <Form
+          fields={fields}
+          showLabel={false}
+          onSubmit={this.onSubmit}
+          buttonTitle={"SAVE LOCATION"}
+          error={this.state.error}
+        />
+      </AuthContainer>
     );
   }
 }
 
-export default connect(null, { signOut })(EditLocation);
+const mapStateToProps = state => {
+  console.log("mapStateToProps - isSaved: " + state.homeReducer.isSaved);
+  console.log(
+    "mapStateToProps - user: " + JSON.stringify(state.homeReducer.user)
+  );
+
+  return { isSaved: state.homeReducer.isSaved, user: state.homeReducer.user };
+};
+
+export default connect(mapStateToProps, { createUser })(EditLocation);

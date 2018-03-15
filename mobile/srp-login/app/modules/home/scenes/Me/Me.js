@@ -31,7 +31,9 @@ class Me extends React.Component {
       username: "",
       displayName: "",
       email: "",
-      phone: ""
+      phone: "",
+      location: "",
+      birthday: ""
     };
 
     this.onSignOut = this.onSignOut.bind(this);
@@ -178,7 +180,7 @@ class Me extends React.Component {
           />
           <ListItem
             title="Location"
-            rightTitle={this.state.city}
+            rightTitle={this.state.location}
             leftIcon={{ name: "room" }}
             onPress={this.editLocation}
           />

@@ -26,6 +26,13 @@ const styles = StyleSheet.create({
   buttonContainer: {
     justifyContent: "center",
     alignItems: "center"
+  },
+  title: {
+    fontSize: fontSize.large + 5,
+    lineHeight: fontSize.large + 7,
+    fontFamily: fontFamily.medium,
+    color: color.light_black,
+    letterSpacing: 1
   }
 });
 

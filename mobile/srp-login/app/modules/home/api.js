@@ -52,3 +52,12 @@ export function updateCurrentUserProfile(callback) {
     .then(() => callback(true, null, null))
     .catch(error => callback(false, null, { message: error }));
 }
+
+export function createUser(user, callback) {
+  database
+    .ref("users")
+    .child(user.uid)
+    .update({ ...user })
+    .then(() => callback(true, null, null))
+    .catch(error => callback(false, null, { message: error }));
+}

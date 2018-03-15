@@ -29,3 +29,14 @@ export function updateCurrentUserProfile(successCB, errorCB) {
     });
   };
 }
+
+export function createUser(user, successCB, errorCB) {
+  return dispatch => {
+    api.createUser(user, function(success, data, error) {
+      if (success) {
+        dispatch({ type: t.LOGGED_IN, data: user });
+        successCB();
+      } else if (error) errorCB(error);
+    });
+  };
+}
