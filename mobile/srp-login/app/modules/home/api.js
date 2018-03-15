@@ -53,7 +53,7 @@ export function updateCurrentUserProfile(callback) {
     .catch(error => callback(false, null, { message: error }));
 }
 
-export function createUser(user, callback) {
+export function updateUserProfile(user, callback) {
   database
     .ref("users")
     .child(user.uid)

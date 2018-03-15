@@ -2,17 +2,44 @@ import React from "react";
 import { Actions } from "react-native-router-flux";
 import { connect } from "react-redux";
 
-import { actions as auth } from "../../index";
-const { createUser } = auth;
+import { actions as home } from "../../index";
+const { updateUserProfile } = home;
 
 import Form from "../../components/Form";
 import AuthContainer from "../../components/AuthContainer";
 
 const fields = [
   {
-    key: "location",
-    label: "Location",
-    placeholder: "Location",
+    key: "street",
+    label: "Street",
+    placeholder: "Street",
+    autoFocus: false,
+    secureTextEntry: false,
+    value: "",
+    type: "text"
+  },
+  {
+    key: "city",
+    label: "City",
+    placeholder: "City",
+    autoFocus: false,
+    secureTextEntry: false,
+    value: "",
+    type: "text"
+  },
+  {
+    key: "state",
+    label: "State",
+    placeholder: "State",
+    autoFocus: false,
+    secureTextEntry: false,
+    value: "",
+    type: "text"
+  },
+  {
+    key: "zip",
+    label: "Zip",
+    placeholder: "Zip",
     autoFocus: false,
     secureTextEntry: false,
     value: "",
@@ -39,7 +66,26 @@ class EditLocation extends React.Component {
 
   onSubmit(data) {
     const user = this.props.user.user;
-    user.location = data.location;
+
+    console.log("---> user: " + JSON.stringify(user));
+
+    const location = {
+      street: "",
+      city: "",
+      state: "",
+      zip: ""
+    };
+
+    console.log("---> passou ");
+
+    location.street = data.street;
+    location.city = data.city;
+    location.state = data.state;
+    location.zip = data.zip;
+
+    console.log("---> location: " + JSON.stringify(location));
+
+    user["location"] = location;
 
     console.log("---> this.props: " + JSON.stringify(this.props));
     console.log("---> this.props.user: " + JSON.stringify(this.props.user));
@@ -47,15 +93,10 @@ class EditLocation extends React.Component {
 
     this.setState({ error: error }); //clear out error messages
 
-    //attach user id
-    // const { user } = this.props;
-    // data["uid"] = user.uid;
-
-    this.props.createUser(user, this.onSuccess, this.onError);
+    this.props.updateUserProfile(user, this.onSuccess, this.onError);
   }
 
   onSuccess() {
-    console.log("---------- SUCCESS: Actions.Me");
     Actions.Me();
   }
 
@@ -75,6 +116,13 @@ class EditLocation extends React.Component {
   }
 
   render() {
+    // const user2 = this.props.user.user;
+
+    // fields[0].value = user2.location.street;
+    // fields[1].value = user2.location.city;
+    // fields[2].value = user2.location.state;
+    // fields[3].value = user2.location.zip;
+
     return (
       <AuthContainer>
         <Form
@@ -90,12 +138,15 @@ class EditLocation extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("mapStateToProps - isSaved: " + state.homeReducer.isSaved);
   console.log(
-    "mapStateToProps - user: " + JSON.stringify(state.homeReducer.user)
+    "EditLocation - mapStateToProps - isSaved: " + state.homeReducer.isSaved
+  );
+  console.log(
+    "EditLocation - mapStateToProps - user: " +
+      JSON.stringify(state.homeReducer.user)
   );
 
   return { isSaved: state.homeReducer.isSaved, user: state.homeReducer.user };
 };
 
-export default connect(mapStateToProps, { createUser })(EditLocation);
+export default connect(mapStateToProps, { updateUserProfile })(EditLocation);

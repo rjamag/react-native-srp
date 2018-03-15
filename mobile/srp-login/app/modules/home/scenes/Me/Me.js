@@ -32,8 +32,13 @@ class Me extends React.Component {
       displayName: "",
       email: "",
       phone: "",
-      location: "",
-      birthday: ""
+      birthday: "",
+      location: {
+        street: "",
+        city: "",
+        state: "",
+        zip: ""
+      }
     };
 
     this.onSignOut = this.onSignOut.bind(this);
@@ -58,6 +63,14 @@ class Me extends React.Component {
     console.log("onSuccess2 - 1");
     if (data.exists) {
       console.log("onSuccess2 - 2");
+
+      const location = { street: "", city: "", state: "", zip: "" };
+
+      location.street = data.user.location.street;
+      location.city = data.user.location.city;
+      location.state = data.user.location.state;
+      location.zip = data.user.location.zip;
+
       this.setState({
         profileUrl: data.user.profileFacebookPhotoUrlLarge
           ? data.user.profileFacebookPhotoUrlLarge
@@ -70,7 +83,7 @@ class Me extends React.Component {
           ? data.user.profileFacebookEmail
           : "",
         birthday: "",
-        city: "",
+        location: location,
         isLoading: data.user.isLoading
       });
     }
@@ -179,8 +192,8 @@ class Me extends React.Component {
             hideChevron
           />
           <ListItem
-            title="Location"
-            rightTitle={this.state.location}
+            title="Address"
+            rightTitle=""
             leftIcon={{ name: "room" }}
             onPress={this.editLocation}
           />

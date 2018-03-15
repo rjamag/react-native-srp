@@ -30,11 +30,11 @@ export function updateCurrentUserProfile(successCB, errorCB) {
   };
 }
 
-export function createUser(user, successCB, errorCB) {
+export function updateUserProfile(user, successCB, errorCB) {
   return dispatch => {
-    api.createUser(user, function(success, data, error) {
+    api.updateUserProfile(user, function(success, data, error) {
       if (success) {
-        dispatch({ type: t.LOGGED_IN, data: user });
+        dispatch({ type: t.UPDATE_PROFILE, data: user });
         successCB();
       } else if (error) errorCB(error);
     });
