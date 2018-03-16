@@ -1,5 +1,5 @@
 import React from "react";
-var { View, StyleSheet, Alert } = require("react-native");
+import { View, StyleSheet, Alert } from "react-native";
 
 import { Actions } from "react-native-router-flux";
 import { connect } from "react-redux";

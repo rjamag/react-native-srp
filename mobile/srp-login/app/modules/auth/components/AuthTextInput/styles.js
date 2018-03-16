@@ -5,7 +5,7 @@ const { windowWidth, fontSize, normalize } = theme;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 10
+    marginBottom: 20
   },
 
   inputContainer: {

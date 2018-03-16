@@ -1,4 +1,6 @@
 import React from "react";
+import { Text, View, StyleSheet, Alert } from "react-native";
+
 import { Actions } from "react-native-router-flux";
 import { connect } from "react-redux";
 
@@ -7,6 +9,8 @@ const { updateUserProfile } = home;
 
 import Form from "../../components/Form";
 import AuthContainer from "../../components/AuthContainer";
+
+import styles from "./styles";
 
 const fields = [
   {
