@@ -27,7 +27,7 @@ class Me extends React.Component {
     this.state = { isLoading: true };
 
     this.onSignOut = this.onSignOut.bind(this);
-
+    this.editLocation = this.editLocation.bind(this);
     this.onSuccessGetCurrentUserProfile = this.onSuccessGetCurrentUserProfile.bind(
       this
     );
@@ -61,8 +61,9 @@ class Me extends React.Component {
     Alert.alert("Oops!", error.message);
   }
 
-  editLocation({ user }) {
-    Actions.EditLocation({ user });
+  editLocation() {
+    const { user } = this.props;
+    Actions.EditLocation(user);
   }
 
   onSignOut(data) {
