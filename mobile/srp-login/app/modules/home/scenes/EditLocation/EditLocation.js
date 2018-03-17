@@ -162,6 +162,15 @@ const mapStateToProps = state => {
       JSON.stringify(state.homeReducer.user)
   );
 
+  console.log(
+    "EditLocation - mapStateToProps 3 - user: " + JSON.stringify(user)
+  );
+
+  console.log(
+    "EditLocation - mapStateToProps 4 - state.user: " +
+      JSON.stringify(state.user)
+  );
+
   return { isSaved: state.homeReducer.isSaved, user: state.homeReducer.user };
 };
 

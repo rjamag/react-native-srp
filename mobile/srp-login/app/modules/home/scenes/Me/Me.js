@@ -8,7 +8,6 @@ import styles from "./styles";
 
 import { actions as auth, theme } from "../../../auth/index";
 import { authReducer } from "../../../auth/index";
-
 import { actions as userprof } from "../../../home/index";
 import { homeReducer } from "../../../home/index";
 
@@ -19,78 +18,46 @@ const { signOut } = auth;
 
 const { color } = theme;
 
-const { getCurrentUserProfile, updateCurrentUserProfile } = userprof;
+const { getCurrentUserProfile } = userprof;
 
 class Me extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
-    this.state = {
-      isLoading: false,
-      profileUrl: "",
-      username: "",
-      displayName: "",
-      email: "",
-      phone: "",
-      birthday: "",
-      location: {
-        street: "",
-        city: "",
-        state: "",
-        zip: ""
-      }
-    };
+    this.state = { isLoading: true };
 
     this.onSignOut = this.onSignOut.bind(this);
-  }
 
-  componentDidMount() {
-    this.setState({ isLoading: true }, () => {
-      console.log("componentDidMount");
-
-      this.props.getCurrentUserProfile(
-        this.onSuccess2.bind(this),
-        this.onError2.bind(this)
-      );
-    });
-
-    console.log(
-      "componentDidMount - this.props: " + JSON.stringify(this.props)
+    this.onSuccessGetCurrentUserProfile = this.onSuccessGetCurrentUserProfile.bind(
+      this
+    );
+    this.onErrorGetCurrentUserProfile = this.onErrorGetCurrentUserProfile.bind(
+      this
     );
   }
 
-  onSuccess2(data) {
-    console.log("onSuccess2 - 1");
-    if (data.exists) {
-      console.log("onSuccess2 - 2");
+  componentDidMount() {
+    console.log(
+      "componentDidMount inicio - this.props: " + JSON.stringify(this.props)
+    );
 
-      const location = { street: "", city: "", state: "", zip: "" };
+    this.props.getCurrentUserProfile(
+      this.onSuccessGetCurrentUserProfile,
+      this.onErrorGetCurrentUserProfile
+    );
 
-      location.street = data.user.location.street;
-      location.city = data.user.location.city;
-      location.state = data.user.location.state;
-      location.zip = data.user.location.zip;
-
-      this.setState({
-        profileUrl: data.user.profileFacebookPhotoUrlLarge
-          ? data.user.profileFacebookPhotoUrlLarge
-          : data.user.profileUrl,
-        username: data.user.username,
-        displayName: data.user.profileFacebookDisplayName
-          ? data.user.profileFacebookDisplayName
-          : "",
-        email: data.user.profileFacebookEmail
-          ? data.user.profileFacebookEmail
-          : "",
-        birthday: "",
-        location: location,
-        isLoading: data.user.isLoading
-      });
-    }
-    console.log("onSuccess2 - 3");
+    console.log(
+      "componentDidMount fim - this.props: " + JSON.stringify(this.props)
+    );
   }
 
-  onError2(error) {
+  onSuccessGetCurrentUserProfile(data) {
+    console.log("onSuccessGetCurrentUserProfile - 1");
+    this.setState({ isLoading: false });
+    console.log("onSuccessGetCurrentUserProfile - 3");
+  }
+
+  onErrorGetCurrentUserProfile(error) {
     Alert.alert("Oops!", error.message);
   }
 
@@ -98,57 +65,32 @@ class Me extends React.Component {
     Actions.EditLocation({ user });
   }
 
-  componentWillReceiveProps(props) {
-    const { user, isSaved } = props;
-    if (user) {
-      const { username } = user;
-      const isLoading = false;
-      this.setState({ username, isLoading });
-    }
-
-    console.log(
-      "componentWillReceiveProps - this.props: " + JSON.stringify(this.props)
-    );
-  }
-
   onSignOut(data) {
-    //this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this));
-
-    console.log("---> this.props: " + JSON.stringify(this.props));
-    console.log("---> this.props.user: " + JSON.stringify(this.props.user));
-    console.log("---> this.props.isSaved: " + this.props.isSaved);
-    console.log("---> this.state.profileUrl: " + this.state.profileUrl);
-    console.log("---> this.state.username: " + this.state.username);
-
-    this.props.updateCurrentUserProfile(
-      this.onSuccess3.bind(this),
-      this.onError3.bind(this)
-    );
+    this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this));
   }
 
-  onSuccess() {
+  onSuccessOnSignOut() {
     Actions.reset("Auth");
   }
 
-  onError(error) {
-    Alert.alert("Oops!", error.message);
-  }
-  onSuccess3() {
-    Actions.reset("Auth");
-  }
-
-  onError3(error) {
+  onErrorOnSignOut(error) {
     Alert.alert("Oops!", error.message);
   }
 
   render() {
+    if (this.state.isLoading) return <View />;
+
     return (
       <ScrollView>
         <Tile
-          imageSrc={this.state.profileUrl ? { uri: this.state.profileUrl } : ""}
+          imageSrc={
+            this.props.user.profileFacebookPhotoUrlLarge
+              ? { uri: this.props.user.profileFacebookPhotoUrlLarge }
+              : ""
+          }
           featured
-          title={`${this.state.displayName.toUpperCase()}`}
-          caption={this.state.email}
+          title={`${this.props.user.profileFacebookDisplayName.toUpperCase()}`}
+          caption={this.props.user.profileFacebookEmail}
         />
 
         <Button
@@ -160,7 +102,7 @@ class Me extends React.Component {
         <List>
           <ListItem
             title="Username"
-            rightTitle={"@" + this.state.username}
+            rightTitle={"@" + this.props.user.username}
             hideChevron
           />
         </List>
@@ -168,7 +110,7 @@ class Me extends React.Component {
         <List>
           <ListItem
             title="Phone"
-            rightTitle={this.state.phone}
+            rightTitle={this.props.user.phoneNumber}
             leftIcon={{ name: "phone" }}
             hideChevron
           />
@@ -196,47 +138,16 @@ class Me extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("mapStateToProps - isSaved: " + state.homeReducer.isSaved);
-  console.log(
-    "mapStateToProps - user: " + JSON.stringify(state.homeReducer.user)
-  );
+  console.log("mapStateToProps - state: " + JSON.stringify(state));
 
-  return { isSaved: state.homeReducer.isSaved, user: state.homeReducer.user };
+  return { user: state.homeReducer };
 };
 
-export default connect(mapStateToProps, {
-  signOut,
-  getCurrentUserProfile,
-  updateCurrentUserProfile
-})(Me);
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getCurrentUserProfile: () => dispatch(getCurrentUserProfile())
+//   };
+// };
 
-export const me = {
-  gender: "male",
-  name: { title: "mr", first: "rodrigo", last: "magalhaes" },
-  location: {
-    street: "6942 first street",
-    city: "rio de janeiro",
-    state: "rio de janeiro",
-    postcode: 30411
-  },
-  email: "rodrigo.magalhaes@example.com",
-  login: {
-    username: "rjam",
-    password: "frodo1",
-    salt: "0cSpyp70",
-    md5: "bf758d9c79ef3c8a2c3fd900fb0c3148",
-    sha1: "4f28fcd2d5e5ae5e0ff55b7528841e350cabf9fb",
-    sha256: "1d44ef3ad01dafe929c56021498d8a6d89b2c438bd3f6a07de777ed35b98b5e1"
-  },
-  dob: "1974-03-12 07:28:16",
-  registered: "2010-08-09 13:37:38",
-  phone: "(589)-070-0928",
-  cell: "(110)-065-6280",
-  id: { name: "SSN", value: "408-64-0336" },
-  picture: {
-    large: "https://randomuser.me/api/portraits/lego/7.jpg",
-    medium: "https://randomuser.me/api/portraits/med/lego/7.jpg",
-    thumbnail: "https://randomuser.me/api/portraits/thumb/lego/7.jpg"
-  },
-  nat: "BR"
-};
+// export default connect(mapStateToProps, mapDispatchToProps)(Me);
+export default connect(mapStateToProps, { getCurrentUserProfile })(Me);

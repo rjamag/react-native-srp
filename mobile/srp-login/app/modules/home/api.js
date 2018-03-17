@@ -36,8 +36,9 @@ export function getCurrentUserProfile(callback) {
       console.log("getCurrentUserProfile - user: " + JSON.stringify(user));
       console.log("getCurrentUserProfile - exists: " + exists);
 
-      const data = { exists, user };
-      callback(true, data, null);
+      //      const data = { exists, user };
+
+      callback(true, user, null);
     })
     .catch(error => callback(false, null, error));
 }

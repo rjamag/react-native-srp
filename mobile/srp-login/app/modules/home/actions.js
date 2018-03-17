@@ -8,7 +8,16 @@ export function getCurrentUserProfile(successCB, errorCB) {
         console.log(
           "action getCurrentUserProfile data: " + JSON.stringify(data)
         );
-        dispatch({ type: t.GET_PROFILE, data });
+
+        dispatch({
+          type: t.GET_PROFILE,
+          user: data
+        });
+
+        console.log(
+          "action getCurrentUserProfile data: " + JSON.stringify(data)
+        );
+
         successCB(data);
       } else if (error) errorCB(error);
     });
