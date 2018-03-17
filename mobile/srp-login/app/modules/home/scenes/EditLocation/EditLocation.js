@@ -69,7 +69,7 @@ class EditLocation extends React.Component {
   }
 
   onSubmit(data) {
-    const user = this.props.user.user;
+    const user = this.props.user;
 
     console.log("---> user: " + JSON.stringify(user));
 
@@ -120,22 +120,24 @@ class EditLocation extends React.Component {
   }
 
   render() {
+    // if (!this.props) return <View />;
+
     console.log("---> RENDER inicio ");
-    if (this.props.user.user) {
+    console.log("---> RENDER this.props: " + JSON.stringify(this.props));
+    if (this.props.user) {
       console.log(
-        "---> RENDER this.props.user.user: " +
-          JSON.stringify(this.props.user.user)
+        "---> RENDER this.props.user: " + JSON.stringify(this.props.user)
       );
-      const user2 = this.props.user.user;
+      const user = this.props.user;
 
       console.log(
-        "---> RENDER user2.location: " + JSON.stringify(user2.location)
+        "---> RENDER user.location: " + JSON.stringify(user.location)
       );
 
-      fields[0].value = user2.location.street;
-      fields[1].value = user2.location.city;
-      fields[2].value = user2.location.state;
-      fields[3].value = user2.location.zip;
+      fields[0].value = user.location.street;
+      fields[1].value = user.location.city;
+      fields[2].value = user.location.state;
+      fields[3].value = user.location.zip;
     }
     console.log("---> RENDER fim ");
 
@@ -153,25 +155,27 @@ class EditLocation extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log(
-    "EditLocation - mapStateToProps - isSaved: " + state.homeReducer.isSaved
-  );
-  console.log(
-    "EditLocation - mapStateToProps - user: " +
-      JSON.stringify(state.homeReducer.user)
-  );
+// const mapStateToProps = state => {
+//   console.log(
+//     "EditLocation - mapStateToProps - isSaved: " + state.homeReducer.isSaved
+//   );
+//   console.log(
+//     "EditLocation - mapStateToProps - user: " +
+//       JSON.stringify(state.homeReducer.user)
+//   );
 
-  console.log(
-    "EditLocation - mapStateToProps 3 - user: " + JSON.stringify(user)
-  );
+//   console.log(
+//     "EditLocation - mapStateToProps 3 - user: " + JSON.stringify(user)
+//   );
 
-  console.log(
-    "EditLocation - mapStateToProps 4 - state.user: " +
-      JSON.stringify(state.user)
-  );
+//   console.log(
+//     "EditLocation - mapStateToProps 4 - state.user: " +
+//       JSON.stringify(state.user)
+//   );
 
-  return { isSaved: state.homeReducer.isSaved, user: state.homeReducer.user };
-};
+//   return { isSaved: state.homeReducer.isSaved, user: state.homeReducer.user };
+// };
 
-export default connect(mapStateToProps, { updateUserProfile })(EditLocation);
+// export default connect(mapStateToProps, { updateUserProfile })(EditLocation);
+
+export default connect(null, { updateUserProfile })(EditLocation);

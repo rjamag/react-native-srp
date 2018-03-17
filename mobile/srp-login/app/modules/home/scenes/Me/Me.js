@@ -63,7 +63,7 @@ class Me extends React.Component {
 
   editLocation() {
     const { user } = this.props;
-    Actions.EditLocation(user);
+    Actions.EditLocation({ user: user });
   }
 
   onSignOut(data) {
