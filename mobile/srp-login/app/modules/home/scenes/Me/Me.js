@@ -41,10 +41,19 @@ class Me extends React.Component {
       "componentDidMount inicio - this.props: " + JSON.stringify(this.props)
     );
 
-    this.props.getCurrentUserProfile(
-      this.onSuccessGetCurrentUserProfile,
-      this.onErrorGetCurrentUserProfile
-    );
+    if (!this.props.user.username) {
+      this.props.getCurrentUserProfile(
+        this.onSuccessGetCurrentUserProfile,
+        this.onErrorGetCurrentUserProfile
+      );
+    } else {
+      this.setState({ isLoading: false });
+    }
+
+    // this.props.getCurrentUserProfile(
+    //   this.onSuccessGetCurrentUserProfile,
+    //   this.onErrorGetCurrentUserProfile
+    // );
 
     console.log(
       "componentDidMount fim - this.props: " + JSON.stringify(this.props)
@@ -112,19 +121,19 @@ class Me extends React.Component {
           <ListItem
             title="Phone"
             rightTitle={this.props.user.phoneNumber}
-            leftIcon={{ name: "phone" }}
+            //leftIcon={{ name: "phone" }}
             hideChevron
           />
           <ListItem
             title="Address"
             rightTitle=""
-            leftIcon={{ name: "room" }}
+            //leftIcon={{ name: "room" }}
             onPress={this.editLocation}
           />{" "}
           <ListItem
             title="Payment"
             rightTitle=""
-            leftIcon={{ name: "payment" }}
+            //leftIcon={{ name: "payment" }}
           />
         </List>
 

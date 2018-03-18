@@ -102,6 +102,7 @@ class EditLocation extends React.Component {
 
   onSuccess() {
     Actions.Me();
+    //Actions.Me({ type: "reset" });
   }
 
   onError(error) {

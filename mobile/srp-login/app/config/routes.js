@@ -169,7 +169,13 @@ export default class extends React.Component {
                 />
               )}
             >
-              <Scene key="Me" component={Me} title="Me" initial={true} />
+              <Scene
+                key="Me"
+                component={Me}
+                title="Me"
+                initial={true}
+                renderBackButton={() => null}
+              />
               <Scene
                 key="EditLocation"
                 component={EditLocation}
