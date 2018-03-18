@@ -24,20 +24,20 @@ export function getCurrentUserProfile(successCB, errorCB) {
   };
 }
 
-export function updateCurrentUserProfile(successCB, errorCB) {
-  return dispatch => {
-    api.updateCurrentUserProfile(function(success, data, error) {
-      if (success) {
-        console.log(
-          "action updateCurrentUserProfile data: " + JSON.stringify(data)
-        );
+// export function updateCurrentUserProfile(successCB, errorCB) {
+//   return dispatch => {
+//     api.updateCurrentUserProfile(function(success, data, error) {
+//       if (success) {
+//         console.log(
+//           "action updateCurrentUserProfile data: " + JSON.stringify(data)
+//         );
 
-        dispatch({ type: t.UPDATE_PROFILE, data });
-        successCB(data);
-      } else if (error) errorCB(error);
-    });
-  };
-}
+//         dispatch({ type: t.UPDATE_PROFILE, data });
+//         successCB(data);
+//       } else if (error) errorCB(error);
+//     });
+//   };
+// }
 
 export function updateUserProfile(user, successCB, errorCB) {
   return dispatch => {

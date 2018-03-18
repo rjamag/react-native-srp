@@ -1,7 +1,9 @@
 import { AsyncStorage } from "react-native";
 import * as t from "./actionTypes";
 
-let initialState = {};
+// let initialState = {};
+// let initialState = { isLoggedIn: false, user: null };
+let initialState = { user: null };
 
 const homeReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -30,9 +32,23 @@ const homeReducer = (state = initialState, action) => {
       return action.user;
 
     case t.UPDATE_PROFILE:
+      // AsyncStorage.multiSet([["user", JSON.stringify(user)]]);
+
+      // // state = Object.assign({}, state, { user });
+
+      // // return state;
+
+      // state = Object.assign({}, state, { user: user });
+
+      // return state;
+
+      const user = action.data;
+
+      // Save token and data to Asyncstorage
       AsyncStorage.multiSet([["user", JSON.stringify(user)]]);
 
-      state = Object.assign({}, state, { isSaved: true, user: user });
+      //state = Object.assign({}, state, { user: user });
+      state = Object.assign({}, state, { location: user.location });
 
       return state;
 

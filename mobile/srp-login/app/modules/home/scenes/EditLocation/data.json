@@ -1,0 +1,16 @@
+{
+  "uid": "eUggYI7Fywe4UeHkIeO9cPQDFjF2",
+  "location": { "state": "3", "street": "3", "zip": "3", "city": "3" },
+  "username": "rjam",
+  "profileFacebookEmail": "rjamagalhaes@hotmail.com",
+  "profileFacebookId": "1840988689253265",
+  "profileFacebookDisplayName": "Rodrigo Magalhães",
+  "profileFacebookPhotoUrl":
+    "https://scontent.xx.fbcdn.net/v/t1.0-1/p100x100/20476407_1621608751191261_8413636088923046170_n.jpg?_nc_cat=0&oh=ec86c819da46a73ae95a889684e945fe&oe=5B356012",
+  "profileFacebookPhotoUrlLarge":
+    "https://graph.facebook.com/1840988689253265/picture?height=500",
+  "user": {
+    "uid": "eUggYI7Fywe4UeHkIeO9cPQDFjF2",
+    "location": { "street": "5", "city": "3", "state": "3", "zip": "3" }
+  }
+}

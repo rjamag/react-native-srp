@@ -71,12 +71,21 @@ class Me extends React.Component {
   }
 
   editLocation() {
+    // const { user } = this.props;
+    // Actions.EditLocation({ user: user });
+
     const { user } = this.props;
+
+    console.log("editLocation - user " + JSON.stringify(user));
+
     Actions.EditLocation({ user: user });
   }
 
   onSignOut(data) {
-    this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this));
+    this.props.signOut(
+      this.onSuccessOnSignOut.bind(this),
+      this.onErrorOnSignOut.bind(this)
+    );
   }
 
   onSuccessOnSignOut() {
@@ -160,4 +169,4 @@ const mapStateToProps = state => {
 // };
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Me);
-export default connect(mapStateToProps, { getCurrentUserProfile })(Me);
+export default connect(mapStateToProps, { getCurrentUserProfile, signOut })(Me);

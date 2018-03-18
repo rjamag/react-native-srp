@@ -68,36 +68,110 @@ class EditLocation extends React.Component {
     this.onError = this.onError.bind(this);
   }
 
+  componentDidMount() {
+    console.log("---> componentWillMount inicio ");
+    console.log(
+      "---> componentWillMount this.props.user: " +
+        JSON.stringify(this.props.user)
+    );
+
+    if (this.props.user) {
+      console.log(
+        "---> componentWillMount this.props.user.location: " +
+          JSON.stringify(this.props.user.location)
+      );
+      const location = this.props.user.location;
+
+      console.log(
+        "---> componentWillMount location: " + JSON.stringify(location)
+      );
+
+      if (location) {
+        fields[0].value = location.street ? location.street : "";
+        fields[1].value = location.city ? location.city : "";
+        fields[2].value = location.state ? location.state : "";
+        fields[3].value = location.zip ? location.zip : "";
+
+        this.setState(error);
+      }
+    }
+
+    console.log("---> componentWillMount fim ");
+  }
+
+  componentWillMount() {
+    console.log("---> componentWillMount inicio ");
+    console.log(
+      "---> componentWillMount this.props.user: " +
+        JSON.stringify(this.props.user)
+    );
+
+    if (this.props.user) {
+      console.log(
+        "---> componentWillMount this.props.user.location: " +
+          JSON.stringify(this.props.user.location)
+      );
+      const location = this.props.user.location;
+
+      console.log(
+        "---> componentWillMount location: " + JSON.stringify(location)
+      );
+
+      if (location) {
+        fields[0].value = location.street ? location.street : "";
+        fields[1].value = location.city ? location.city : "";
+        fields[2].value = location.state ? location.state : "";
+        fields[3].value = location.zip ? location.zip : "";
+
+        this.setState(error);
+      }
+    }
+
+    console.log("---> componentWillMount fim ");
+  }
+
   onSubmit(data) {
-    const user = this.props.user;
+    // const user = this.props.user;
 
-    console.log("---> user: " + JSON.stringify(user));
+    // console.log("---> user: " + JSON.stringify(user));
 
-    const location = {
-      street: "",
-      city: "",
-      state: "",
-      zip: ""
+    // const location = { street: "", city: "", state: "", zip: "" };
+
+    // console.log("---> passou ");
+
+    // location.street = data.street;
+    // location.city = data.city;
+    // location.state = data.state;
+    // location.zip = data.zip;
+
+    // console.log("---> location: " + JSON.stringify(location));
+
+    // user["location"] = location;
+
+    // console.log("---> this.props: " + JSON.stringify(this.props));
+    // console.log("---> this.props.user: " + JSON.stringify(this.props.user));
+    // console.log("---> data: " + JSON.stringify(data));
+
+    // this.setState({ error: error }); //clear out error messages
+
+    //attach user id
+    const { user } = this.props;
+    data["uid"] = user.uid;
+
+    const datalocation = {
+      uid: user.uid,
+      location: {
+        street: data.street,
+        city: data.city,
+        state: data.state,
+        zip: data.zip
+      }
     };
 
-    console.log("---> passou ");
-
-    location.street = data.street;
-    location.city = data.city;
-    location.state = data.state;
-    location.zip = data.zip;
-
-    console.log("---> location: " + JSON.stringify(location));
-
-    user["location"] = location;
-
-    console.log("---> this.props: " + JSON.stringify(this.props));
-    console.log("---> this.props.user: " + JSON.stringify(this.props.user));
     console.log("---> data: " + JSON.stringify(data));
+    console.log("---> datalocation: " + JSON.stringify(datalocation));
 
-    this.setState({ error: error }); //clear out error messages
-
-    this.props.updateUserProfile(user, this.onSuccess, this.onError);
+    this.props.updateUserProfile(datalocation, this.onSuccess, this.onError);
   }
 
   onSuccess() {
@@ -121,26 +195,18 @@ class EditLocation extends React.Component {
   }
 
   render() {
-    // if (!this.props) return <View />;
+    if (!this.props) return <View />;
 
-    console.log("---> RENDER inicio ");
-    console.log("---> RENDER this.props: " + JSON.stringify(this.props));
-    if (this.props.user) {
-      console.log(
-        "---> RENDER this.props.user: " + JSON.stringify(this.props.user)
-      );
-      const user = this.props.user;
+    // const location = this.props.user.location;
 
-      console.log(
-        "---> RENDER user.location: " + JSON.stringify(user.location)
-      );
+    // console.log("---> constructor location: " + JSON.stringify(location));
 
-      fields[0].value = user.location.street;
-      fields[1].value = user.location.city;
-      fields[2].value = user.location.state;
-      fields[3].value = user.location.zip;
-    }
-    console.log("---> RENDER fim ");
+    // if (location) {
+    //   fields[0].value = location.street ? location.street : "";
+    //   fields[1].value = location.city ? location.city : "";
+    //   fields[2].value = location.state ? location.state : "";
+    //   fields[3].value = location.zip ? location.zip : "";
+    // }
 
     return (
       <AuthContainer>

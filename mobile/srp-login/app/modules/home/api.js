@@ -43,16 +43,16 @@ export function getCurrentUserProfile(callback) {
     .catch(error => callback(false, null, error));
 }
 
-export function updateCurrentUserProfile(callback) {
-  console.log("updateCurrentUserProfile - user: " + JSON.stringify(user));
+// export function updateCurrentUserProfile(callback) {
+//   console.log("updateCurrentUserProfile - user: " + JSON.stringify(user));
 
-  database
-    .ref("users")
-    .child(auth.currentUser.uid)
-    .update({ ...user })
-    .then(() => callback(true, null, null))
-    .catch(error => callback(false, null, { message: error }));
-}
+//   database
+//     .ref("users")
+//     .child(auth.currentUser.uid)
+//     .update({ ...user })
+//     .then(() => callback(true, null, null))
+//     .catch(error => callback(false, null, { message: error }));
+// }
 
 export function updateUserProfile(user, callback) {
   database
