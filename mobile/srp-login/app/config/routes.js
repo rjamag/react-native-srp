@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import {
   Scene,
   Router,
@@ -34,7 +34,7 @@ import { Icon } from "react-native-elements";
 import store from "../redux/store";
 import { checkLoginStatus } from "../modules/auth/actions";
 
-import { fontFamily, normalize } from "../styles/theme";
+import { fontFamily, normalize, tabIconStyle } from "../styles/theme";
 
 export default class extends React.Component {
   constructor() {
@@ -89,24 +89,51 @@ export default class extends React.Component {
             />
           </Stack>
 
-          <Scene key="Main" tabs={true} initial={this.state.isLoggedIn}>
+          <Scene
+            key="Main"
+            tabs={true}
+            initial={this.state.isLoggedIn}
+            showLabel={false}
+            lazy={true}
+            tabStyle={styles.tab}
+            tabBarStyle={styles.tabs}
+            labelStyle={styles.label}
+            swipeEnabled={false}
+          >
             <Scene
               key="Tab1"
-              title="Home"
+              title="Instamatic"
               initial={true}
-              icon={({ tintColor }) => (
+              icon={({ focused }) => (
                 <Icon
-                  name="home"
+                  name="ios-home"
                   size={30}
                   iconStyle={{ width: 30, height: 30 }}
-                  type="material"
-                  color={tintColor}
+                  type="ionicon"
+                  color={focused ? activeTintColor : inactiveTintColor}
                 />
               )}
               type={ActionConst.REPLACE}
+              renderRightButton={({ focused }) => (
+                <Icon
+                  name="ios-locate-outline"
+                  size={30}
+                  iconStyle={{
+                    padding: 0,
+                    top: 0,
+                    right: 10,
+                    width: 30,
+                    height: 30,
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                  type="ionicon"
+                  color={activeTintColor}
+                  onPress={() => alert("Right button")}
+                />
+              )}
             >
-              <Scene key="Tab1_1" component={Home} title="Home" />
-              <Scene key="Tab1_2" component={Home} title="Home" />
+              <Scene key="Tab1_1" component={Home} title="Instamatic" />
             </Scene>
 
             <Scene key="Tab2" title="Favorites">
@@ -114,13 +141,13 @@ export default class extends React.Component {
                 key="Tab2_1"
                 component={Favorites}
                 title="Favorites"
-                icon={({ tintColor }) => (
+                icon={({ focused }) => (
                   <Icon
-                    name="star"
+                    name="ios-star"
                     size={30}
                     iconStyle={{ width: 30, height: 30 }}
-                    type="material"
-                    color={tintColor}
+                    type="ionicon"
+                    color={focused ? activeTintColor : inactiveTintColor}
                   />
                 )}
               />
@@ -130,13 +157,13 @@ export default class extends React.Component {
               key="Tab3"
               component={Services}
               title="Services"
-              icon={({ tintColor }) => (
+              icon={({ focused }) => (
                 <Icon
                   name="ios-construct"
                   size={30}
                   iconStyle={{ width: 30, height: 30 }}
                   type="ionicon"
-                  color={tintColor}
+                  color={focused ? activeTintColor : inactiveTintColor}
                 />
               )}
             />
@@ -145,27 +172,26 @@ export default class extends React.Component {
               key="Tab4"
               component={Messages}
               title="Messages"
-              icon={({ tintColor }) => (
+              icon={({ focused }) => (
                 <Icon
-                  name="mail"
+                  name="ios-mail"
                   size={30}
                   iconStyle={{ width: 30, height: 30 }}
-                  type="material"
-                  color={tintColor}
+                  type="ionicon"
+                  color={focused ? activeTintColor : inactiveTintColor}
                 />
               )}
             />
-
             <Scene
               key="Tab5"
-              title="Me"
-              icon={({ tintColor }) => (
+              title="Profile"
+              icon={({ focused }) => (
                 <Icon
-                  name="person"
+                  name="ios-person"
                   size={30}
                   iconStyle={{ width: 30, height: 30 }}
-                  type="material"
-                  color={tintColor}
+                  type="ionicon"
+                  color={focused ? activeTintColor : inactiveTintColor}
                 />
               )}
             >
@@ -201,5 +227,14 @@ const styles = StyleSheet.create({
     lineHeight: normalize(19),
     fontFamily: fontFamily.bold,
     color: "rgba(0,0,0,.84)"
+  },
+
+  tabs: {},
+
+  label: {
+    color: "rgba(0,0,0,.84)"
   }
 });
+
+const activeTintColor = "#000";
+const inactiveTintColor = "#d1cece";

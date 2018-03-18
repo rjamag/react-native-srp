@@ -114,6 +114,7 @@ class Me extends React.Component {
 
         <Button
           title="SIGN OUT"
+          borderRadius={4}
           buttonStyle={{ marginTop: 20 }}
           onPress={this.onSignOut}
         />
@@ -130,20 +131,10 @@ class Me extends React.Component {
           <ListItem
             title="Phone"
             rightTitle={this.props.user.phoneNumber}
-            //leftIcon={{ name: "phone" }}
             hideChevron
           />
-          <ListItem
-            title="Address"
-            rightTitle=""
-            //leftIcon={{ name: "room" }}
-            onPress={this.editLocation}
-          />{" "}
-          <ListItem
-            title="Payment"
-            rightTitle=""
-            //leftIcon={{ name: "payment" }}
-          />
+          <ListItem title="Address" rightTitle="" onPress={this.editLocation} />
+          <ListItem title="Payment" rightTitle="" />
         </List>
 
         <List>
