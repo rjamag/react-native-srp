@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "529919218490",
+    "firebase_url": "https://msrp-b0a86.firebaseio.com",
+    "project_id": "msrp-b0a86",
+    "storage_bucket": "msrp-b0a86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529919218490:android:f751f0b5cc6263b1",
+        "android_client_info": {
+          "package_name": "com.srp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529919218490-0boviqdnprrnr1p86d9mvcj5j3tc46aa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhcJfZVZ68HdVJ1-q2kEPwXPlh5NnFJzM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
