@@ -136,21 +136,20 @@ export default class extends React.Component {
               <Scene key="Tab1_1" component={Home} title="Instamatic" />
             </Scene>
 
-            <Scene key="Tab2" title="Favorites">
-              <Scene
-                key="Tab2_1"
-                component={Favorites}
-                title="Favorites"
-                icon={({ focused }) => (
-                  <Icon
-                    name="ios-star"
-                    size={30}
-                    iconStyle={{ width: 30, height: 30 }}
-                    type="ionicon"
-                    color={focused ? activeTintColor : inactiveTintColor}
-                  />
-                )}
-              />
+            <Scene
+              key="Tab2"
+              title="Favorites"
+              icon={({ focused }) => (
+                <Icon
+                  name="ios-star"
+                  size={30}
+                  iconStyle={{ width: 30, height: 30 }}
+                  type="ionicon"
+                  color={focused ? activeTintColor : inactiveTintColor}
+                />
+              )}
+            >
+              <Scene key="Favorites" component={Favorites} title="Favorites" />
             </Scene>
 
             <Scene
