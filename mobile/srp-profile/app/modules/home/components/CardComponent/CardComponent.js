@@ -26,11 +26,11 @@ class CardComponent extends Component {
           <Left>
             <Thumbnail source={require("../assets/me.jpg")} />
             <Body>
-              <Text>Varun </Text>
-              <Text note>Jan 15, 2018</Text>
+              <Text>John</Text>
+              <Text note>Mar 12, 2018</Text>
             </Body>
           </Left>
-        </CardItem>
+        </CardItem>;
         <CardItem cardBody>
           <Image
             source={images[this.props.imageSource]}
@@ -50,19 +50,20 @@ class CardComponent extends Component {
             </Button>
           </Left>
         </CardItem>
-
-        <CardItem style={{ height: 20 }}>
-          <Text>{this.props.likes} likes</Text>
+        <CardItem style={{ height: 20, color: "black" }}>
+          <Text style={{ height: 20, color: "black" }}>
+            {this.props.likes} likes
+          </Text>
         </CardItem>
         <CardItem>
           <Body>
             <Text>
-              <Text style={{ fontWeight: "900" }}>varun </Text>
+              <Text style={{ fontWeight: "900" }}>John Doe </Text>
               Ea do Lorem occaecat laborum do. Minim ullamco ipsum minim eiusmod
               dolore cupidatat magna exercitation amet proident qui. Est do
               irure magna dolor adipisicing do quis labore excepteur. Commodo
               veniam dolore cupidatat nulla consectetur do nostrud ea cupidatat
-              ullamco labore. Consequat ullamco nulla ullamco minim.
+              ullamco labore.
             </Text>
           </Body>
         </CardItem>
@@ -79,3 +80,13 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
+
+// <CardItem>
+//   <Left>
+//     <Thumbnail source={require("../assets/me.jpg")} />
+//     <Body>
+//       <Text>John</Text>
+//       <Text note>Mar 12, 2018</Text>
+//     </Body>
+//   </Left>
+// </CardItem>;

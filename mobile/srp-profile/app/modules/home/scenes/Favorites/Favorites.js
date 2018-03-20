@@ -41,12 +41,6 @@ var images = [
 ];
 
 class Favorites extends Component {
-  static navigationOptions = {
-    tabBarIcon: ({ tintColor }) => (
-      <Icon name="person" style={{ color: tintColor }} />
-    )
-  };
-
   constructor(props) {
     super(props);
 
@@ -105,8 +99,8 @@ class Favorites extends Component {
       return (
         <View>
           <CardComponent imageSource="1" likes="101" />
-          <CardComponent imageSource="2" likes="101" />
-          <CardComponent imageSource="3" likes="101" />
+          <CardComponent imageSource="2" likes="51" />
+          <CardComponent imageSource="3" likes="10" />
         </View>
       );
     }
@@ -157,9 +151,7 @@ class Favorites extends Component {
                   </View>
                   <View style={{ alignItems: "center" }}>
                     <Text>167</Text>
-                    <Text style={{ fontSize: 10, color: "grey" }}>
-                      Feedbacks
-                    </Text>
+                    <Text style={{ fontSize: 10, color: "grey" }}>Reviews</Text>
                   </View>
                 </View>
 
@@ -198,7 +190,10 @@ class Favorites extends Component {
                         justifyContent: "center"
                       }}
                     >
-                      <Icon name="settings" style={{ color: "black" }} />
+                      <Icon
+                        name="settings"
+                        style={{ height: 30, color: "black" }}
+                      />
                     </Button>
                   </View>
                 </View>
@@ -253,7 +248,7 @@ class Favorites extends Component {
                 active={this.state.activeIndex == 2}
               >
                 <Icon
-                  name="ios-bookmark-outline"
+                  name="md-ribbon"
                   style={this.state.activeIndex == 2 ? {} : { color: "grey" }}
                 />
               </Button>

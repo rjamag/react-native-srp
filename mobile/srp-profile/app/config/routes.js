@@ -6,7 +6,8 @@ import {
   ActionConst,
   Stack,
   Modal,
-  Tabs
+  Tabs,
+  Actions
 } from "react-native-router-flux";
 
 //Splash Component
@@ -21,6 +22,7 @@ import ForgotPassword from "../modules/auth/scenes/ForgotPassword";
 
 //User Scenes
 import Home from "../modules/home/scenes/Home/Home";
+import Search from "../modules/home/scenes/Search/Search";
 import Favorites from "../modules/home/scenes/Favorites/Favorites";
 import Services from "../modules/home/scenes/Services/Services";
 import Messages from "../modules/home/scenes/Messages/Messages";
@@ -104,6 +106,7 @@ export default class extends React.Component {
               key="Tab1"
               title="Instamatic"
               initial={true}
+              titleStyle={styles.homeTitle}
               icon={({ focused }) => (
                 <Icon
                   name="ios-home"
@@ -116,7 +119,7 @@ export default class extends React.Component {
               type={ActionConst.REPLACE}
               renderRightButton={({ focused }) => (
                 <Icon
-                  name="ios-locate-outline"
+                  name="ios-search"
                   size={30}
                   iconStyle={{
                     padding: 0,
@@ -129,11 +132,35 @@ export default class extends React.Component {
                   }}
                   type="ionicon"
                   color={activeTintColor}
-                  onPress={() => alert("Right button")}
+                  onPress={() => Actions.Search()}
+                />
+              )}
+              renderLeftButton={({ focused }) => (
+                <Icon
+                  name="ios-locate-outline"
+                  size={30}
+                  iconStyle={{
+                    padding: 0,
+                    top: 0,
+                    left: 10,
+                    width: 30,
+                    height: 30,
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                  type="ionicon"
+                  color={activeTintColor}
+                  onPress={() => alert("Left button")}
                 />
               )}
             >
-              <Scene key="Tab1_1" component={Home} title="Instamatic" />
+              <Scene
+                key="Tab1_1"
+                component={Home}
+                style={{ fontSize: 20 }}
+                title="Instamatic"
+              />
+              <Scene key="Tab1_2" component={Search} title="Search" />
             </Scene>
 
             <Scene
@@ -148,6 +175,7 @@ export default class extends React.Component {
                   color={focused ? activeTintColor : inactiveTintColor}
                 />
               )}
+              renderBackButton={() => null}
             >
               <Scene key="Favorites" component={Favorites} title="Favorites" />
             </Scene>
@@ -224,6 +252,13 @@ const styles = StyleSheet.create({
     fontSize: normalize(16),
     lineHeight: normalize(19),
     fontFamily: fontFamily.medium,
+    color: "rgba(0,0,0,.84)"
+  },
+
+  homeTitle: {
+    fontSize: normalize(20),
+    lineHeight: normalize(20),
+    fontFamily: fontFamily.regular,
     color: "rgba(0,0,0,.84)"
   },
 
