@@ -17,7 +17,16 @@ class CardComponent extends Component {
     const images = {
       "1": require("../assets/feed_images/1.jpg"),
       "2": require("../assets/feed_images/2.jpg"),
-      "3": require("../assets/feed_images/3.png")
+      "3": require("../assets/feed_images/3.png"),
+      "4": require("../assets/feed_images/4.jpg"),
+      "5": require("../assets/feed_images/5.jpg"),
+      "6": require("../assets/feed_images/6.jpg"),
+      "7": require("../assets/feed_images/7.jpg"),
+      "8": require("../assets/feed_images/8.png"),
+      "9": require("../assets/feed_images/9.jpg"),
+      "10": require("../assets/feed_images/10.jpg"),
+      "11": require("../assets/feed_images/11.jpg"),
+      "12": require("../assets/feed_images/12.jpg")
     };
 
     return (
@@ -26,7 +35,8 @@ class CardComponent extends Component {
           <Left>
             <Thumbnail source={require("../assets/me.jpg")} />
             <Body>
-              <Text>John</Text>
+              <Text style={{ fontWeight: "bold" }}>John Doe</Text>
+              <Text>Plumber | Electrician | Carpenter</Text>
               <Text note>Mar 12, 2018</Text>
             </Body>
           </Left>
@@ -58,12 +68,9 @@ class CardComponent extends Component {
         <CardItem>
           <Body>
             <Text>
-              <Text style={{ fontWeight: "900" }}>John Doe </Text>
               Ea do Lorem occaecat laborum do. Minim ullamco ipsum minim eiusmod
               dolore cupidatat magna exercitation amet proident qui. Est do
-              irure magna dolor adipisicing do quis labore excepteur. Commodo
-              veniam dolore cupidatat nulla consectetur do nostrud ea cupidatat
-              ullamco labore.
+              irure magna dolor adipisicing do quis labore excepteur.
             </Text>
           </Body>
         </CardItem>

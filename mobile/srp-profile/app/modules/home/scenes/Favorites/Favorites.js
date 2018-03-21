@@ -54,6 +54,7 @@ class Favorites extends Component {
       activeIndex: index
     });
   }
+
   checkActive = index => {
     if (this.state.activeIndex !== index) {
       return { color: "grey" };
@@ -205,7 +206,39 @@ class Favorites extends Component {
               <View style={{ paddingHorizontal: 10 }}>
                 <Text style={{ fontWeight: "bold" }}>John Doe</Text>
                 <Text>Plumber | Electrician | Carpenter</Text>
-                <Text>www.bestworker.com</Text>
+                <View>
+                  <View style={{ flex: 1 }}>
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        justifyContent: "flex-start",
+                        alignItems: "flex-end",
+                        paddingHorizontal: 0
+                      }}
+                    >
+                      <Icon
+                        name="ios-star"
+                        style={{ fontSize: 20, color: "#f2b01e" }}
+                      />
+                      <Icon
+                        name="ios-star"
+                        style={{ fontSize: 20, color: "#f2b01e" }}
+                      />
+                      <Icon
+                        name="ios-star"
+                        style={{ fontSize: 20, color: "#f2b01e" }}
+                      />
+                      <Icon
+                        name="ios-star-half"
+                        style={{ fontSize: 20, color: "#f2b01e" }}
+                      />
+                      <Icon
+                        name="ios-star-outline"
+                        style={{ fontSize: 20, color: "#f2b01e" }}
+                      />
+                    </View>
+                  </View>
+                </View>
               </View>
             </View>
           </View>

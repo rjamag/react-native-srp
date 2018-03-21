@@ -132,7 +132,7 @@ export default class extends React.Component {
                   }}
                   type="ionicon"
                   color={activeTintColor}
-                  onPress={() => Actions.Search()}
+                  onPress={() => alert("Left button")}
                 />
               )}
               renderLeftButton={({ focused }) => (
