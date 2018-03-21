@@ -4,32 +4,28 @@ const { padding, color, fontSize, fontFamily, windowWidth, normalize } = theme;
 
 const resizeMode = "contain";
 
-const styles = StyleSheet.create({
+const styles1 = StyleSheet.create({
   container: {
     flex: 1
   },
 
   topContainer: {
     flex: 1,
-    paddingHorizontal: 0,
-    paddingBottom: 0,
-    padding: 10,
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
+    paddingHorizontal: 15,
+    paddingBottom: padding * 2,
+    justifyContent: "center",
+    alignItems: "center",
     //backgroundColor: "#FF553F"
-    backgroundColor: "#fff"
+    backgroundColor: color.light_grey
   },
 
   image: {
-    height: 75,
-    width: 75,
-    backgroundColor: "#fff",
-    marginTop: padding * 5,
-    marginBottom: 5,
-    marginLeft: 15,
-    padding: padding * 5,
-    resizeMode,
-    paddingHorizontal: 20
+    height: 250,
+    width: 250,
+    backgroundColor: color.light_grey,
+    marginTop: padding * 7,
+    marginBottom: padding,
+    resizeMode
   },
 
   title: {
@@ -37,19 +33,8 @@ const styles = StyleSheet.create({
     lineHeight: fontSize.large + 4,
     fontFamily: fontFamily.regular,
     color: color.light_black,
-    marginTop: 10,
-    paddingHorizontal: padding * 3,
+    marginTop: padding * 3,
     letterSpacing: 5
-  },
-
-  title2: {
-    fontSize: fontSize.large + 5,
-    lineHeight: fontSize.large + 4,
-    fontFamily: fontFamily.medium,
-    color: color.black,
-    marginTop: 10,
-    paddingHorizontal: padding * 3,
-    letterSpacing: 10
   },
 
   subText: {
@@ -63,7 +48,14 @@ const styles = StyleSheet.create({
 
   bottomContainer: {
     backgroundColor: "#ffffff",
-    paddingVertical: padding * 3
+    paddingVertical: padding * 3,
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    }
   },
 
   buttonContainer: {
@@ -78,19 +70,18 @@ const styles = StyleSheet.create({
   socialButton: {
     height: normalize(55),
     borderRadius: 4,
-    marginTop: 15,
-    marginBottom: 0,
-    fontFamily: fontFamily.regular
+    marginTop: 0,
+    marginBottom: 0
   },
 
   button: {
-    backgroundColor: "#414141",
+    backgroundColor: "#C0C0C0",
     height: normalize(55)
   },
 
   buttonText: {
     fontSize: fontSize.regular + 2,
-    fontFamily: fontFamily.regular
+    fontFamily: fontFamily.medium
   },
 
   bottom: {
@@ -137,4 +128,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default styles;
+export default styles1;

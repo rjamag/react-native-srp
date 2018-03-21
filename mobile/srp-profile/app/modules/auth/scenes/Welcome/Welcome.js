@@ -16,7 +16,7 @@ import firebase from "../../../../config/firebase";
 import { AccessToken, LoginManager } from "react-native-fbsdk";
 
 import { actions as auth, constants as c } from "../../index";
-const { signInWithFacebook } = auth;
+const { signInWithFacebook, signInWithGoogle } = auth;
 
 import styles from "./styles";
 import AuthContainer from "../../components/AuthContainer";
@@ -49,6 +49,14 @@ class Welcome extends React.Component {
       });
   }
 
+  async onSignInWithGoogle() {
+    // this.props.signInWithGoogle(
+    //   data.accessToken,
+    //   this.onSuccess,
+    //   this.onError
+    // );
+  }
+
   onSuccess({ exists, user }) {
     if (exists) Actions.Main();
     else Actions.CompleteProfile({ user });
@@ -61,13 +69,15 @@ class Welcome extends React.Component {
   render() {
     return (
       <AuthContainer>
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
           <View style={styles.topContainer}>
             <Image
-              style={styles.image}
               source={require("../../../../assets/icons/icon.png")}
+              style={styles.image}
+              resizeMode="contain"
             />
-            <Text style={styles.title}>Instamatic</Text>
+            <Text style={[styles.title2]}>Welcome,</Text>
+            <Text style={[styles.title]}>sign in to continue</Text>
           </View>
 
           <View style={styles.bottomContainer}>
@@ -76,22 +86,34 @@ class Welcome extends React.Component {
                 raised
                 button
                 type="facebook"
-                title="SIGN UP WITH FACEBOOK"
+                title="sign in with facebook"
                 iconSize={19}
                 style={[styles.containerView, styles.socialButton]}
                 fontStyle={styles.buttonText}
                 onPress={this.onSignInWithFacebook}
               />
 
+              <SocialIcon
+                raised
+                button
+                type="google-plus-official"
+                title="sign in with google"
+                iconSize={19}
+                style={[styles.containerView, styles.socialButton]}
+                fontStyle={styles.buttonText}
+                onPress={this.onSignInWithGoogle}
+              />
+
               <View style={styles.orContainer}>
                 <Divider style={styles.divider} />
-                <Text style={styles.orText}>Or</Text>
+                <Text style={styles.orText}>or</Text>
               </View>
 
               <Button
                 raised
                 borderRadius={4}
-                title={"SIGN UP WITH E-MAIL"}
+                icon={{ name: "email" }}
+                title={"sign up with e-mail"}
                 containerViewStyle={[styles.containerView]}
                 buttonStyle={[styles.button]}
                 textStyle={styles.buttonText}
@@ -99,17 +121,17 @@ class Welcome extends React.Component {
               />
             </View>
             <View style={styles.bottom}>
-              <Text style={styles.bottomText}>Already have an account?</Text>
+              <Text style={styles.bottomText}>already have an account?</Text>
 
               <TouchableOpacity onPress={Actions.Login}>
-                <Text style={styles.signInText}>Sign in</Text>
+                <Text style={styles.signInText}>sign in</Text>
               </TouchableOpacity>
             </View>
           </View>
-        </View>
+        </SafeAreaView>
       </AuthContainer>
     );
   }
 }
 
-export default connect(null, { signInWithFacebook })(Welcome);
+export default connect(null, { signInWithFacebook, signInWithGoogle })(Welcome);
