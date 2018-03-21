@@ -67,7 +67,7 @@ class Welcome extends React.Component {
               style={styles.image}
               source={require("../../../../assets/icons/icon.png")}
             />
-            <Text style={styles.title}>D î m e</Text>
+            <Text style={styles.title}>Instamatic</Text>
           </View>
 
           <View style={styles.bottomContainer}>
