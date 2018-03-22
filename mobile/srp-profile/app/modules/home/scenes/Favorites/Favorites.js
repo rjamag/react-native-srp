@@ -176,7 +176,7 @@ class Favorites extends Component {
                         height: 30
                       }}
                     >
-                      <Text>Hire Now</Text>
+                      <Text>hire now</Text>
                     </Button>
 
                     {/** Settings takes up  1/4th place **/}

@@ -87,11 +87,11 @@ class Login extends React.Component {
           fields={fields}
           showLabel={false}
           onSubmit={this.onSubmit}
-          buttonTitle={"LOG IN"}
+          buttonTitle={"sign in with email"}
           error={this.state.error}
         />
         <Text style={styles.forgotText} onPress={this.onForgotPassword}>
-          Forgot password?
+          forgot password?
         </Text>
       </AuthContainer>
     );

@@ -60,7 +60,7 @@ class CardComponent extends Component {
             </Button>
           </Left>
         </CardItem>
-        <CardItem style={{ height: 20, color: "black" }}>
+        <CardItem style={{ height: 20 }}>
           <Text style={{ height: 20, color: "black" }}>
             {this.props.likes} likes
           </Text>

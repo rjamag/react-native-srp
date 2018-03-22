@@ -73,7 +73,7 @@ class CompleteProfile extends React.Component {
           fields={fields}
           showLabel={false}
           onSubmit={this.onSubmit}
-          buttonTitle={"CONTINUE"}
+          buttonTitle={"enter username"}
           error={this.state.error}
         />
       </AuthContainer>

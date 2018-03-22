@@ -21,8 +21,8 @@ const { color } = theme;
 const { getCurrentUserProfile } = userprof;
 
 class Me extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = { isLoading: true };
 
@@ -34,14 +34,17 @@ class Me extends React.Component {
     this.onErrorGetCurrentUserProfile = this.onErrorGetCurrentUserProfile.bind(
       this
     );
+
+    //this.getCurrentUserProfile = this.getCurrentUserProfile.bind(this);
   }
 
   componentDidMount() {
+    console.log("componentDidMount inicio");
     console.log(
       "componentDidMount inicio - this.props: " + JSON.stringify(this.props)
     );
 
-    if (!this.props.user.username) {
+    if (this.state.isLoading) {
       this.props.getCurrentUserProfile(
         this.onSuccessGetCurrentUserProfile,
         this.onErrorGetCurrentUserProfile
@@ -50,11 +53,12 @@ class Me extends React.Component {
       this.setState({ isLoading: false });
     }
 
-    // this.props.getCurrentUserProfile(
-    //   this.onSuccessGetCurrentUserProfile,
-    //   this.onErrorGetCurrentUserProfile
-    // );
+    this.props.getCurrentUserProfile(
+      this.onSuccessGetCurrentUserProfile,
+      this.onErrorGetCurrentUserProfile
+    );
 
+    console.log("componentDidMount fim");
     console.log(
       "componentDidMount fim - this.props: " + JSON.stringify(this.props)
     );
@@ -62,12 +66,19 @@ class Me extends React.Component {
 
   onSuccessGetCurrentUserProfile(data) {
     console.log("onSuccessGetCurrentUserProfile - 1");
-    this.setState({ isLoading: false });
+    // console.log(
+    //   "onSuccessGetCurrentUserProfile inicio - this.props: " +
+    //     JSON.stringify(this.props)
+    // );
+    console.log("onSuccessGetCurrentUserProfile - 2");
+
+    //this.setState({ isLoading: false });
     console.log("onSuccessGetCurrentUserProfile - 3");
   }
 
   onErrorGetCurrentUserProfile(error) {
-    Alert.alert("Oops!", error.message);
+    console.log("onErrorGetCurrentUserProfile - error: " + error);
+    //Alert.alert("Oops!", error.message);
   }
 
   editLocation() {
@@ -97,23 +108,38 @@ class Me extends React.Component {
   }
 
   render() {
-    if (this.state.isLoading) return <View />;
+    //if (this.state.isLoading) return <View />;
+
+    if (!this.props) return <View />;
 
     return (
       <ScrollView>
+        {/*
+        <Tile
+          imageSrc=""
+          featured
+          title=""
+          caption={this.props.user.email ? this.props.user.email : ""}
+        />
+         */}
+
         <Tile
           imageSrc={
-            this.props.user.profileFacebookPhotoUrlLarge
-              ? { uri: this.props.user.profileFacebookPhotoUrlLarge }
+            this.props.user.photoLarge
+              ? { uri: this.props.user.photoLarge }
               : ""
           }
           featured
-          title={`${this.props.user.profileFacebookDisplayName.toUpperCase()}`}
-          caption={this.props.user.profileFacebookEmail}
+          title={
+            this.props.user.facebookDisplayName
+              ? this.props.user.facebookDisplayName.toLowerCase()
+              : ""
+          }
+          caption={this.props.user.email ? this.props.user.email : ""}
         />
 
         <Button
-          title="SIGN OUT"
+          title="sign out"
           borderRadius={4}
           buttonStyle={{ marginTop: 20 }}
           onPress={this.onSignOut}
@@ -121,7 +147,7 @@ class Me extends React.Component {
 
         <List>
           <ListItem
-            title="Username"
+            title="username"
             rightTitle={"@" + this.props.user.username}
             hideChevron
           />
@@ -129,18 +155,20 @@ class Me extends React.Component {
 
         <List>
           <ListItem
-            title="Phone"
+            title="phone"
             rightTitle={this.props.user.phoneNumber}
             hideChevron
           />
-          <ListItem title="Address" rightTitle="" onPress={this.editLocation} />
-          <ListItem title="Payment" rightTitle="" />
+          <ListItem title="address" rightTitle="" onPress={this.editLocation} />
+          <ListItem title="payment" rightTitle="" />
         </List>
 
         <List>
-          <ListItem title="Support" rightTitle="" hideChevron />
-          <ListItem title="Feedback" rightTitle="" hideChevron />
-          <ListItem title="Terms of Service" rightTitle="" />
+          <ListItem title="tutorials" rightTitle="" hideChevron />
+          <ListItem title="support" rightTitle="" hideChevron />
+          <ListItem title="feedback" rightTitle="" hideChevron />
+          <ListItem title="terms of service" rightTitle="" />
+          <ListItem title="work with us" rightTitle="" hideChevron />
         </List>
       </ScrollView>
     );

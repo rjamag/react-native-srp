@@ -80,14 +80,14 @@ export default class extends React.Component {
             <Scene
               key="CompleteProfile"
               component={CompleteProfile}
-              title="Select Username"
+              title="Enter Username"
               back={false}
             />
             <Scene key="Login" component={Login} title="Login" />
             <Scene
               key="ForgotPassword"
               component={ForgotPassword}
-              title="ForgotPassword"
+              title="Forgot Password"
             />
           </Stack>
 

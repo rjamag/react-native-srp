@@ -5,10 +5,15 @@ const { windowWidth, fontSize, normalize } = theme;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white"
+    marginBottom: 20
   },
-  bottomContainer: {
-    backgroundColor: "white"
+
+  inputContainer: {
+    width: windowWidth - 40,
+    height: normalize(65),
+    fontSize: fontSize.regular + 2,
+    fontWeight: "600",
+    borderBottomColor: "#A5A7A9"
   }
 });
 

@@ -82,6 +82,13 @@ class Welcome extends React.Component {
 
           <View style={styles.bottomContainer}>
             <View style={[styles.buttonContainer]}>
+              <View style={styles.orContainer}>
+                <Divider style={styles.divider} />
+                <Text style={styles.orText}>
+                  use your social network account
+                </Text>
+              </View>
+
               <SocialIcon
                 raised
                 button
@@ -113,18 +120,18 @@ class Welcome extends React.Component {
                 raised
                 borderRadius={4}
                 icon={{ name: "email" }}
-                title={"sign up with e-mail"}
+                title={"sign in with e-mail"}
                 containerViewStyle={[styles.containerView]}
                 buttonStyle={[styles.button]}
                 textStyle={styles.buttonText}
-                onPress={Actions.Register}
+                onPress={Actions.Login}
               />
             </View>
             <View style={styles.bottom}>
-              <Text style={styles.bottomText}>already have an account?</Text>
+              <Text style={styles.bottomText}>don't have an account yet?</Text>
 
-              <TouchableOpacity onPress={Actions.Login}>
-                <Text style={styles.signInText}>sign in</Text>
+              <TouchableOpacity onPress={Actions.Register}>
+                <Text style={styles.signInText}>sign up</Text>
               </TouchableOpacity>
             </View>
           </View>

@@ -89,7 +89,7 @@ class Register extends React.Component {
           fields={fields}
           showLabel={false}
           onSubmit={this.onSubmit}
-          buttonTitle={"SIGN UP"}
+          buttonTitle={"sign up with e-mail"}
           error={this.state.error}
         />
       </AuthContainer>

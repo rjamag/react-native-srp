@@ -70,7 +70,7 @@ class ForgotPassword extends React.Component {
         <Form
           fields={fields}
           onSubmit={this.onSubmit}
-          buttonTitle={"SUBMIT"}
+          buttonTitle={"reset password"}
           error={this.state.error}
         />
       </AuthContainer>

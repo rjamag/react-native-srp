@@ -214,7 +214,7 @@ class EditLocation extends React.Component {
           fields={fields}
           showLabel={false}
           onSubmit={this.onSubmit}
-          buttonTitle={"SAVE"}
+          buttonTitle={"save location"}
           error={this.state.error}
         />
       </AuthContainer>

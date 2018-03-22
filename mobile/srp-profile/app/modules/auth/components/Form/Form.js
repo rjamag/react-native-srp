@@ -88,7 +88,7 @@ class Form extends React.Component {
           raised
           title={buttonTitle}
           borderRadius={4}
-          containerViewStyle={styles.buttonContainer}
+          containerViewStyle={styles.containerView}
           buttonStyle={styles.button}
           textStyle={styles.buttonText}
           onPress={this.onSubmit}

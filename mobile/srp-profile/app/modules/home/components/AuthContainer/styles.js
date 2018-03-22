@@ -4,10 +4,8 @@ const { color } = theme;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white"
-  },
-  bottomContainer: {
-    backgroundColor: "white"
+    flex: 1,
+    backgroundColor: color.white
   }
 });
 

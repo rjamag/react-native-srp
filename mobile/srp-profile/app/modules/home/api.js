@@ -23,13 +23,22 @@ export function getCurrentUserProfile(callback) {
         console.log("  Photo URL: " + profile.photoURL);
 
         if (profile.providerId === "facebook.com") {
-          user["profileFacebookEmail"] = profile.email;
-          user["profileFacebookId"] = profile.uid;
-          user["profileFacebookDisplayName"] = profile.displayName;
-          user["profileFacebookPhoneNumber"] = profile.phoneNumber;
-          user["profileFacebookPhotoUrl"] = profile.photoURL;
-          user["profileFacebookPhotoUrlLarge"] =
+          user["email"] = profile.email;
+          user["facebookId"] = profile.uid;
+          user["facebookDisplayName"] = profile.displayName;
+          // user["profileFacebookPhoneNumber"] = profile.phoneNumber;
+          user["photo"] = profile.photoURL;
+          user["photoLarge"] =
             "https://graph.facebook.com/" + profile.uid + "/picture?height=500";
+          user["phoneNumber"] = "";
+        } else if (profile.providerId === "password") {
+          user["email"] = profile.email;
+          user["facebookId"] = "";
+          user["facebookDisplayName"] = "";
+          //user["profileFacebookPhoneNumber"] = "";
+          user["photo"] = "";
+          user["photoLarge"] = "";
+          user["phoneNumber"] = "";
         }
       });
 
