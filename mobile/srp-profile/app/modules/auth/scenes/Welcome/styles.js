@@ -120,6 +120,21 @@ const styles = StyleSheet.create({
     width: windowWidth
   },
 
+  orContainer2: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: 25,
+    width: windowWidth
+  },
+
+  divider2: {
+    backgroundColor: "#D0D5DA",
+    position: "absolute",
+    top: 15,
+    left: 20,
+    right: 20
+  },
+
   divider: {
     backgroundColor: "#D0D5DA",
     position: "absolute",

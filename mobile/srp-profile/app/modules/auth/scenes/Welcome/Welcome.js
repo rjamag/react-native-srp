@@ -82,8 +82,8 @@ class Welcome extends React.Component {
 
           <View style={styles.bottomContainer}>
             <View style={[styles.buttonContainer]}>
-              <View style={styles.orContainer}>
-                <Divider style={styles.divider} />
+              <View style={styles.orContainer2}>
+                <Divider style={styles.divider2} />
                 <Text style={styles.orText}>
                   use your social network account
                 </Text>
