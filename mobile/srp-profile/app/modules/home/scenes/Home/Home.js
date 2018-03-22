@@ -116,7 +116,8 @@ class HomeTab extends Component {
               </ScrollView>
             </View>
           </View>
-          <CardComponent imageSource="11" likes="101" />
+          <CardComponent imageSource="9" likes="101" />
+          <CardComponent imageSource="1" likes="301" />
           <CardComponent imageSource="12" likes="201" />
           <CardComponent imageSource="6" likes="301" />
         </Content>

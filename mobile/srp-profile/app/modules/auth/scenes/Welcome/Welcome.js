@@ -50,6 +50,38 @@ class Welcome extends React.Component {
   }
 
   async onSignInWithGoogle() {
+    // GoogleSignin.signIn()
+    //   .then(user => {
+    //     console.log(user);
+    //     this.setState({ user: user });
+    //     console.log(user.token + " token");
+    //     let credential = {
+    //       provider: "google",
+    //       token: user.idToken,
+    //       secret: user.serverAuthCode,
+    //       provider: "google",
+    //       email: user.email,
+    //       providerId: "google"
+    //     };
+    //     console.log(credential);
+    //     Authentication.googleLogin(credential);
+    //   })
+    //   .catch(err => {
+    //     alert("WRONG SIGNIN" + err);
+    //   })
+    //   .done();
+    // static googleLogin(getCredentials) {
+    //         //this.setState({user: user});
+    //         firebase.auth().signInWithCredential(getCredentials)
+    //             .then((user) => {
+    //                 console.log('User successfully signed in', user)
+    //                 var user = firebase.auth().currentUser;
+    //                 console.log("Email: "+user.email);
+    //             })
+    //             .catch((err) => {
+    //                 console.error('User signin error', err);
+    //             });
+    //     }
     // this.props.signInWithGoogle(
     //   data.accessToken,
     //   this.onSuccess,
