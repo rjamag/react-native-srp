@@ -221,6 +221,7 @@ class Services extends Component {
                         marginLeft: 5,
                         justifyContent: "center"
                       }}
+                      onPress={this.onSignOut}
                     >
                       <Icon
                         name="ios-log-out"
