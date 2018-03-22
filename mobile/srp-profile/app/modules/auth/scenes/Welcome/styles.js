@@ -17,13 +17,15 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "flex-start",
     //backgroundColor: "#FF553F"
-    backgroundColor: "#fff"
+    // backgroundColor: "#fff"
+    backgroundColor: "rgba(0,0,0,0)"
   },
 
   image: {
     height: 75,
     width: 75,
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
+    backgroundColor: "rgba(0,0,0,0)",
     marginTop: padding * 5,
     marginBottom: 5,
     marginLeft: 15,
@@ -49,7 +51,8 @@ const styles = StyleSheet.create({
     color: color.black,
     marginTop: 10,
     paddingHorizontal: padding * 3,
-    letterSpacing: 10
+    letterSpacing: 10,
+    backgroundColor: "rgba(0,0,0,0)"
   },
 
   subText: {
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
   //===============================
 
   bottomContainer: {
-    backgroundColor: "#ffffff",
+    // backgroundColor: "#ffffff",
     paddingVertical: padding * 3
   },
 
@@ -104,7 +107,8 @@ const styles = StyleSheet.create({
     fontSize: fontSize.regular,
     fontFamily: fontFamily.medium,
     marginRight: 5,
-    color: "#414141"
+    color: "#fff"
+    // color: "#414141"
   },
 
   signInText: {
@@ -117,18 +121,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: 40,
-    width: windowWidth
+    width: windowWidth,
+    backgroundColor: "rgba(0,0,0,0)"
   },
 
   orContainer2: {
     justifyContent: "center",
     alignItems: "center",
     height: 25,
-    width: windowWidth
+    width: windowWidth,
+    backgroundColor: "rgba(0,0,0,0)"
   },
 
   divider2: {
-    backgroundColor: "#D0D5DA",
+    // backgroundColor: "#D0D5DA",
+    backgroundColor: "rgba(0,0,0,0)",
     position: "absolute",
     top: 15,
     left: 20,
@@ -136,7 +143,8 @@ const styles = StyleSheet.create({
   },
 
   divider: {
-    backgroundColor: "#D0D5DA",
+    // backgroundColor: "#D0D5DA",
+    backgroundColor: "rgba(0,0,0,0)",
     position: "absolute",
     top: 19,
     left: 20,
@@ -144,10 +152,12 @@ const styles = StyleSheet.create({
   },
 
   orText: {
-    backgroundColor: "white",
+    // backgroundColor: "white",
+    backgroundColor: "rgba(0,0,0,0)",
     fontSize: fontSize.regular,
     fontFamily: fontFamily.medium,
-    color: "#414141",
+    // color: "#414141",
+    color: "#fff",
     paddingHorizontal: padding
   }
 });

@@ -152,9 +152,7 @@ class Services extends Component {
               >
                 <Image
                   source={
-                    this.props.user.photoLarge
-                      ? { uri: this.props.user.photoLarge }
-                      : ""
+                    this.props.user.photo ? { uri: this.props.user.photo } : ""
                   }
                   style={{ width: 75, height: 75, borderRadius: 37.5 }}
                 />
