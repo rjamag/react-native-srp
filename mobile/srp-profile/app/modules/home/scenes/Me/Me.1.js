@@ -4,7 +4,7 @@ import { View, StyleSheet, Alert } from "react-native";
 import { Actions } from "react-native-router-flux";
 import { connect } from "react-redux";
 
-//import styles from "./styles";
+import styles from "./styles";
 
 import { actions as auth, theme } from "../../../auth/index";
 import { authReducer } from "../../../auth/index";
@@ -20,7 +20,7 @@ const { color } = theme;
 
 const { getCurrentUserProfile } = userprof;
 
-class Me extends React.Component {
+class Me1 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -113,7 +113,16 @@ class Me extends React.Component {
     if (!this.props) return <View />;
 
     return (
-      <ScrollView style="styles.container">
+      <ScrollView>
+        {/*
+        <Tile
+          imageSrc=""
+          featured
+          title=""
+          caption={this.props.user.email ? this.props.user.email : ""}
+        />
+         */}
+
         <Tile
           imageSrc={
             this.props.user.photoLarge
@@ -179,11 +188,6 @@ const mapStateToProps = state => {
 // };
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Me);
-export default connect(mapStateToProps, { getCurrentUserProfile, signOut })(Me);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white"
-  }
-});
+export default connect(mapStateToProps, { getCurrentUserProfile, signOut })(
+  Me1
+);

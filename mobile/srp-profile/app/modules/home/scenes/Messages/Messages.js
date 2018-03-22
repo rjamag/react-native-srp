@@ -1,44 +1,138 @@
-import React from "react";
-var { Text, View, StyleSheet, Alert } = require("react-native");
+import React, { Component } from "react";
+import { View, StyleSheet, ScrollView } from "react-native";
+import {
+  Container,
+  Header,
+  Content,
+  List,
+  ListItem,
+  Left,
+  Body,
+  Right,
+  Thumbnail,
+  Text
+} from "native-base";
 
-import { Button } from "react-native-elements";
-import { Actions } from "react-native-router-flux";
-import { connect } from "react-redux";
-
-import styles from "./styles";
-
-import { actions as auth, theme } from "../../../auth/index";
-const { signOut } = auth;
-
-const { color } = theme;
-
-class Messages extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-
-    this.onSignOut = this.onSignOut.bind(this);
-  }
-
-  onSignOut() {
-    this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this));
-  }
-
-  onSuccess() {
-    Actions.reset("Auth");
-  }
-
-  onError(error) {
-    Alert.alert("Oops!", error.message);
-  }
-
+class Messages extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Messages</Text>
-      </View>
+      <Container style={styles.container}>
+        <Content>
+          <List>
+            <ListItem avatar>
+              <Left>
+                <Thumbnail
+                  style={{ borderColor: "grey", borderWidth: 1 }}
+                  source={require("../../components/assets/StoriesHeaderThumbnails/7.jpg")}
+                />
+              </Left>
+              <Body>
+                <Text>Jack Ripper</Text>
+                <Text note>
+                  Doing what you like will always keep you happy . .
+                </Text>
+              </Body>
+              <Right>
+                <Text note>3:43 pm</Text>
+              </Right>
+            </ListItem>
+            <ListItem avatar>
+              <Left>
+                <Thumbnail
+                  style={{ borderColor: "grey", borderWidth: 1 }}
+                  source={require("../../components/assets/StoriesHeaderThumbnails/2.jpg")}
+                />
+              </Left>
+              <Body>
+                <Text>Steve Gates</Text>
+                <Text note>
+                  Doing what you like will always keep you happy . .
+                </Text>
+              </Body>
+              <Right>
+                <Text note>3:43 pm</Text>
+              </Right>
+            </ListItem>
+            <ListItem avatar>
+              <Left>
+                <Thumbnail
+                  style={{ borderColor: "grey", borderWidth: 1 }}
+                  source={require("../../components/assets/StoriesHeaderThumbnails/3.jpg")}
+                />
+              </Left>
+              <Body>
+                <Text>Carlos Slim</Text>
+                <Text note>
+                  Doing what you like will always keep you happy . .
+                </Text>
+              </Body>
+              <Right>
+                <Text note>3:43 pm</Text>
+              </Right>
+            </ListItem>
+            <ListItem avatar>
+              <Left>
+                <Thumbnail
+                  style={{ borderColor: "grey", borderWidth: 1 }}
+                  source={require("../../components/assets/StoriesHeaderThumbnails/4.jpg")}
+                />
+              </Left>
+              <Body>
+                <Text>Bob McLaren</Text>
+                <Text note>
+                  Doing what you like will always keep you happy . .
+                </Text>
+              </Body>
+              <Right>
+                <Text note>3:43 pm</Text>
+              </Right>
+            </ListItem>
+            <ListItem avatar>
+              <Left>
+                <Thumbnail
+                  style={{ borderColor: "grey", borderWidth: 1 }}
+                  source={require("../../components/assets/StoriesHeaderThumbnails/5.jpg")}
+                />
+              </Left>
+              <Body>
+                <Text>David Johnson</Text>
+                <Text note>
+                  Doing what you like will always keep you happy . .
+                </Text>
+              </Body>
+              <Right>
+                <Text note>3:43 pm</Text>
+              </Right>
+            </ListItem>
+            <ListItem avatar>
+              <Left>
+                <Thumbnail
+                  style={{ borderColor: "grey", borderWidth: 1 }}
+                  source={require("../../components/assets/StoriesHeaderThumbnails/6.jpg")}
+                />
+              </Left>
+              <Body>
+                <Text>Mick Taylor</Text>
+                <Text note>
+                  Doing what you like will always keep you happy . .
+                </Text>
+              </Body>
+              <Right>
+                <Text note>3:43 pm</Text>
+              </Right>
+            </ListItem>
+          </List>
+        </Content>
+      </Container>
     );
   }
 }
 
-export default connect(null, { signOut })(Messages);
+export default Messages;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white"
+  }
+});

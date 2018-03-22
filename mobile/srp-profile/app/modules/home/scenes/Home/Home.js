@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-
 import {
   Container,
   Content,
@@ -13,7 +12,6 @@ import {
   Fab,
   Button
 } from "native-base";
-
 import CardComponent from "../../components/CardComponent/CardComponent";
 
 class HomeTab extends Component {
@@ -129,15 +127,15 @@ class HomeTab extends Component {
           position="bottomRight"
           onPress={() => this.setState({ active: !this.state.active })}
         >
-          <Icon name="ios-build" />
+          <Icon name="ios-mic-outline" />
           <Button style={{ backgroundColor: "#34A34F" }}>
-            <Icon name="logo-whatsapp" />
+            <Icon name="ios-build" />
           </Button>
           <Button style={{ backgroundColor: "#3B5998" }}>
             <Icon name="logo-facebook" />
           </Button>
           <Button disabled style={{ backgroundColor: "#5067FF" }}>
-            <Icon name="mail" />
+            <Icon name="ios-bulb-outline" />
           </Button>
         </Fab>
       </Container>
