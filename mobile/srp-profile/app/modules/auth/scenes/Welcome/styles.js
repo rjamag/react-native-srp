@@ -26,8 +26,9 @@ const styles = StyleSheet.create({
     width: 75,
     // backgroundColor: "#fff",
     backgroundColor: "rgba(0,0,0,0)",
-    marginTop: padding * 5,
-    marginBottom: 5,
+    // marginTop: padding * 5,
+    marginTop: padding,
+    marginBottom: 0,
     marginLeft: 15,
     padding: padding * 5,
     resizeMode,
@@ -38,8 +39,9 @@ const styles = StyleSheet.create({
     fontSize: fontSize.large + 5,
     lineHeight: fontSize.large + 4,
     fontFamily: fontFamily.regular,
-    color: color.light_black,
-    marginTop: 10,
+    // color: color.light_black,
+    color: "#DD5144",
+    marginTop: 5,
     paddingHorizontal: padding * 3,
     letterSpacing: 5
   },
@@ -48,8 +50,9 @@ const styles = StyleSheet.create({
     fontSize: fontSize.large + 5,
     lineHeight: fontSize.large + 4,
     fontFamily: fontFamily.medium,
-    color: color.black,
-    marginTop: 10,
+    // color: color.black,
+    color: "rgb(99,139,250)",
+    marginTop: 5,
     paddingHorizontal: padding * 3,
     letterSpacing: 10,
     backgroundColor: "rgba(0,0,0,0)"
@@ -108,7 +111,7 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.medium,
     marginRight: 5,
     color: "#fff"
-    // color: "#414141"
+    //color: "#414141"
   },
 
   signInText: {
@@ -156,7 +159,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,0,0,0)",
     fontSize: fontSize.regular,
     fontFamily: fontFamily.medium,
-    // color: "#414141",
+    //color: "#414141",
     color: "#fff",
     paddingHorizontal: padding
   }

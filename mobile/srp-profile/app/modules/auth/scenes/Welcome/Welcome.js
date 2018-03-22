@@ -112,11 +112,14 @@ class Welcome extends React.Component {
     const remoteURL =
       "https://cdn.wonderfulengineering.com/wp-content/uploads/2014/05/iPhone-wallpaper-14.jpg";
 
-    http: return (
+    // const remoteURL =
+    //   "https://media.gettyimages.com/vectors/maintenance-vector-id918793282";
+
+    return (
       <AuthContainer>
         <SafeAreaView style={styles.container}>
           <ImageBackground
-            style={{ flex: 1, resizeMode: "center" }}
+            style={{ flex: 1, resizeMode: "cover" }}
             source={{ uri: remoteURL }}
           >
             <View style={styles.topContainer}>
