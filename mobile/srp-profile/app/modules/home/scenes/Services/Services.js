@@ -9,6 +9,8 @@ import {
 
 import Voice from "react-native-voice";
 
+import Tts from "react-native-tts";
+
 import {
   Container,
   Content,
@@ -91,6 +93,14 @@ class Services extends React.Component {
   }
 
   async _startRecognizing(e) {
+    //Tts.voices().then(voices => console.log(voices));
+    //26:{language: "pt-BR", id: "com.apple.ttsbundle.Luciana-compact", quality: 300, name: "Luciana"}
+    Tts.setDefaultLanguage("pt-BR");
+    Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
+    Tts.setDucking(true);
+    //Tts.speak("Hello!!!, tell me a category!,or a professional name!");
+    Tts.speak("Olá! Como posso te ajudar?");
+    //Tts.stop();
     this.setState({
       buttonActive: true,
       recognized: "",
@@ -101,6 +111,7 @@ class Services extends React.Component {
       partialResults: [],
       end: ""
     });
+
     try {
       //      await Voice.start("en-US");
       await Voice.start("pt-BR");
@@ -117,6 +128,12 @@ class Services extends React.Component {
     } catch (e) {
       console.error(e);
     }
+
+    this.state.results.map((result, index) => {
+      console.log(
+        "reconhecimento de voz - resultado: [" + index + "] - " + result
+      );
+    });
   }
 
   async _cancelRecognizing(e) {

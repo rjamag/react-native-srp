@@ -88,7 +88,9 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
-  <key>NSSpeechRecognitionUsageDescription</key>
-  <string>Allow msrp to use speech recognition</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Allow msrp to use microphone</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Allow msrp to use speech recognition</string>
 </dict>
 </plist>

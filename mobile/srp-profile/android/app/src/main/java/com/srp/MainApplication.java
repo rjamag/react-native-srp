@@ -5,6 +5,36 @@ import android.app.Application;
 import com.facebook.react.ReactApplication;
 import com.wenkesj.voice.VoicePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+import net.no_mad.tts.TextToSpeechPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.wenkesj.voice.VoicePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import net.no_mad.tts.TextToSpeechPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.wenkesj.voice.VoicePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.wenkesj.voice.VoicePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import net.no_mad.tts.TextToSpeechPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.wenkesj.voice.VoicePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import net.no_mad.tts.TextToSpeechPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.wenkesj.voice.VoicePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import net.no_mad.tts.TextToSpeechPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import net.no_mad.tts.TextToSpeechPackage;
+import com.wenkesj.voice.VoicePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
@@ -38,6 +68,36 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VoicePackage(),
+            new VectorIconsPackage(),
+            new TextToSpeechPackage(),
+            new RNFirebasePackage(),
+            new FBSDKPackage(),
+            new VoicePackage(),
+            new VectorIconsPackage(),
+            new TextToSpeechPackage(),
+            new RNFirebasePackage(),
+            new FBSDKPackage(),
+            new VoicePackage(),
+            new VectorIconsPackage(),
+            new RNFirebasePackage(),
+            new FBSDKPackage(),
+            new VoicePackage(),
+            new VectorIconsPackage(),
+            new TextToSpeechPackage(),
+            new RNFirebasePackage(),
+            new FBSDKPackage(),
+            new VoicePackage(),
+            new VectorIconsPackage(),
+            new TextToSpeechPackage(),
+            new RNFirebasePackage(),
+            new FBSDKPackage(),
+            new VoicePackage(),
+            new VectorIconsPackage(),
+            new TextToSpeechPackage(),
+            new RNFirebasePackage(),
+            new FBSDKPackage(),
+            new TextToSpeechPackage(),
             new VoicePackage(),
             new VectorIconsPackage(),
             new RNFirebasePackage(),
