@@ -98,9 +98,17 @@ class Services extends React.Component {
     Tts.setDefaultLanguage("pt-BR");
     Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
     Tts.setDucking(true);
+
+    Tts.addEventListener("tts-start", event => console.log("start", event));
+
+    Tts.addEventListener("tts-finish", event => console.log("finish", event));
+
+    Tts.addEventListener("tts-cancel", event => console.log("cancel", event));
+
     //Tts.speak("Hello!!!, tell me a category!,or a professional name!");
-    Tts.speak("Olá! Como posso te ajudar?");
+    Tts.speak("Oi!!! como posso ajudar?!?!?!");
     //Tts.stop();
+
     this.setState({
       buttonActive: true,
       recognized: "",
