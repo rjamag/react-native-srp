@@ -130,7 +130,7 @@ class Services extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native Voice!</Text>
+        <Text style={styles.welcome}>Speech Recognition</Text>
         <Text style={styles.instructions}>
           Press the button and start speaking.
         </Text>
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: "#fff"
   },
   welcome: {
     fontSize: 20,
