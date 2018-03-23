@@ -132,13 +132,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: 25,
+    //height: 40,
     width: windowWidth,
     backgroundColor: "rgba(0,0,0,0)"
   },
 
   divider2: {
-    // backgroundColor: "#D0D5DA",
-    backgroundColor: "rgba(0,0,0,0)",
+    //backgroundColor: "#D0D5DA",
+    backgroundColor: "rgba(0,0,0,0.2)",
     position: "absolute",
     top: 15,
     left: 20,
@@ -146,8 +147,8 @@ const styles = StyleSheet.create({
   },
 
   divider: {
-    // backgroundColor: "#D0D5DA",
-    backgroundColor: "rgba(0,0,0,0)",
+    //backgroundColor: "#D0D5DA",
+    backgroundColor: "rgba(0,0,0,0.2)",
     position: "absolute",
     top: 19,
     left: 20,

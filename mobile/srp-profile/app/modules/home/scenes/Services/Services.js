@@ -9,10 +9,24 @@ import {
 
 import Voice from "react-native-voice";
 
+import {
+  Container,
+  Content,
+  Icon,
+  Thumbnail,
+  Header,
+  Left,
+  Right,
+  Body,
+  Fab,
+  Button
+} from "native-base";
+
 class Services extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      buttonActive: false,
       recognized: "",
       pitch: "",
       error: "",
@@ -78,6 +92,7 @@ class Services extends React.Component {
 
   async _startRecognizing(e) {
     this.setState({
+      buttonActive: true,
       recognized: "",
       pitch: "",
       error: "",
@@ -95,6 +110,8 @@ class Services extends React.Component {
   }
 
   async _stopRecognizing(e) {
+    this.setState({ buttonActive: false });
+
     try {
       await Voice.stop();
     } catch (e) {
@@ -129,49 +146,71 @@ class Services extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Speech Recognition</Text>
-        <Text style={styles.instructions}>
-          Press the button and start speaking.
-        </Text>
-        <Text style={styles.stat}>{`Started: ${this.state.started}`}</Text>
-        <Text style={styles.stat}>
-          {`Recognized: ${this.state.recognized}`}
-        </Text>
-        <Text style={styles.stat}>{`Pitch: ${this.state.pitch}`}</Text>
-        <Text style={styles.stat}>{`Error: ${this.state.error}`}</Text>
-        <Text style={styles.stat}>Results</Text>
-        {this.state.results.map((result, index) => {
-          return (
-            <Text key={`result-${index}`} style={styles.stat}>
-              {result}
-            </Text>
-          );
-        })}
-        <Text style={styles.stat}>Partial Results</Text>
-        {this.state.partialResults.map((result, index) => {
-          return (
-            <Text key={`partial-result-${index}`} style={styles.stat}>
-              {result}
-            </Text>
-          );
-        })}
-        <Text style={styles.stat}>{`End: ${this.state.end}`}</Text>
-        <TouchableHighlight onPress={this._startRecognizing.bind(this)}>
-          <Image
-            style={styles.button}
-            source={require("../../components/assets/StoriesHeaderThumbnails/2.jpg")}
-          />
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this._stopRecognizing.bind(this)}>
-          <Text style={styles.action}>Stop Recognizing</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this._cancelRecognizing.bind(this)}>
-          <Text style={styles.action}>Cancel</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this._destroyRecognizer.bind(this)}>
-          <Text style={styles.action}>Destroy</Text>
-        </TouchableHighlight>
+      <View>
+        {/* <View style={styles.container}>
+          <Text style={styles.welcome}>Speech Recognition</Text>
+          <Text style={styles.instructions}>
+            Press the button and start speaking.
+          </Text>
+          <Text style={styles.stat}>{`Started: ${this.state.started}`}</Text>
+          <Text style={styles.stat}>
+            {`Recognized: ${this.state.recognized}`}
+          </Text>
+          <Text style={styles.stat}>{`Pitch: ${this.state.pitch}`}</Text>
+          <Text style={styles.stat}>{`Error: ${this.state.error}`}</Text>
+          <Text style={styles.stat}>Results</Text>
+          {this.state.results.map((result, index) => {
+            return (
+              <Text key={`result-${index}`} style={styles.stat}>
+                {result}
+              </Text>
+            );
+          })}
+          <Text style={styles.stat}>Partial Results</Text>
+          {this.state.partialResults.map((result, index) => {
+            return (
+              <Text key={`partial-result-${index}`} style={styles.stat}>
+                {result}
+              </Text>
+            );
+          })}
+          <Text style={styles.stat}>{`End: ${this.state.end}`}</Text>
+          <TouchableWithoutFeedback 
+                onPressIn={this.handlePressIn} 
+                onPressOut={this.handlePressOut}
+            >
+        <TouchableHighlight onPress={this._startRecognizing.bind(this)}> 
+         
+            <Image
+              style={styles.button}
+              source={require("../../components/assets/StoriesHeaderThumbnails/2.jpg")}
+            />
+          </TouchableHighlight>
+          <TouchableHighlight onPress={this._stopRecognizing.bind(this)}>
+            <Text style={styles.action}>Stop Recognizing</Text>
+          </TouchableHighlight>
+          <TouchableHighlight onPress={this._cancelRecognizing.bind(this)}>
+            <Text style={styles.action}>Cancel</Text>
+          </TouchableHighlight>
+          <TouchableHighlight onPress={this._destroyRecognizer.bind(this)}>
+            <Text style={styles.action}>Destroy</Text>
+          </TouchableHighlight>
+        </View> */}
+        <Fab
+          active="true"
+          direction="up"
+          containerStyle={{}}
+          style={
+            this.state.buttonActive
+              ? { backgroundColor: "#DD5144" }
+              : { backgroundColor: "#000" }
+          }
+          position="bottomRight"
+          onPressIn={this._startRecognizing.bind(this)}
+          onPressOut={this._stopRecognizing.bind(this)}
+        >
+          <Icon name="ios-mic-outline" />
+        </Fab>
       </View>
     );
   }

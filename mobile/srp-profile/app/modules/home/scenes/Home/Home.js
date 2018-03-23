@@ -13,8 +13,9 @@ import {
   Button
 } from "native-base";
 import CardComponent from "../../components/CardComponent/CardComponent";
+import Services from "../Services/Services";
 
-class HomeTab extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
 
@@ -119,7 +120,7 @@ class HomeTab extends Component {
           <CardComponent imageSource="12" likes="201" />
           <CardComponent imageSource="6" likes="301" />
         </Content>
-        <Fab
+        {/* <Fab
           active={this.state.active}
           direction="up"
           containerStyle={{}}
@@ -137,12 +138,14 @@ class HomeTab extends Component {
           <Button disabled style={{ backgroundColor: "#5067FF" }}>
             <Icon name="ios-bulb-outline" />
           </Button>
-        </Fab>
+        </Fab> */}
+
+        <Services />
       </Container>
     );
   }
 }
-export default HomeTab;
+export default Home;
 
 const styles = StyleSheet.create({
   container: {
