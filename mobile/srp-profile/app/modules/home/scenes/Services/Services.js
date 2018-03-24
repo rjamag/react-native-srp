@@ -25,6 +25,12 @@ import {
   Toast
 } from "native-base";
 
+const wait = ms => {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+};
+
 class Services extends React.Component {
   constructor(props) {
     super(props);
@@ -139,6 +145,8 @@ class Services extends React.Component {
       console.error(e);
     }
 
+    await wait(3000);
+
     Tts.setDefaultLanguage("pt-BR");
     Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
     Tts.setDucking(true);
@@ -155,7 +163,7 @@ class Services extends React.Component {
 
         Toast.show({
           text: "Luciana: você disse " + result,
-          position: "top",
+          position: "bottom",
           buttonText: "",
           type: "",
           duration: 3000
@@ -168,7 +176,7 @@ class Services extends React.Component {
 
       Toast.show({
         text: "Luciana: não entendi",
-        position: "top",
+        position: "bottom",
         buttonText: "",
         type: "danger",
         duration: 3000
