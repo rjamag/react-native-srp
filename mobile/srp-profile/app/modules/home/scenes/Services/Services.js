@@ -153,8 +153,8 @@ class Services extends React.Component {
       });
     } else {
       Tts.speak("não entendi.");
-      _cancelRecognizing();
-      _destroyRecognizer();
+      //_cancelRecognizing();
+      //_destroyRecognizer();
     }
   }
 
@@ -185,8 +185,8 @@ class Services extends React.Component {
 
   render() {
     return (
-      <View>
-        {/* <View style={styles.container}>
+      <Container>
+        <View style={styles.container}>
           <Text style={styles.welcome}>Speech Recognition</Text>
           <Text style={styles.instructions}>
             Press the button and start speaking.
@@ -214,10 +214,10 @@ class Services extends React.Component {
             );
           })}
           <Text style={styles.stat}>{`End: ${this.state.end}`}</Text>
-           <TouchableWithoutFeedback 
+          {/* <TouchableWithoutFeedback 
                 onPressIn={this.handlePressIn} 
                 onPressOut={this.handlePressOut}
-            > 
+            >  */}
           <TouchableHighlight onPress={this._startRecognizing.bind(this)}>
             <Image
               style={styles.button}
@@ -233,7 +233,7 @@ class Services extends React.Component {
           <TouchableHighlight onPress={this._destroyRecognizer.bind(this)}>
             <Text style={styles.action}>Destroy</Text>
           </TouchableHighlight>
-        </View> */}
+        </View>
         <Fab
           active="true"
           direction="up"
@@ -249,7 +249,7 @@ class Services extends React.Component {
         >
           <Icon name="ios-mic-outline" />
         </Fab>
-      </View>
+      </Container>
     );
   }
 }

@@ -104,7 +104,7 @@ export default class extends React.Component {
           >
             <Scene
               key="Tab1"
-              title="Instamatic"
+              title="Yellow U!"
               initial={true}
               titleStyle={styles.homeTitle}
               icon={({ focused }) => (
@@ -158,7 +158,7 @@ export default class extends React.Component {
                 key="Tab1_1"
                 component={Home}
                 style={{ fontSize: 20 }}
-                title="Instamatic"
+                title="Yellow U!"
               />
               <Scene key="Tab1_2" component={Search} title="Search" />
             </Scene>
@@ -182,7 +182,7 @@ export default class extends React.Component {
 
             <Scene
               key="Tab3"
-              component={Services}
+              component={Messages}
               title="Services"
               icon={({ focused }) => (
                 <Icon
