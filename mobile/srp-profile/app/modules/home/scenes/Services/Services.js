@@ -138,12 +138,13 @@ class Services extends React.Component {
     } catch (e) {
       console.error(e);
     }
+
     Tts.setDefaultLanguage("pt-BR");
     Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
     Tts.setDucking(true);
 
     if (this.state.results.length > 0) {
-      Tts.speak("Eu entendi...");
+      Tts.speak("você disse");
 
       this.state.results.map((result, index) => {
         console.log(
@@ -153,7 +154,7 @@ class Services extends React.Component {
         Tts.speak(result);
 
         Toast.show({
-          text: result,
+          text: "Luciana: você disse " + result,
           position: "top",
           buttonText: "",
           type: "",
@@ -164,6 +165,14 @@ class Services extends React.Component {
       Tts.speak("não entendi.");
       //_cancelRecognizing();
       //_destroyRecognizer();
+
+      Toast.show({
+        text: "Luciana: não entendi",
+        position: "top",
+        buttonText: "",
+        type: "danger",
+        duration: 3000
+      });
     }
   }
 
