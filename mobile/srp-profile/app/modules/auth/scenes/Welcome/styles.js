@@ -17,8 +17,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "flex-start",
     //backgroundColor: "#FF553F"
-    // backgroundColor: "#fff"
-    backgroundColor: "rgba(0,0,0,0)"
+    //backgroundColor: "#000"
+    //backgroundColor: "#ffce00"
+    backgroundColor: "rgba(0,0,0,0.9)"
   },
 
   image: {
@@ -39,20 +40,22 @@ const styles = StyleSheet.create({
     fontSize: fontSize.large + 5,
     lineHeight: fontSize.large + 4,
     fontFamily: fontFamily.regular,
-    // color: color.light_black,
-    color: "#DD5144",
-    marginTop: 5,
+    //color: color.light_black,
+    //color: "#DD5144",
+    color: color.light_grey,
+    marginTop: 10,
     paddingHorizontal: padding * 3,
     letterSpacing: 5
   },
 
   title2: {
-    fontSize: fontSize.large + 5,
-    lineHeight: fontSize.large + 4,
+    fontSize: fontSize.large + 7,
+    lineHeight: fontSize.large + 6,
     fontFamily: fontFamily.medium,
-    // color: color.black,
-    color: "rgb(99,139,250)",
-    marginTop: 5,
+    color: "#ffce00",
+    //color: "#ffce00",
+    //color: "rgb(99,139,250)",
+    marginTop: 10,
     paddingHorizontal: padding * 3,
     letterSpacing: 10,
     backgroundColor: "rgba(0,0,0,0)"
@@ -69,6 +72,8 @@ const styles = StyleSheet.create({
 
   bottomContainer: {
     // backgroundColor: "#ffffff",
+    //backgroundColor: "#ffce00",
+    backgroundColor: "rgba(0,0,0,0.9)",
     paddingVertical: padding * 3
   },
 
@@ -90,8 +95,16 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#414141",
+    //    backgroundColor: "#414141",
+    //backgroundColor: "rgba(255,255,255,0.3)",
+    backgroundColor: "#ffce00",
     height: normalize(55)
+  },
+
+  buttonText2: {
+    fontSize: fontSize.regular + 2,
+    fontFamily: fontFamily.regular,
+    color: "rgba(0,0,0,0.9)"
   },
 
   buttonText: {
@@ -139,7 +152,7 @@ const styles = StyleSheet.create({
 
   divider2: {
     //backgroundColor: "#D0D5DA",
-    backgroundColor: "rgba(0,0,0,0.2)",
+    backgroundColor: "rgba(255,255,255,0.2)",
     position: "absolute",
     top: 15,
     left: 20,
@@ -148,7 +161,7 @@ const styles = StyleSheet.create({
 
   divider: {
     //backgroundColor: "#D0D5DA",
-    backgroundColor: "rgba(0,0,0,0.2)",
+    backgroundColor: "rgba(255,255,255,0.2)",
     position: "absolute",
     top: 19,
     left: 20,

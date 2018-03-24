@@ -95,18 +95,19 @@ class Services extends React.Component {
   async _startRecognizing(e) {
     //Tts.voices().then(voices => console.log(voices));
     //26:{language: "pt-BR", id: "com.apple.ttsbundle.Luciana-compact", quality: 300, name: "Luciana"}
-    Tts.setDefaultLanguage("pt-BR");
-    Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
-    Tts.setDucking(true);
+    // Tts.setDefaultLanguage("pt-BR");
+    // Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
+    // Tts.setDucking(true);
 
-    Tts.addEventListener("tts-start", event => console.log("start", event));
+    // Tts.addEventListener("tts-start", event => console.log("start", event));
 
-    Tts.addEventListener("tts-finish", event => console.log("finish", event));
+    // Tts.addEventListener("tts-finish", event => console.log("finish", event));
 
-    Tts.addEventListener("tts-cancel", event => console.log("cancel", event));
+    // Tts.addEventListener("tts-cancel", event => console.log("cancel", event));
 
     //Tts.speak("Hello!!!, tell me a category!,or a professional name!");
-    Tts.speak("Oi!!! como posso ajudar?!?!?!");
+    //Tts.speak("O que procura?");
+    //Tts.speak("Como posso ajudar?");
     //Tts.stop();
 
     this.setState({
@@ -136,12 +137,23 @@ class Services extends React.Component {
     } catch (e) {
       console.error(e);
     }
+    Tts.setDefaultLanguage("pt-BR");
+    Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
+    Tts.setDucking(true);
 
-    this.state.results.map((result, index) => {
-      console.log(
-        "reconhecimento de voz - resultado: [" + index + "] - " + result
-      );
-    });
+    if (this.state.results.length > 0) {
+      Tts.speak("Eu entendi...");
+
+      this.state.results.map((result, index) => {
+        console.log(
+          "reconhecimento de voz - resultado: [" + index + "] - " + result
+        );
+
+        Tts.speak(result);
+      });
+    } else {
+      Tts.speak("Eu não entendi, por favor repita novamente");
+    }
   }
 
   async _cancelRecognizing(e) {
@@ -200,12 +212,11 @@ class Services extends React.Component {
             );
           })}
           <Text style={styles.stat}>{`End: ${this.state.end}`}</Text>
-          <TouchableWithoutFeedback 
+           <TouchableWithoutFeedback 
                 onPressIn={this.handlePressIn} 
                 onPressOut={this.handlePressOut}
-            >
-        <TouchableHighlight onPress={this._startRecognizing.bind(this)}> 
-         
+            > 
+          <TouchableHighlight onPress={this._startRecognizing.bind(this)}>
             <Image
               style={styles.button}
               source={require("../../components/assets/StoriesHeaderThumbnails/2.jpg")}

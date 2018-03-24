@@ -109,11 +109,13 @@ class Welcome extends React.Component {
     // const remoteURL =
     //   "https://crispme.com/wp-content/uploads/2015/07/Filament.jpg";
 
-    const remoteURL =
-      "https://cdn.wonderfulengineering.com/wp-content/uploads/2014/05/iPhone-wallpaper-14.jpg";
+    // const remoteURL =
+    //   "https://cdn.wonderfulengineering.com/wp-content/uploads/2014/05/iPhone-wallpaper-14.jpg";
 
     // const remoteURL =
     //   "https://media.gettyimages.com/vectors/maintenance-vector-id918793282";
+
+    const remoteURL = "";
 
     return (
       <AuthContainer>
@@ -123,13 +125,25 @@ class Welcome extends React.Component {
             source={{ uri: remoteURL }}
           >
             <View style={styles.topContainer}>
-              <Image
+              {/* <Image
                 source={require("../../../../assets/icons/icon.png")}
                 style={styles.image}
                 resizeMode="contain"
+
+                https://upload.wikimedia.org/wikipedia/en/thumb/7/7f/Yellow_Pages_logo.svg/220px-Yellow_Pages_logo.svg.png
+              /> */}
+
+              <Image
+                source={{
+                  uri:
+                    "https://upload.wikimedia.org/wikipedia/en/thumb/7/7f/Yellow_Pages_logo.svg/220px-Yellow_Pages_logo.svg.png"
+                }}
+                style={styles.image}
+                resizeMode="contain"
               />
-              <Text style={[styles.title2]}>Welcome,</Text>
+              <Text style={[styles.title2]}>Yellow U!</Text>
               <Text style={[styles.title]}>sign in to continue</Text>
+              {/* <Text style={[styles.title]}>sign in to continue</Text> */}
             </View>
 
             <View style={styles.bottomContainer}>
@@ -175,7 +189,7 @@ class Welcome extends React.Component {
                   title={"sign in with e-mail"}
                   containerViewStyle={[styles.containerView]}
                   buttonStyle={[styles.button]}
-                  textStyle={styles.buttonText}
+                  textStyle={styles.buttonText2}
                   onPress={Actions.Login}
                 />
               </View>
