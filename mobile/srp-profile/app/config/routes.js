@@ -38,6 +38,8 @@ import { checkLoginStatus } from "../modules/auth/actions";
 
 import { fontFamily, normalize, tabIconStyle } from "../styles/theme";
 
+import { Root } from "native-base";
+
 export default class extends React.Component {
   constructor() {
     super();
@@ -60,185 +62,191 @@ export default class extends React.Component {
     if (!this.state.isReady) return <Splash />;
 
     return (
-      <Router>
-        <Scene
-          key="root"
-          hideNavBar
-          navigationBarStyle={styles.navBar}
-          titleStyle={styles.title}
-          backButtonTintColor={"rgba(0,0,0,.84)"}
-        >
-          <Stack key="Auth" initial={!this.state.isLoggedIn}>
-            <Scene
-              key="Welcome"
-              component={Welcome}
-              title=""
-              initial={true}
-              hideNavBar
-            />
-            <Scene key="Register" component={Register} title="" back />
-            <Scene
-              key="CompleteProfile"
-              component={CompleteProfile}
-              title="Enter Username"
-              back={false}
-            />
-            <Scene key="Login" component={Login} title="Login" />
-            <Scene
-              key="ForgotPassword"
-              component={ForgotPassword}
-              title="Forgot Password"
-            />
-          </Stack>
-
+      <Root>
+        <Router>
           <Scene
-            key="Main"
-            tabs={true}
-            initial={this.state.isLoggedIn}
-            showLabel={false}
-            lazy={true}
-            tabStyle={styles.tab}
-            tabBarStyle={styles.tabs}
-            labelStyle={styles.label}
-            swipeEnabled={false}
+            key="root"
+            hideNavBar
+            navigationBarStyle={styles.navBar}
+            titleStyle={styles.title}
+            backButtonTintColor={"rgba(0,0,0,.84)"}
           >
-            <Scene
-              key="Tab1"
-              title="Yellow U!"
-              initial={true}
-              titleStyle={styles.homeTitle}
-              icon={({ focused }) => (
-                <Icon
-                  name="ios-home"
-                  size={30}
-                  iconStyle={{ width: 30, height: 30 }}
-                  type="ionicon"
-                  color={focused ? activeTintColor : inactiveTintColor}
-                />
-              )}
-              type={ActionConst.REPLACE}
-              renderRightButton={({ focused }) => (
-                <Icon
-                  name="ios-search"
-                  size={30}
-                  iconStyle={{
-                    padding: 0,
-                    top: 0,
-                    right: 10,
-                    width: 30,
-                    height: 30,
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                  type="ionicon"
-                  color={activeTintColor}
-                  onPress={() => alert("Left button")}
-                />
-              )}
-              renderLeftButton={({ focused }) => (
-                <Icon
-                  name="ios-locate-outline"
-                  size={30}
-                  iconStyle={{
-                    padding: 0,
-                    top: 0,
-                    left: 10,
-                    width: 30,
-                    height: 30,
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                  type="ionicon"
-                  color={activeTintColor}
-                  onPress={() => alert("Left button")}
-                />
-              )}
-            >
+            <Stack key="Auth" initial={!this.state.isLoggedIn}>
               <Scene
-                key="Tab1_1"
-                component={Home}
-                style={{ fontSize: 20 }}
-                title="Yellow U!"
-              />
-              <Scene key="Tab1_2" component={Search} title="Search" />
-            </Scene>
-
-            <Scene
-              key="Tab2"
-              title="Favorites"
-              icon={({ focused }) => (
-                <Icon
-                  name="ios-star"
-                  size={30}
-                  iconStyle={{ width: 30, height: 30 }}
-                  type="ionicon"
-                  color={focused ? activeTintColor : inactiveTintColor}
-                />
-              )}
-              renderBackButton={() => null}
-            >
-              <Scene key="Favorites" component={Favorites} title="Favorites" />
-            </Scene>
-
-            <Scene
-              key="Tab3"
-              component={Messages}
-              title="Services"
-              icon={({ focused }) => (
-                <Icon
-                  name="ios-construct"
-                  size={30}
-                  iconStyle={{ width: 30, height: 30 }}
-                  type="ionicon"
-                  color={focused ? activeTintColor : inactiveTintColor}
-                />
-              )}
-            />
-
-            <Scene
-              key="Tab4"
-              component={Messages}
-              title="Messages"
-              icon={({ focused }) => (
-                <Icon
-                  name="ios-mail"
-                  size={30}
-                  iconStyle={{ width: 30, height: 30 }}
-                  type="ionicon"
-                  color={focused ? activeTintColor : inactiveTintColor}
-                />
-              )}
-            />
-            <Scene
-              key="Tab5"
-              title="Profile"
-              icon={({ focused }) => (
-                <Icon
-                  name="ios-person"
-                  size={30}
-                  iconStyle={{ width: 30, height: 30 }}
-                  type="ionicon"
-                  color={focused ? activeTintColor : inactiveTintColor}
-                />
-              )}
-            >
-              <Scene
-                key="Me"
-                component={Me}
-                title="Me"
+                key="Welcome"
+                component={Welcome}
+                title=""
                 initial={true}
+                hideNavBar
+              />
+              <Scene key="Register" component={Register} title="" back />
+              <Scene
+                key="CompleteProfile"
+                component={CompleteProfile}
+                title="Enter Username"
+                back={false}
+              />
+              <Scene key="Login" component={Login} title="Login" />
+              <Scene
+                key="ForgotPassword"
+                component={ForgotPassword}
+                title="Forgot Password"
+              />
+            </Stack>
+
+            <Scene
+              key="Main"
+              tabs={true}
+              initial={this.state.isLoggedIn}
+              showLabel={false}
+              lazy={true}
+              tabStyle={styles.tab}
+              tabBarStyle={styles.tabs}
+              labelStyle={styles.label}
+              swipeEnabled={false}
+            >
+              <Scene
+                key="Tab1"
+                title="Yellow U!"
+                initial={true}
+                titleStyle={styles.homeTitle}
+                icon={({ focused }) => (
+                  <Icon
+                    name="ios-home"
+                    size={30}
+                    iconStyle={{ width: 30, height: 30 }}
+                    type="ionicon"
+                    color={focused ? activeTintColor : inactiveTintColor}
+                  />
+                )}
+                type={ActionConst.REPLACE}
+                renderRightButton={({ focused }) => (
+                  <Icon
+                    name="ios-search"
+                    size={30}
+                    iconStyle={{
+                      padding: 0,
+                      top: 0,
+                      right: 10,
+                      width: 30,
+                      height: 30,
+                      justifyContent: "center",
+                      alignItems: "center"
+                    }}
+                    type="ionicon"
+                    color={activeTintColor}
+                    onPress={() => alert("Left button")}
+                  />
+                )}
+                renderLeftButton={({ focused }) => (
+                  <Icon
+                    name="ios-locate-outline"
+                    size={30}
+                    iconStyle={{
+                      padding: 0,
+                      top: 0,
+                      left: 10,
+                      width: 30,
+                      height: 30,
+                      justifyContent: "center",
+                      alignItems: "center"
+                    }}
+                    type="ionicon"
+                    color={activeTintColor}
+                    onPress={() => alert("Left button")}
+                  />
+                )}
+              >
+                <Scene
+                  key="Tab1_1"
+                  component={Home}
+                  style={{ fontSize: 20 }}
+                  title="Yellow U!"
+                />
+                <Scene key="Tab1_2" component={Search} title="Search" />
+              </Scene>
+
+              <Scene
+                key="Tab2"
+                title="Favorites"
+                icon={({ focused }) => (
+                  <Icon
+                    name="ios-star"
+                    size={30}
+                    iconStyle={{ width: 30, height: 30 }}
+                    type="ionicon"
+                    color={focused ? activeTintColor : inactiveTintColor}
+                  />
+                )}
                 renderBackButton={() => null}
+              >
+                <Scene
+                  key="Favorites"
+                  component={Favorites}
+                  title="Favorites"
+                />
+              </Scene>
+
+              <Scene
+                key="Tab3"
+                component={Search}
+                title="Services"
+                icon={({ focused }) => (
+                  <Icon
+                    name="ios-construct"
+                    size={30}
+                    iconStyle={{ width: 30, height: 30 }}
+                    type="ionicon"
+                    color={focused ? activeTintColor : inactiveTintColor}
+                  />
+                )}
+              />
+
+              <Scene
+                key="Tab4"
+                component={Messages}
+                title="Messages"
+                icon={({ focused }) => (
+                  <Icon
+                    name="ios-mail"
+                    size={30}
+                    iconStyle={{ width: 30, height: 30 }}
+                    type="ionicon"
+                    color={focused ? activeTintColor : inactiveTintColor}
+                  />
+                )}
               />
               <Scene
-                key="EditLocation"
-                component={EditLocation}
-                title="Location"
-                initial={false}
-              />
+                key="Tab5"
+                title="Profile"
+                icon={({ focused }) => (
+                  <Icon
+                    name="ios-person"
+                    size={30}
+                    iconStyle={{ width: 30, height: 30 }}
+                    type="ionicon"
+                    color={focused ? activeTintColor : inactiveTintColor}
+                  />
+                )}
+              >
+                <Scene
+                  key="Me"
+                  component={Me}
+                  title="Me"
+                  initial={true}
+                  renderBackButton={() => null}
+                />
+                <Scene
+                  key="EditLocation"
+                  component={EditLocation}
+                  title="Location"
+                  initial={false}
+                />
+              </Scene>
             </Scene>
           </Scene>
-        </Scene>
-      </Router>
+        </Router>
+      </Root>
     );
   }
 }
@@ -256,9 +264,10 @@ const styles = StyleSheet.create({
   },
 
   homeTitle: {
-    fontSize: normalize(20),
-    lineHeight: normalize(20),
-    fontFamily: fontFamily.regular,
+    fontSize: normalize(21),
+    lineHeight: normalize(24),
+    fontFamily: fontFamily.medium,
+    letterSpacing: 3,
     color: "rgba(0,0,0,.84)"
   },
 

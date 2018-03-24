@@ -1,44 +1,40 @@
-import React from "react";
-var { Text, View, StyleSheet, Alert } = require("react-native");
+import React, { Component } from "react";
+import {
+  Container,
+  Header,
+  Content,
+  Toast,
+  Button,
+  Text,
+  Icon
+} from "native-base";
 
-import { Button } from "react-native-elements";
-import { Actions } from "react-native-router-flux";
-import { connect } from "react-redux";
-
-import styles from "./styles";
-
-import { actions as auth, theme } from "../../../auth/index";
-const { signOut } = auth;
-
-const { color } = theme;
-
-class Search extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-
-    this.onSignOut = this.onSignOut.bind(this);
+export default class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showToast: false
+    };
   }
-
-  onSignOut() {
-    this.props.signOut(this.onSuccess.bind(this), this.onError.bind(this));
-  }
-
-  onSuccess() {
-    Actions.reset("Auth");
-  }
-
-  onError(error) {
-    Alert.alert("Oops!", error.message);
-  }
-
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Search</Text>
-      </View>
+      <Container>
+        <Content padder>
+          <Button
+            onPress={() =>
+              Toast.show({
+                text: "Wrong password!",
+                position: "bottom",
+                buttonText: "",
+                type: "warning",
+                duration: 3000
+              })
+            }
+          >
+            <Text>Toast</Text>
+          </Button>
+        </Content>
+      </Container>
     );
   }
 }
-
-export default connect(null, { signOut })(Search);

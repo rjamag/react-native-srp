@@ -21,7 +21,8 @@ import {
   Right,
   Body,
   Fab,
-  Button
+  Button,
+  Toast
 } from "native-base";
 
 class Services extends React.Component {
@@ -150,6 +151,14 @@ class Services extends React.Component {
         );
 
         Tts.speak(result);
+
+        Toast.show({
+          text: result,
+          position: "top",
+          buttonText: "",
+          type: "",
+          duration: 3000
+        });
       });
     } else {
       Tts.speak("não entendi.");
