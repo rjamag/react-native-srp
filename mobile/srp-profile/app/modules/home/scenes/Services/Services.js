@@ -152,7 +152,9 @@ class Services extends React.Component {
         Tts.speak(result);
       });
     } else {
-      Tts.speak("Eu não entendi, por favor repita novamente");
+      Tts.speak("não entendi.");
+      _cancelRecognizing();
+      _destroyRecognizer();
     }
   }
 
