@@ -162,7 +162,7 @@ class Services extends React.Component {
         Tts.speak(result);
 
         Toast.show({
-          text: "Luciana: você disse " + result,
+          text: "Siri: você disse " + result,
           position: "bottom",
           buttonText: "",
           type: "",
@@ -175,7 +175,7 @@ class Services extends React.Component {
       //_destroyRecognizer();
 
       Toast.show({
-        text: "Luciana: não entendi",
+        text: "Siri: não entendi",
         position: "bottom",
         buttonText: "",
         type: "danger",
