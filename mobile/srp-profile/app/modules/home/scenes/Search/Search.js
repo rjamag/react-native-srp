@@ -148,7 +148,7 @@ class Search extends Component {
                 }}
               >
                 <Image
-                  source={require("../../components/assets/StoriesHeaderThumbnails/3.jpg")}
+                  source={require("../../components/assets/me.jpg")}
                   style={{ width: 75, height: 75, borderRadius: 37.5 }}
                 />
               </View>
@@ -360,8 +360,8 @@ class Search extends Component {
 
             <View style={{ paddingBottom: 10 }}>
               <View style={{ paddingHorizontal: 10 }}>
-                <Text style={{ fontWeight: "bold" }}>John Doe</Text>
-                <Text>Plumber | Electrician | Carpenter</Text>
+                <Text style={{ fontWeight: "bold" }}>Bob McLaren</Text>
+                <Text>Plumber</Text>
                 <View>
                   <View style={{ flex: 1 }}>
                     <View
@@ -419,7 +419,7 @@ class Search extends Component {
                 }}
               >
                 <Image
-                  source={require("../../components/assets/StoriesHeaderThumbnails/7.jpg")}
+                  source={require("../../components/assets/StoriesHeaderThumbnails/2.jpg")}
                   style={{ width: 75, height: 75, borderRadius: 37.5 }}
                 />
               </View>
@@ -496,8 +496,8 @@ class Search extends Component {
 
             <View style={{ paddingBottom: 10 }}>
               <View style={{ paddingHorizontal: 10 }}>
-                <Text style={{ fontWeight: "bold" }}>John Doe</Text>
-                <Text>Plumber | Electrician | Carpenter</Text>
+                <Text style={{ fontWeight: "bold" }}>Steve Gates</Text>
+                <Text>Plumber | Electrician</Text>
                 <View>
                   <View style={{ flex: 1 }}>
                     <View
