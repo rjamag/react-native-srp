@@ -24,6 +24,8 @@ import {
   Input
 } from "native-base";
 
+import Services from "../Services/Services";
+
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 var { height, width } = Dimensions.get("window");
@@ -542,6 +544,7 @@ class Search extends Component {
             </TouchableOpacity>
           </View>
         </Content>
+        <Services />
       </Container>
     );
   }

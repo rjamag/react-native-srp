@@ -33,6 +33,7 @@ const wait = ms => {
 class Services extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       buttonActive: false,
       recognized: "",
@@ -43,6 +44,7 @@ class Services extends React.Component {
       results: [],
       partialResults: []
     };
+
     Voice.onSpeechStart = this.onSpeechStart.bind(this);
     Voice.onSpeechRecognized = this.onSpeechRecognized.bind(this);
     Voice.onSpeechEnd = this.onSpeechEnd.bind(this);
@@ -116,6 +118,14 @@ class Services extends React.Component {
     //Tts.speak("Como posso ajudar?");
     //Tts.stop();
 
+    Voice.onSpeechStart = this.onSpeechStart.bind(this);
+    Voice.onSpeechRecognized = this.onSpeechRecognized.bind(this);
+    Voice.onSpeechEnd = this.onSpeechEnd.bind(this);
+    Voice.onSpeechError = this.onSpeechError.bind(this);
+    Voice.onSpeechResults = this.onSpeechResults.bind(this);
+    Voice.onSpeechPartialResults = this.onSpeechPartialResults.bind(this);
+    Voice.onSpeechVolumeChanged = this.onSpeechVolumeChanged.bind(this);
+
     this.setState({
       buttonActive: true,
       recognized: "",
@@ -168,7 +178,9 @@ class Services extends React.Component {
           duration: 5000
         });
 
-        Actions.Search({ searchResult: result });
+        Actions.Search({
+          searchResult: result
+        });
       });
     } else {
       Tts.speak("não entendi.");
@@ -212,12 +224,12 @@ class Services extends React.Component {
 
   render() {
     return (
-      <Container>
-        <View style={styles.container}>
-          <Text style={styles.welcome}>Speech Recognition</Text>
+      <View>
+        {/* <View style={styles.container}>
+           <Text style={styles.welcome}>Speech Recognition</Text>
           <Text style={styles.instructions}>
             Press the button and start speaking.
-          </Text>
+          </Text> 
           <Text style={styles.stat}>{`Started: ${this.state.started}`}</Text>
           <Text style={styles.stat}>
             {`Recognized: ${this.state.recognized}`}
@@ -241,10 +253,10 @@ class Services extends React.Component {
             );
           })}
           <Text style={styles.stat}>{`End: ${this.state.end}`}</Text>
-          {/* <TouchableWithoutFeedback 
+           <TouchableWithoutFeedback 
                 onPressIn={this.handlePressIn} 
                 onPressOut={this.handlePressOut}
-            >  */}
+            >  
           <TouchableHighlight onPress={this._startRecognizing.bind(this)}>
             <Image
               style={styles.button}
@@ -260,7 +272,7 @@ class Services extends React.Component {
           <TouchableHighlight onPress={this._destroyRecognizer.bind(this)}>
             <Text style={styles.action}>Destroy</Text>
           </TouchableHighlight>
-        </View>
+        </View> */}
         <Fab
           active="true"
           direction="up"
@@ -276,7 +288,7 @@ class Services extends React.Component {
         >
           <Icon name="ios-mic-outline" />
         </Fab>
-      </Container>
+      </View>
     );
   }
 }
