@@ -6,7 +6,8 @@ import {
   Image,
   Dimensions,
   FlatList,
-  ScrollView
+  ScrollView,
+  Text
 } from "react-native";
 
 import {
@@ -19,7 +20,6 @@ import {
   Body,
   Right,
   Thumbnail,
-  Text,
   Icon,
   Switch,
   Button,

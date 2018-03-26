@@ -6,7 +6,8 @@ import {
   Dimensions,
   FlatList,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Text
 } from "react-native";
 
 import {
@@ -20,8 +21,7 @@ import {
   Segment,
   Button,
   Item,
-  Input,
-  Text
+  Input
 } from "native-base";
 
 import EntypoIcon from "react-native-vector-icons/Entypo";
