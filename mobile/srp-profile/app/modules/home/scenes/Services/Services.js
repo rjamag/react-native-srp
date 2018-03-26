@@ -6,11 +6,6 @@ import {
   Image,
   TouchableHighlight
 } from "react-native";
-
-import Voice from "react-native-voice";
-
-import Tts from "react-native-tts";
-
 import {
   Container,
   Content,
@@ -24,6 +19,9 @@ import {
   Button,
   Toast
 } from "native-base";
+
+import Voice from "react-native-voice";
+import Tts from "react-native-tts";
 
 const wait = ms => {
   return new Promise(resolve => {
@@ -145,7 +143,7 @@ class Services extends React.Component {
       console.error(e);
     }
 
-    await wait(2000);
+    await wait(1000);
 
     Tts.setDefaultLanguage("pt-BR");
     Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
