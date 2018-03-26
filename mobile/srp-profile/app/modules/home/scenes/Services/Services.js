@@ -19,6 +19,7 @@ import {
   Button,
   Toast
 } from "native-base";
+import { Actions } from "react-native-router-flux";
 
 import Voice from "react-native-voice";
 import Tts from "react-native-tts";
@@ -162,10 +163,12 @@ class Services extends React.Component {
         Toast.show({
           text: "Siri: você disse " + result,
           position: "bottom",
-          buttonText: "",
+          buttonText: "close",
           type: "",
-          duration: 3000
+          duration: 5000
         });
+
+        Actions.Search({ searchResult: result });
       });
     } else {
       Tts.speak("não entendi.");

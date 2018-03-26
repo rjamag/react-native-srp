@@ -123,8 +123,9 @@ class Search extends Component {
           <View style={styles.container}>
             <TextInput
               style={styles.searchBar}
-              value=""
-              onChange=""
+              value={
+                this.props.searchResult ? this.props.searchResult : "nao passou"
+              }
               placeholder="Search..."
             />
           </View>

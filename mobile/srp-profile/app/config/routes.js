@@ -188,7 +188,7 @@ export default class extends React.Component {
               </Scene>
 
               <Scene
-                key="Tab3"
+                key="Search"
                 component={Search}
                 title="Services"
                 icon={({ focused }) => (
