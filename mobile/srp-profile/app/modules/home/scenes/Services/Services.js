@@ -161,7 +161,7 @@ class Services extends React.Component {
     Tts.setDucking(true);
 
     if (this.state.results.length > 0) {
-      Tts.speak("você disse");
+      Tts.speak("buscando por");
 
       this.state.results.map((result, index) => {
         console.log(
@@ -171,16 +171,15 @@ class Services extends React.Component {
         Tts.speak(result);
 
         Toast.show({
-          text: "Siri: você disse " + result,
+          text: "Siri: buscando por " + result,
           position: "bottom",
           buttonText: "close",
           type: "",
           duration: 5000
         });
 
-        Actions.Search({
-          searchResult: result
-        });
+        Actions.Search({ searchResult: result });
+        Actions.refresh({ searchResult: result });
       });
     } else {
       Tts.speak("não entendi.");
