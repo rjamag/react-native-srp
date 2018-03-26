@@ -145,7 +145,7 @@ class Services extends React.Component {
       console.error(e);
     }
 
-    await wait(3000);
+    await wait(2000);
 
     Tts.setDefaultLanguage("pt-BR");
     Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
