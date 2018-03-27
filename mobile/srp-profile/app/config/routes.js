@@ -109,7 +109,6 @@ export default class extends React.Component {
                 key="Tab1"
                 title="Yellow U!"
                 initial={true}
-                titleStyle={styles.homeTitle}
                 icon={({ focused }) => (
                   <Icon
                     name="ios-home"
@@ -119,30 +118,14 @@ export default class extends React.Component {
                     color={focused ? activeTintColor : inactiveTintColor}
                   />
                 )}
+                type={ActionConst.REPLACE}
               >
                 <Scene
                   key="Tab1_1"
                   component={Home}
                   style={{ fontSize: 20 }}
                   title="Yellow U!"
-                  renderLeftButton={({ focused }) => (
-                    <Icon
-                      name="ios-locate-outline"
-                      size={30}
-                      iconStyle={{
-                        padding: 0,
-                        top: 0,
-                        left: 10,
-                        width: 30,
-                        height: 30,
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                      type="ionicon"
-                      color={activeTintColor}
-                      onPress={() => alert("GPS screen")}
-                    />
-                  )}
+                  titleStyle={styles.homeTitle}
                   renderRightButton={({ focused }) => (
                     <Icon
                       name="ios-search"
@@ -158,11 +141,52 @@ export default class extends React.Component {
                       }}
                       type="ionicon"
                       color={activeTintColor}
+                      onPress={() => Actions.Search({ hideTabBar: true })}
+                    />
+                  )}
+                  renderLeftButton={({ focused }) => (
+                    <Icon
+                      name="ios-locate-outline"
+                      size={30}
+                      iconStyle={{
+                        padding: 0,
+                        top: 0,
+                        left: 10,
+                        width: 30,
+                        height: 30,
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                      type="ionicon"
+                      color={activeTintColor}
                       onPress={() => Actions.Search()}
                     />
                   )}
                 />
-                <Scene key="Search" component={Search} title="Search" />
+                <Scene
+                  key="Search"
+                  component={Search}
+                  title="Search"
+                  tabs={false}
+                  renderLeftButton={({ focused }) => (
+                    <Icon
+                      name="ios-arrow-back"
+                      size={30}
+                      iconStyle={{
+                        padding: 0,
+                        top: 0,
+                        left: 10,
+                        width: 30,
+                        height: 30,
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                      type="ionicon"
+                      color={activeTintColor}
+                      onPress={() => Actions.Main()}
+                    />
+                  )}
+                />
               </Scene>
 
               <Scene

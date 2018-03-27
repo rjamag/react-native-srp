@@ -180,8 +180,14 @@ class Speech extends React.Component {
 
         //Actions.Search({ searchResult: result });
         //Actions.refresh({ searchResult: result });
+        //Actions.popTo("Search", { searchResult: result });
+        //Actions.jump("Search", { searchResult: result });
+        //Actions.push("Search", { searchResult: result });
 
-        //Actions.replace("Search", { searchResult: result });
+        Actions.replace("Search", {
+          searchResult: result,
+          hideTabBar: true
+        });
       });
     } else {
       Tts.speak("não entendi.");
@@ -280,8 +286,8 @@ class Speech extends React.Component {
           containerStyle={{}}
           style={
             this.state.buttonActive
-              ? { backgroundColor: "#DD5144" }
-              : { backgroundColor: "#000" }
+              ? { backgroundColor: "#DD5144", marginBottom: 20 }
+              : { backgroundColor: "#000", marginBottom: 20 }
           }
           position="bottomRight"
           onPressIn={this._startRecognizing.bind(this)}

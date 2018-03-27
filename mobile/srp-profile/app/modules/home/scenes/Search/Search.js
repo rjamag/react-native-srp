@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
   View,
+  SafeAreaView,
   StyleSheet,
   Image,
   Dimensions,
@@ -67,7 +68,6 @@ class Search extends Component {
               placeholder="Search..."
             />
           </View>
-
           {/**Begin professional **/}
           <View
             style={{
@@ -338,7 +338,6 @@ class Search extends Component {
             </View>
           </View>
           {/**End professional **/}
-
           {/**Begin professional **/}
           <View
             style={{
