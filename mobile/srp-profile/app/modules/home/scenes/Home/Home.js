@@ -13,7 +13,7 @@ import {
   Button
 } from "native-base";
 import CardComponent from "../../components/CardComponent/CardComponent";
-import Services from "../Services/Services";
+import Speech from "../Speech/Speech";
 
 class Home extends Component {
   constructor(props) {
@@ -140,7 +140,7 @@ class Home extends Component {
           </Button>
         </Fab> */}
 
-        <Services />
+        <Speech />
       </Container>
     );
   }

@@ -24,7 +24,7 @@ import {
   Input
 } from "native-base";
 
-import Services from "../Services/Services";
+import Speech from "../Speech/Speech";
 
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
@@ -37,8 +37,20 @@ class Search extends Component {
     super(props);
   }
 
+  componentWillReceiveProps(nextProps) {
+    // colocar aqui a chamada para o db pelo novo termo de busca???
+    console.log(
+      "Search - componentWillReceiveProps this.props: " +
+        JSON.stringify(this.props)
+    );
+    console.log(
+      "Search - componentWillReceiveProps nextProps: " +
+        JSON.stringify(nextProps)
+    );
+  }
+
   componentDidUpdate() {
-    // colocar aqui a chamada para o db pelo novo termo de busca
+    // colocar aqui a chamada para o db pelo novo termo de busca???
     console.log(
       "Search - componentDidUpdate this.props: " + JSON.stringify(this.props)
     );
@@ -468,7 +480,7 @@ class Search extends Component {
             </TouchableOpacity>
           </View>
         </Content>
-        <Services />
+        <Speech />
       </Container>
     );
   }

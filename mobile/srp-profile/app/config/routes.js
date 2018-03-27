@@ -119,51 +119,50 @@ export default class extends React.Component {
                     color={focused ? activeTintColor : inactiveTintColor}
                   />
                 )}
-                type={ActionConst.REPLACE}
-                renderRightButton={({ focused }) => (
-                  <Icon
-                    name="ios-search"
-                    size={30}
-                    iconStyle={{
-                      padding: 0,
-                      top: 0,
-                      right: 10,
-                      width: 30,
-                      height: 30,
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                    type="ionicon"
-                    color={activeTintColor}
-                    onPress={() => alert("Left button")}
-                  />
-                )}
-                renderLeftButton={({ focused }) => (
-                  <Icon
-                    name="ios-locate-outline"
-                    size={30}
-                    iconStyle={{
-                      padding: 0,
-                      top: 0,
-                      left: 10,
-                      width: 30,
-                      height: 30,
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                    type="ionicon"
-                    color={activeTintColor}
-                    onPress={() => alert("Left button")}
-                  />
-                )}
               >
                 <Scene
                   key="Tab1_1"
                   component={Home}
                   style={{ fontSize: 20 }}
                   title="Yellow U!"
+                  renderLeftButton={({ focused }) => (
+                    <Icon
+                      name="ios-locate-outline"
+                      size={30}
+                      iconStyle={{
+                        padding: 0,
+                        top: 0,
+                        left: 10,
+                        width: 30,
+                        height: 30,
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                      type="ionicon"
+                      color={activeTintColor}
+                      onPress={() => alert("GPS screen")}
+                    />
+                  )}
+                  renderRightButton={({ focused }) => (
+                    <Icon
+                      name="ios-search"
+                      size={30}
+                      iconStyle={{
+                        padding: 0,
+                        top: 0,
+                        right: 10,
+                        width: 30,
+                        height: 30,
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                      type="ionicon"
+                      color={activeTintColor}
+                      onPress={() => Actions.Search()}
+                    />
+                  )}
                 />
-                <Scene key="Tab1_2" component={Search} title="Search" />
+                <Scene key="Search" component={Search} title="Search" />
               </Scene>
 
               <Scene
@@ -188,8 +187,8 @@ export default class extends React.Component {
               </Scene>
 
               <Scene
-                key="Search"
-                component={Search}
+                key="Services"
+                component={Services}
                 title="Services"
                 icon={({ focused }) => (
                   <Icon

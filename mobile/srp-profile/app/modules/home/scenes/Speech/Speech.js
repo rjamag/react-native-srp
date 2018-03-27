@@ -30,7 +30,7 @@ const wait = ms => {
   });
 };
 
-class Services extends React.Component {
+class Speech extends React.Component {
   constructor(props) {
     super(props);
 
@@ -178,8 +178,10 @@ class Services extends React.Component {
           duration: 5000
         });
 
-        Actions.Search({ searchResult: result });
-        Actions.refresh({ searchResult: result });
+        //Actions.Search({ searchResult: result });
+        //Actions.refresh({ searchResult: result });
+
+        //Actions.replace("Search", { searchResult: result });
       });
     } else {
       Tts.speak("não entendi.");
@@ -292,7 +294,7 @@ class Services extends React.Component {
   }
 }
 
-export default Services;
+export default Speech;
 
 const styles = StyleSheet.create({
   button: {
