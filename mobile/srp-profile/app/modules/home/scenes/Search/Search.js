@@ -32,90 +32,16 @@ var { height, width } = Dimensions.get("window");
 
 import CardComponent from "../../components/CardComponent/CardComponent";
 
-var images = [
-  require("../../components/assets/feed_images/1.jpg"),
-  require("../../components/assets/feed_images/2.jpg"),
-  require("../../components/assets/feed_images/3.jpg"),
-  require("../../components/assets/feed_images/4.jpg"),
-  require("../../components/assets/feed_images/5.jpg"),
-  require("../../components/assets/feed_images/6.jpg"),
-  require("../../components/assets/feed_images/7.jpg"),
-  require("../../components/assets/feed_images/8.jpg"),
-  require("../../components/assets/feed_images/9.jpg"),
-  require("../../components/assets/feed_images/10.jpg"),
-  require("../../components/assets/feed_images/11.jpg"),
-  require("../../components/assets/feed_images/12.jpg")
-];
-
 class Search extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      activeIndex: 0
-    };
   }
 
-  segmentClicked(index) {
-    this.setState({
-      activeIndex: index
-    });
-  }
-
-  checkActive = index => {
-    if (this.state.activeIndex !== index) {
-      return { color: "grey" };
-    } else {
-      return {};
-    }
-  };
-
-  renderSectionOne() {
-    return images.map((image, index) => {
-      return (
-        <View
-          key={index}
-          style={[
-            { width: width / 3 },
-            { height: width / 3 },
-            { marginBottom: 2 },
-            index % 3 !== 0 ? { paddingLeft: 2 } : { paddingLeft: 0 }
-          ]}
-        >
-          <Image
-            style={{
-              flex: 1,
-              alignSelf: "stretch",
-              width: undefined,
-              height: undefined
-            }}
-            source={image}
-          />
-        </View>
-      );
-    });
-  }
-
-  renderSection() {
-    if (this.state.activeIndex == 0) {
-      return (
-        <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-          {this.renderSectionOne()}
-        </View>
-      );
-    } else if (this.state.activeIndex == 1) {
-      return (
-        <View>
-          <CardComponent imageSource="1" likes="101" />
-          <CardComponent imageSource="2" likes="51" />
-          <CardComponent imageSource="3" likes="10" />
-        </View>
-      );
-    }
-  }
-
-  componentDidMount() {
-    console.log(width);
+  componentDidUpdate() {
+    // colocar aqui a chamada para o db pelo novo termo de busca
+    console.log(
+      "Search - componentDidUpdate this.props: " + JSON.stringify(this.props)
+    );
   }
 
   render() {
@@ -125,9 +51,7 @@ class Search extends Component {
           <View style={styles.container}>
             <TextInput
               style={styles.searchBar}
-              value={
-                this.props.searchResult ? this.props.searchResult : "nao passou"
-              }
+              value={this.props.searchResult ? this.props.searchResult : ""}
               placeholder="Search..."
             />
           </View>

@@ -159,7 +159,7 @@ class Welcome extends React.Component {
                   raised
                   button
                   type="facebook"
-                  title="sign in with facebook"
+                  title="connect with facebook"
                   iconSize={19}
                   style={[styles.containerView, styles.socialButton]}
                   fontStyle={styles.buttonText}
@@ -170,7 +170,7 @@ class Welcome extends React.Component {
                   raised
                   button
                   type="google-plus-official"
-                  title="sign in with google"
+                  title="connect with google"
                   iconSize={19}
                   style={[styles.containerView, styles.socialButton]}
                   fontStyle={styles.buttonText}
