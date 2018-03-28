@@ -37,6 +37,11 @@ database model
         - rating
         - comment
         - ispublic
+    - profimagesvideos
+        - imagevideourl
+    - proffeeds
+        - feeds
+            - feed
 
 - usergroups
     - usergroupid
