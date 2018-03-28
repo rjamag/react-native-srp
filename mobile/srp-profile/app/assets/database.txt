@@ -7,7 +7,7 @@ database model
     - displayname
     - photourl
     - username
-    - userrating
+    - rating
     - facebookid
     - phone
     - location
@@ -29,7 +29,7 @@ database model
     - proftitle
     - profcategory
 
-- usergroup
+- usergroups
     - usergroupid
     - name
     - description
@@ -90,7 +90,7 @@ database model
             - zip
             - country
 
-- feed
+- feeds
     - userid
     - timeanddate
     - imageorvideo
@@ -101,13 +101,26 @@ database model
         - comment
         - userid
 
-- topchart
-    - category
-        - userid
-        - username
-        - userphoto
-
+- charts
+    - top
+        - category
+            - categoryid
+            - categoryname
+            - categoryimage
+                - users
+                    - userid
+                    - username
+                    - userphoto
+    - featured
+        - category
+            - users
+                - userid
+                - username
+                - userphoto
 - chat
+    - rooms
+        - users
+        - messages
 
 - support
     - userid
@@ -118,4 +131,3 @@ database model
     - userid
     - username
     - comment
-
