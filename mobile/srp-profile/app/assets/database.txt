@@ -117,6 +117,7 @@ database model
                 - userid
                 - username
                 - userphoto
+
 - chat
     - rooms
         - users
@@ -131,3 +132,8 @@ database model
     - userid
     - username
     - comment
+
+- parameters
+    - paramid
+    - name
+    - value
