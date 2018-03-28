@@ -1,0 +1,121 @@
+database model
+
+- users
+    - uid
+    - name
+    - lastname
+    - displayname
+    - photourl
+    - username
+    - userrating
+    - facebookid
+    - phone
+    - location
+        - city
+        - state
+        - street
+        - zip
+        - country
+    - favorites
+        - userid
+    - payment
+        - method
+        - flag
+        - number
+        - valid
+        - code
+    - isprofessional
+    - profrating
+    - proftitle
+    - profcategory
+
+- usergroup
+    - usergroupid
+    - name
+    - description
+    - image
+    - users
+        - userid
+        - name
+        - lastname
+        - displayname
+        - photourl
+        - username
+        - userrating
+        - facebookid
+
+- services
+    - serviceid
+    - name
+    - description
+    - image
+
+- categories
+    - categoryid
+    - parentid
+    - name
+    - description
+    - image
+    - serviceid
+    - ancestors
+        - categoryid
+        - name
+        - description
+        - image
+
+- orders
+    - orderid
+    - userid
+    - profid
+    - serviceid
+    - status
+    - statusname
+    - payment
+        - method
+        - flag
+        - name
+        - number
+        - valid
+        - securitycode
+        - value
+    - fee
+    - quotedvalue
+    - finaltotal
+    - schedule
+        - datetime
+        - location
+            - city
+            - state
+            - street
+            - zip
+            - country
+
+- feed
+    - userid
+    - timeanddate
+    - imageorvideo
+    - title
+    - description
+    - likes
+    - comments
+        - comment
+        - userid
+
+- topchart
+    - category
+        - userid
+        - username
+        - userphoto
+
+- chat
+
+- support
+    - userid
+    - username
+    - comment
+
+- feedback
+    - userid
+    - username
+    - comment
+
