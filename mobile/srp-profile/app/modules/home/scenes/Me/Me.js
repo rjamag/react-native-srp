@@ -204,8 +204,9 @@ class Services extends Component {
                         height: 30
                       }}
                     >
+                      <Text style={{ fontWeight: "300" }}>professional</Text>
                       <Icon
-                        name="ios-settings"
+                        name="ios-settings-outline"
                         style={{ height: 30, color: "black" }}
                       />
                     </Button>
@@ -224,7 +225,7 @@ class Services extends Component {
                       onPress={this.onSignOut}
                     >
                       <Icon
-                        name="ios-log-out"
+                        name="ios-exit-outline"
                         style={{ height: 30, color: "black" }}
                       />
                     </Button>
@@ -404,6 +405,36 @@ class Services extends Component {
                   </Body>
                   <Right>
                     <Icon name="arrow-forward" />
+                  </Right>
+                </ListItem>
+                <Separator
+                  style={{
+                    height: 20,
+                    width: "86%",
+                    backgroundColor: "#fff",
+                    marginLeft: "14%"
+                  }}
+                />
+                <ListItem icon>
+                  <Left>
+                    <Icon name="ios-notifications" />
+                  </Left>
+                  <Body>
+                    <Text>notifications</Text>
+                  </Body>
+                  <Right>
+                    <Switch value={false} />
+                  </Right>
+                </ListItem>
+                <ListItem icon>
+                  <Left>
+                    <Icon name="ios-mic" />
+                  </Left>
+                  <Body>
+                    <Text>voice recognition</Text>
+                  </Body>
+                  <Right>
+                    <Switch value={true} />
                   </Right>
                 </ListItem>
               </List>
