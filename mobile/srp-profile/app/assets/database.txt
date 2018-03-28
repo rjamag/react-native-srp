@@ -29,7 +29,7 @@ database model
     - profrating
     - proftitle
     - profcategory
-    - profusersref
+    - profusersreferences
         - userid
         - ispublic
     - profusersreviews
