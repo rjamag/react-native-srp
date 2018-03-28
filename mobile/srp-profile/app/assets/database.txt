@@ -11,9 +11,10 @@ database model
     - facebookid
     - phone
     - location
+        - gps
+        - street
         - city
         - state
-        - street
         - zip
         - country
     - favorites
@@ -28,6 +29,14 @@ database model
     - profrating
     - proftitle
     - profcategory
+    - profusersref
+        - userid
+        - ispublic
+    - profusersreviews
+        - userid
+        - rating
+        - comment
+        - ispublic
 
 - usergroups
     - usergroupid
@@ -84,9 +93,10 @@ database model
     - schedule
         - datetime
         - location
+            - gps
+            - street
             - city
             - state
-            - street
             - zip
             - country
 
