@@ -186,6 +186,24 @@ export default class extends React.Component {
                       onPress={() => Actions.Main()}
                     />
                   )}
+                  renderRightButton={({ focused }) => (
+                    <Icon
+                      name="ios-locate-outline"
+                      size={30}
+                      iconStyle={{
+                        padding: 0,
+                        top: 0,
+                        right: 10,
+                        width: 30,
+                        height: 30,
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                      type="ionicon"
+                      color={activeTintColor}
+                      onPress={() => Actions.Search()}
+                    />
+                  )}
                 />
               </Scene>
 
