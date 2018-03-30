@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
 import {
+  Image,
   View,
   StyleSheet,
-  Image,
   Dimensions,
   FlatList,
   ScrollView,
@@ -156,7 +156,7 @@ class Services extends Component {
                   source={
                     this.props.user.photo
                       ? { uri: this.props.user.photo }
-                      : { uri: "" }
+                      : require("../../components/assets/me.jpg")
                   }
                   style={{ width: 75, height: 75, borderRadius: 37.5 }}
                 />

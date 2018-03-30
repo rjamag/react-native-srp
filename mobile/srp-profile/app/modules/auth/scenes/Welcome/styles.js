@@ -90,8 +90,8 @@ const styles = StyleSheet.create({
     height: normalize(55),
     borderRadius: 4,
     marginTop: 15,
-    marginBottom: 0,
-    fontFamily: fontFamily.regular
+    marginBottom: 0
+    //  fontFamily: fontFamily.regular
   },
 
   button: {
@@ -108,8 +108,8 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    fontSize: fontSize.regular + 2,
-    fontFamily: fontFamily.regular
+    fontSize: fontSize.regular + 2
+    //  fontFamily: fontFamily.regular
   },
 
   bottom: {
