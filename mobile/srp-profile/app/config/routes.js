@@ -256,7 +256,6 @@ export default class extends React.Component {
                   key="Me"
                   component={Me}
                   title="Me"
-                  initial={true}
                   renderBackButton={() => null}
                 />
                 <Scene

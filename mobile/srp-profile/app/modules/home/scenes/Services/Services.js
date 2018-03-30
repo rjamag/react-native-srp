@@ -68,10 +68,10 @@ class Services extends Component {
                 <Text note>January 12, 2018</Text>
                 <Text note>Order #: 573490-32</Text>
                 <Text note>Status: done</Text>
-                <Text note>Total: 5,700.00</Text>
+                <Text note>Total: 70.00</Text>
               </Body>
               <Right>
-                <Text note>Building Contractor</Text>
+                <Text note>Cakemaker</Text>
               </Right>
             </ListItem>
           </List>
