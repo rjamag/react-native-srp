@@ -99,7 +99,7 @@ export default class extends React.Component {
               tabs={true}
               initial={this.state.isLoggedIn}
               showLabel={false}
-              lazy={true}
+              lazy={false}
               tabStyle={styles.tab}
               tabBarStyle={styles.tabs}
               labelStyle={styles.label}
