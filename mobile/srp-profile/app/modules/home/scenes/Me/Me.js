@@ -135,7 +135,8 @@ class Services extends Component {
   }
 
   render() {
-    if (!this.props) return <Spinner />;
+    if (!this.props.user.username)
+      return <Spinner style={styles.container} color="black" />;
 
     return (
       <Container style={styles.container}>
@@ -239,8 +240,8 @@ class Services extends Component {
             <View style={{ paddingBottom: 10 }}>
               <View style={{ paddingHorizontal: 10 }}>
                 <Text style={{ fontWeight: "500" }}>
-                  {this.props.user.facebookDisplayName
-                    ? this.props.user.facebookDisplayName.toLowerCase()
+                  {this.props.user.displayname
+                    ? this.props.user.displayname.toLowerCase()
                     : ""}
                 </Text>
                 <Text style={{ fontWeight: "300" }}>software engineer</Text>

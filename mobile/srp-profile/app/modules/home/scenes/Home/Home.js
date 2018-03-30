@@ -10,7 +10,8 @@ import {
   Right,
   Body,
   Fab,
-  Button
+  Button,
+  Spinner
 } from "native-base";
 import CardComponent from "../../components/CardComponent/CardComponent";
 import Speech from "../Speech/Speech";
@@ -120,25 +121,6 @@ class Home extends Component {
           <CardComponent imageSource="12" likes="201" />
           <CardComponent imageSource="6" likes="301" />
         </Content>
-        {/* <Fab
-          active={this.state.active}
-          direction="up"
-          containerStyle={{}}
-          style={{ backgroundColor: "#DD5144" }}
-          position="bottomRight"
-          onPress={() => this.setState({ active: !this.state.active })}
-        >
-          <Icon name="ios-mic-outline" />
-          <Button style={{ backgroundColor: "#34A34F" }}>
-            <Icon name="ios-build" />
-          </Button>
-          <Button style={{ backgroundColor: "#3B5998" }}>
-            <Icon name="logo-facebook" />
-          </Button>
-          <Button disabled style={{ backgroundColor: "#5067FF" }}>
-            <Icon name="ios-bulb-outline" />
-          </Button>
-        </Fab> */}
 
         <Speech />
       </Container>

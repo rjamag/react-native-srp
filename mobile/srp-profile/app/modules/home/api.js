@@ -24,21 +24,21 @@ export function getCurrentUserProfile(callback) {
 
         if (profile.providerId === "facebook.com") {
           user["email"] = profile.email;
-          user["facebookId"] = profile.uid;
-          user["facebookDisplayName"] = profile.displayName;
+          user["facebookid"] = profile.uid;
+          user["displayname"] = profile.displayName;
           // user["profileFacebookPhoneNumber"] = profile.phoneNumber;
           user["photo"] = profile.photoURL;
           user["photoLarge"] =
             "https://graph.facebook.com/" + profile.uid + "/picture?height=500";
-          user["phoneNumber"] = "";
+          user["phone"] = "";
         } else if (profile.providerId === "password") {
           user["email"] = profile.email;
-          user["facebookId"] = "";
-          user["facebookDisplayName"] = "";
+          user["facebookid"] = "";
+          user["displayname"] = "";
           //user["profileFacebookPhoneNumber"] = "";
           user["photo"] = "";
           user["photoLarge"] = "";
-          user["phoneNumber"] = "";
+          user["phone"] = "";
         }
       });
 
