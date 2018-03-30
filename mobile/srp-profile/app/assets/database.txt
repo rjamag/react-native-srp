@@ -2,11 +2,12 @@ database model
 
 - users
     - uid
-    - name
+    - username
+    - firstname
+    - middlename
     - lastname
     - displayname
     - photourl
-    - username
     - rating
     - facebookid
     - phone

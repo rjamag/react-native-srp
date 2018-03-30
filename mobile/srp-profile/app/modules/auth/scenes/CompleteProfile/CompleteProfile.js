@@ -17,6 +17,33 @@ const fields = [
     secureTextEntry: false,
     value: "",
     type: "text"
+  },
+  {
+    key: "firstname",
+    label: "First Name",
+    placeholder: "First Name",
+    autoFocus: false,
+    secureTextEntry: false,
+    value: "",
+    type: "text"
+  },
+  {
+    key: "middlename",
+    label: "Middle Name",
+    placeholder: "Middle Name",
+    autoFocus: false,
+    secureTextEntry: false,
+    value: "",
+    type: "text"
+  },
+  {
+    key: "lastname",
+    label: "Last Name",
+    placeholder: "Last Name",
+    autoFocus: false,
+    secureTextEntry: false,
+    value: "",
+    type: "text"
   }
 ];
 

@@ -299,9 +299,52 @@ class Services extends Component {
                   }}
                 />
                 <ListItem icon>
-                  <Left>
-                    <Icon name="md-person" />
-                  </Left>
+                  <Body>
+                    <Text>first name</Text>
+                  </Body>
+                  <Right>
+                    <Text>
+                      {this.props.user.firstname
+                        ? this.props.user.firstname
+                        : ""}
+                    </Text>
+                  </Right>
+                </ListItem>
+                <ListItem icon>
+                  <Body>
+                    <Text>middle name</Text>
+                  </Body>
+                  <Right>
+                    <Text>
+                      {this.props.user.middlename
+                        ? this.props.user.middlename
+                        : ""}
+                    </Text>
+                  </Right>
+                </ListItem>
+                <ListItem icon>
+                  <Body>
+                    <Text>last name</Text>
+                  </Body>
+                  <Right>
+                    <Text>
+                      {this.props.user.lastname ? this.props.user.lastname : ""}
+                    </Text>
+                  </Right>
+                </ListItem>
+                <ListItem icon>
+                  <Body>
+                    <Text>display name</Text>
+                  </Body>
+                  <Right>
+                    <Text>
+                      {this.props.user.displayname
+                        ? this.props.user.displayname
+                        : ""}
+                    </Text>
+                  </Right>
+                </ListItem>
+                <ListItem icon>
                   <Body>
                     <Text>user</Text>
                   </Body>
@@ -310,9 +353,6 @@ class Services extends Component {
                   </Right>
                 </ListItem>
                 <ListItem icon>
-                  <Left>
-                    <Icon name="ios-mail" />
-                  </Left>
                   <Body>
                     <Text>e-mail</Text>
                   </Body>
@@ -322,6 +362,7 @@ class Services extends Component {
                     </Text>
                   </Right>
                 </ListItem>
+
                 <Separator
                   style={{
                     height: 20,

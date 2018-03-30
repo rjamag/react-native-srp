@@ -10,7 +10,8 @@ import {
   Body,
   Right,
   Thumbnail,
-  Text
+  Text,
+  Icon
 } from "native-base";
 
 class Services extends Component {
@@ -28,12 +29,49 @@ class Services extends Component {
               </Left>
               <Body>
                 <Text>Jack Ripper</Text>
-                <Text note>
-                  Doing what you like will always keep you happy . .
-                </Text>
+                <Text note>Dentist</Text>
+                <Text note>Order #: 123456-78</Text>
+                <Text note>Status: scheduled</Text>
+                <Text note>Total: 1,200.00</Text>
               </Body>
               <Right>
-                <Text note>3:43 pm</Text>
+                <Text note>March 31, 2018</Text>
+              </Right>
+            </ListItem>
+            <ListItem avatar>
+              <Left>
+                <Thumbnail
+                  style={{ borderColor: "grey", borderWidth: 1 }}
+                  source={require("../../components/assets/StoriesHeaderThumbnails/6.jpg")}
+                />
+              </Left>
+              <Body>
+                <Text>Mick Taylor</Text>
+                <Text note>Electrician</Text>
+                <Text note>Order #: 273341-87</Text>
+                <Text note>Status: price estimated</Text>
+                <Text note>Total: 800.00</Text>
+              </Body>
+              <Right>
+                <Text note>March 12, 2018</Text>
+              </Right>
+            </ListItem>
+            <ListItem avatar>
+              <Left>
+                <Thumbnail
+                  style={{ borderColor: "grey", borderWidth: 1 }}
+                  source={require("../../components/assets/StoriesHeaderThumbnails/5.jpg")}
+                />
+              </Left>
+              <Body>
+                <Text>Jack Ripper</Text>
+                <Text note>Building Contractor</Text>
+                <Text note>Order #: 573490-32</Text>
+                <Text note>Status: done</Text>
+                <Text note>Total: 5,700.00</Text>
+              </Body>
+              <Right>
+                <Text note>January 12, 2018</Text>
               </Right>
             </ListItem>
           </List>
