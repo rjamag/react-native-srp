@@ -12,6 +12,9 @@ database model
     - rating
     - facebookid
     - phone
+    - cell
+    - dateofbirth
+    - registered
     - location
         - gps
         - street
