@@ -69,34 +69,39 @@ class EditLocation extends React.Component {
   }
 
   componentDidMount() {
-    console.log("---> componentWillMount inicio ");
+    console.log("---> componentDidMount inicio ");
     console.log(
-      "---> componentWillMount this.props.user: " +
+      "---> componentDidMount this.props.user: " +
         JSON.stringify(this.props.user)
     );
 
     if (this.props.user) {
       console.log(
-        "---> componentWillMount this.props.user.location: " +
+        "---> componentDidMount this.props.user.location: " +
           JSON.stringify(this.props.user.location)
       );
       const location = this.props.user.location;
 
       console.log(
-        "---> componentWillMount location: " + JSON.stringify(location)
+        "---> componentDidMount location: " + JSON.stringify(location)
       );
+
+      fields[0].value = "";
+      fields[1].value = "";
+      fields[2].value = "";
+      fields[3].value = "";
 
       if (location) {
         fields[0].value = location.street ? location.street : "";
         fields[1].value = location.city ? location.city : "";
         fields[2].value = location.state ? location.state : "";
         fields[3].value = location.zip ? location.zip : "";
-
-        this.setState(error);
       }
+
+      this.setState(error);
     }
 
-    console.log("---> componentWillMount fim ");
+    console.log("---> componentDidMount fim ");
   }
 
   componentWillMount() {
@@ -117,14 +122,19 @@ class EditLocation extends React.Component {
         "---> componentWillMount location: " + JSON.stringify(location)
       );
 
+      fields[0].value = "";
+      fields[1].value = "";
+      fields[2].value = "";
+      fields[3].value = "";
+
       if (location) {
         fields[0].value = location.street ? location.street : "";
         fields[1].value = location.city ? location.city : "";
         fields[2].value = location.state ? location.state : "";
         fields[3].value = location.zip ? location.zip : "";
-
-        this.setState(error);
       }
+
+      this.setState(error);
     }
 
     console.log("---> componentWillMount fim ");

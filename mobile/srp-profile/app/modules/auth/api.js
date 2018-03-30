@@ -37,10 +37,19 @@ export function getUser(user, callback) {
     .then(function(snapshot) {
       //const exists = snapshot.val() !== null;
 
-      const exists = !user.additionalUserInfo.isNewUser;
+      console.log("---> GETUSER user: " + JSON.stringify(user));
 
-      //if the user exist in the DB, replace the user variable with the returned snapshot
-      if (exists) user = snapshot.val();
+      var exists;
+
+      if (user.additionalUserInfo) {
+        exists = !user.additionalUserInfo.isNewUser;
+      } else {
+        exists = snapshot.val() !== null;
+      }
+
+      if (exists)
+        //if the user exist in the DB, replace the user variable with the returned snapshot
+        user = snapshot.val();
 
       console.log(
         "---> GETUSER exists: " + exists + ", user: " + JSON.stringify(user)
