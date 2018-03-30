@@ -33,12 +33,6 @@ export function getCurrentUserProfile(callback) {
           user["phone"] = "";
         } else if (profile.providerId === "password") {
           user["email"] = profile.email;
-          user["facebookid"] = "";
-          user["displayname"] = "";
-          //user["profileFacebookPhoneNumber"] = "";
-          user["photo"] = "";
-          user["photoLarge"] = "";
-          user["phone"] = "";
         }
       });
 

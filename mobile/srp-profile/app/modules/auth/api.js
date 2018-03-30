@@ -35,10 +35,16 @@ export function getUser(user, callback) {
     .child(user.uid)
     .once("value")
     .then(function(snapshot) {
-      const exists = snapshot.val() !== null;
+      //const exists = snapshot.val() !== null;
+
+      const exists = !user.additionalUserInfo.isNewUser;
 
       //if the user exist in the DB, replace the user variable with the returned snapshot
       if (exists) user = snapshot.val();
+
+      console.log(
+        "---> GETUSER exists: " + exists + ", user: " + JSON.stringify(user)
+      );
 
       const data = { exists, user };
       callback(true, data, null);

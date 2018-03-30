@@ -120,10 +120,7 @@ class Welcome extends React.Component {
     return (
       <AuthContainer>
         <SafeAreaView style={styles.container}>
-          <ImageBackground
-            style={{ flex: 1, resizeMode: "cover" }}
-            source={{ uri: remoteURL }}
-          >
+          <ImageBackground style={{ flex: 1 }} source={{ uri: remoteURL }}>
             <View style={styles.topContainer}>
               {/* <Image
                 source={require("../../../../assets/icons/icon.png")}

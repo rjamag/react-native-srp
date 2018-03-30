@@ -62,6 +62,7 @@ class Login extends React.Component {
   }
 
   onSuccess({ exists, user }) {
+    console.log("LOGIN exists: " + exists + ", user: " + JSON.stringify(user));
     if (exists) Actions.Main();
     else Actions.CompleteProfile({ user });
   }
