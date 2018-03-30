@@ -23,7 +23,8 @@ import {
   Icon,
   Switch,
   Button,
-  Separator
+  Separator,
+  Spinner
 } from "native-base";
 
 import { Actions } from "react-native-router-flux";
@@ -134,7 +135,7 @@ class Services extends Component {
   }
 
   render() {
-    if (!this.props) return <View />;
+    if (!this.props) return <Spinner />;
 
     return (
       <Container style={styles.container}>
