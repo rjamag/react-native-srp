@@ -74,6 +74,47 @@ class Speech extends React.Component {
     this.setState({
       end: "√"
     });
+
+    Tts.setDefaultLanguage("pt-BR");
+    Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
+    Tts.setDucking(true);
+
+    if (this.state.results.length > 0) {
+      Tts.speak("buscando por");
+
+      this.state.results.map((result, index) => {
+        console.log(
+          "reconhecimento de voz - resultado: [" + index + "] - " + result
+        );
+
+        Tts.speak(result);
+
+        Toast.show({
+          text: "Siri: buscando por " + result,
+          position: "bottom",
+          buttonText: "close",
+          type: "",
+          duration: 3000
+        });
+
+        Actions.replace("Search", {
+          searchResult: result,
+          hideTabBar: true
+        });
+      });
+    } else {
+      Tts.speak("não entendi.");
+      //_cancelRecognizing();
+      //_destroyRecognizer();
+
+      Toast.show({
+        text: "Siri: não entendi",
+        position: "bottom",
+        buttonText: "",
+        type: "danger",
+        duration: 3000
+      });
+    }
   }
 
   onSpeechError(e) {
@@ -83,21 +124,23 @@ class Speech extends React.Component {
   }
 
   onSpeechResults(e) {
-    this.setState({
-      results: e.value
-    });
+    this.setState({ results: e.value });
+
+    // this.setState({
+    //   results: e.value
+    // });
   }
 
   onSpeechPartialResults(e) {
-    this.setState({
-      partialResults: e.value
-    });
+    // this.setState({
+    //   partialResults: e.value
+    // });
   }
 
   onSpeechVolumeChanged(e) {
-    this.setState({
-      pitch: e.value
-    });
+    // this.setState({
+    //   pitch: e.value
+    // });
   }
 
   async _startRecognizing(e) {
@@ -154,54 +197,54 @@ class Speech extends React.Component {
       console.error(e);
     }
 
-    await wait(1000);
+    // await wait(1000);
 
-    Tts.setDefaultLanguage("pt-BR");
-    Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
-    Tts.setDucking(true);
+    // Tts.setDefaultLanguage("pt-BR");
+    // Tts.setDefaultVoice("com.apple.ttsbundle.Luciana-compact");
+    // Tts.setDucking(true);
 
-    if (this.state.results.length > 0) {
-      Tts.speak("buscando por");
+    // if (this.state.results.length > 0) {
+    //   Tts.speak("buscando por");
 
-      this.state.results.map((result, index) => {
-        console.log(
-          "reconhecimento de voz - resultado: [" + index + "] - " + result
-        );
+    //   this.state.results.map((result, index) => {
+    //     console.log(
+    //       "reconhecimento de voz - resultado: [" + index + "] - " + result
+    //     );
 
-        Tts.speak(result);
+    //     Tts.speak(result);
 
-        Toast.show({
-          text: "Siri: buscando por " + result,
-          position: "bottom",
-          buttonText: "close",
-          type: "",
-          duration: 5000
-        });
+    //     Toast.show({
+    //       text: "Siri: buscando por " + result,
+    //       position: "bottom",
+    //       buttonText: "close",
+    //       type: "",
+    //       duration: 5000
+    //     });
 
-        //Actions.Search({ searchResult: result });
-        //Actions.refresh({ searchResult: result });
-        //Actions.popTo("Search", { searchResult: result });
-        //Actions.jump("Search", { searchResult: result });
-        //Actions.push("Search", { searchResult: result });
+    //     //Actions.Search({ searchResult: result });
+    //     //Actions.refresh({ searchResult: result });
+    //     //Actions.popTo("Search", { searchResult: result });
+    //     //Actions.jump("Search", { searchResult: result });
+    //     //Actions.push("Search", { searchResult: result });
 
-        Actions.replace("Search", {
-          searchResult: result,
-          hideTabBar: true
-        });
-      });
-    } else {
-      Tts.speak("não entendi.");
-      //_cancelRecognizing();
-      //_destroyRecognizer();
+    //     Actions.replace("Search", {
+    //       searchResult: result,
+    //       hideTabBar: true
+    //     });
+    //   });
+    // } else {
+    //   Tts.speak("não entendi.");
+    //   //_cancelRecognizing();
+    //   //_destroyRecognizer();
 
-      Toast.show({
-        text: "Siri: não entendi",
-        position: "bottom",
-        buttonText: "",
-        type: "danger",
-        duration: 3000
-      });
-    }
+    //   Toast.show({
+    //     text: "Siri: não entendi",
+    //     position: "bottom",
+    //     buttonText: "",
+    //     type: "danger",
+    //     duration: 3000
+    //   });
+    // }
   }
 
   async _cancelRecognizing(e) {
