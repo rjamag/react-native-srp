@@ -33,21 +33,21 @@ class CardComponent extends Component {
       <Card>
         <CardItem>
           <Left>
-            <Thumbnail source={require("../assets/me.jpg")} />
+            <Thumbnail square source={require("../assets/me.jpg")} />
             <Body>
               <Text style={{ fontWeight: "bold" }}>John Doe</Text>
-              <Text>Plumber | Electrician | Carpenter</Text>
+              <Text>Electrician</Text>
               <Text note>Mar 12, 2018</Text>
             </Body>
           </Left>
-        </CardItem>;
+        </CardItem>
         <CardItem cardBody>
           <Image
             source={images[this.props.imageSource]}
             style={{ height: 200, width: null, flex: 1 }}
           />
         </CardItem>
-        <CardItem style={{ height: 45 }}>
+        <CardItem style={{ height: 35 }}>
           <Left>
             <Button transparent>
               <Icon name="ios-heart-outline" style={{ color: "black" }} />
@@ -59,18 +59,17 @@ class CardComponent extends Component {
               <Icon name="ios-send-outline" style={{ color: "black" }} />
             </Button>
           </Left>
-        </CardItem>
-        <CardItem style={{ height: 20 }}>
-          <Text style={{ height: 20, color: "black" }}>
-            {this.props.likes} likes
-          </Text>
+          <Right>
+            <Text style={{ height: 20, color: "black" }}>
+              {this.props.likes} comments
+            </Text>
+          </Right>
         </CardItem>
         <CardItem>
           <Body>
             <Text>
               Ea do Lorem occaecat laborum do. Minim ullamco ipsum minim eiusmod
-              dolore cupidatat magna exercitation amet proident qui. Est do
-              irure magna dolor adipisicing do quis labore excepteur.
+              dolore cupidatat magna exercitation amet proident qui.
             </Text>
           </Body>
         </CardItem>
