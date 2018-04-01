@@ -8,6 +8,38 @@ import com.oblador.vectoricons.VectorIconsPackage;
 import net.no_mad.tts.TextToSpeechPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import com.wenkesj.voice.VoicePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import net.no_mad.tts.TextToSpeechPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.wenkesj.voice.VoicePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import net.no_mad.tts.TextToSpeechPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.wenkesj.voice.VoicePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import net.no_mad.tts.TextToSpeechPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import com.wenkesj.voice.VoicePackage;
+import com.oblador.vectoricons.VectorIconsPackage;
+import net.no_mad.tts.TextToSpeechPackage;
+import io.invertase.firebase.RNFirebasePackage;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.wenkesj.voice.VoicePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import net.no_mad.tts.TextToSpeechPackage;
@@ -68,6 +100,38 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VoicePackage(),
+            new VectorIconsPackage(),
+            new TextToSpeechPackage(),
+            new RNFirebasePackage(),
+            new FBSDKPackage(),
+            new RNGoogleSigninPackage(),
+            new RNGoogleSigninPackage(),
+            new VoicePackage(),
+            new VectorIconsPackage(),
+            new TextToSpeechPackage(),
+            new RNGoogleSigninPackage(),
+            new RNFirebasePackage(),
+            new FBSDKPackage(),
+            new VoicePackage(),
+            new VectorIconsPackage(),
+            new TextToSpeechPackage(),
+            new RNGoogleSigninPackage(),
+            new RNFirebasePackage(),
+            new FBSDKPackage(),
+            new VoicePackage(),
+            new VectorIconsPackage(),
+            new TextToSpeechPackage(),
+            new RNGoogleSigninPackage(),
+            new RNFirebasePackage(),
+            new FBSDKPackage(),
+            new RNGoogleSigninPackage(),
+            new RNGoogleSigninPackage(),
+            new RNGoogleSigninPackage(),
+            new RNGoogleSigninPackage(),
+            new RNGoogleSigninPackage(),
+            new RNGoogleSigninPackage(),
+            new RNGoogleSigninPackage(),
             new VoicePackage(),
             new VectorIconsPackage(),
             new TextToSpeechPackage(),

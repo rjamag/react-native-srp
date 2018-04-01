@@ -80,10 +80,20 @@ export function signOut(callback) {
     });
 }
 
-const provider = firebase.auth.FacebookAuthProvider;
+const providerFacebook = firebase.auth.FacebookAuthProvider;
 
 export function signInWithFacebook(fbToken, callback) {
-  const credential = provider.credential(fbToken);
+  const credential = providerFacebook.credential(fbToken);
+  auth
+    .signInWithCredential(credential)
+    .then(user => getUser(user, callback))
+    .catch(error => callback(false, null, error));
+}
+
+const providerGoogle = firebase.auth.GoogleAuthProvider;
+
+export function signInWithGoogle(googleToken, callback) {
+  const credential = providerGoogle.credential(googleToken);
   auth
     .signInWithCredential(credential)
     .then(user => getUser(user, callback))

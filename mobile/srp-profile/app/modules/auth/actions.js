@@ -88,13 +88,13 @@ export function signInWithFacebook(facebookToken, successCB, errorCB) {
   };
 }
 
-export function signInWithGoogle(facebookToken, successCB, errorCB) {
+export function signInWithGoogle(googleToken, successCB, errorCB) {
   return dispatch => {
-    // api.signInWithFacebook(facebookToken, function(success, data, error) {
-    //   if (success) {
-    //     if (data.exists) dispatch({ type: t.LOGGED_IN, data: data.user });
-    //     successCB(data);
-    //   } else if (error) errorCB(error);
-    // });
+    api.signInWithGoogle(googleToken, function(success, data, error) {
+      if (success) {
+        if (data.exists) dispatch({ type: t.LOGGED_IN, data: data.user });
+        successCB(data);
+      } else if (error) errorCB(error);
+    });
   };
 }

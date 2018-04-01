@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 
 import firebase from "../../../../config/firebase";
 import { AccessToken, LoginManager } from "react-native-fbsdk";
+//import { GoogleSignin } from "react-native-google-signin";
 
 import { actions as auth, constants as c } from "../../index";
 const { signInWithFacebook, signInWithGoogle } = auth;
@@ -51,43 +52,21 @@ class Welcome extends React.Component {
   }
 
   async onSignInWithGoogle() {
-    // GoogleSignin.signIn()
-    //   .then(user => {
-    //     console.log(user);
-    //     this.setState({ user: user });
-    //     console.log(user.token + " token");
-    //     let credential = {
-    //       provider: "google",
-    //       token: user.idToken,
-    //       secret: user.serverAuthCode,
-    //       provider: "google",
-    //       email: user.email,
-    //       providerId: "google"
-    //     };
-    //     console.log(credential);
-    //     Authentication.googleLogin(credential);
-    //   })
-    //   .catch(err => {
-    //     alert("WRONG SIGNIN" + err);
-    //   })
-    //   .done();
-    // static googleLogin(getCredentials) {
-    //         //this.setState({user: user});
-    //         firebase.auth().signInWithCredential(getCredentials)
-    //             .then((user) => {
-    //                 console.log('User successfully signed in', user)
-    //                 var user = firebase.auth().currentUser;
-    //                 console.log("Email: "+user.email);
-    //             })
-    //             .catch((err) => {
-    //                 console.error('User signin error', err);
-    //             });
-    //     }
-    // this.props.signInWithGoogle(
-    //   data.accessToken,
-    //   this.onSuccess,
-    //   this.onError
+    console.log("onSignInWithGoogle - inicio");
+
+    // await GoogleSignin.configure(
+    //   "iosClientId: 529919218490-j9oop63nr1uo14ub565bmvlqd337p2n4.apps.googleusercontent.com"
     // );
+
+    // console.log("onSignInWithGoogle - 1");
+
+    // const data = await GoogleSignin.signIn();
+
+    // console.log("onSignInWithGoogle - 2");
+
+    // this.props.signInWithGoogle(data.accessToken, this.onSuccess, this.onError);
+
+    console.log("onSignInWithGoogle - fim");
   }
 
   onSuccess({ exists, user }) {
