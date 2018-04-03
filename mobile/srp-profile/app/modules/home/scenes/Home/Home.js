@@ -64,18 +64,16 @@ class Home extends Component {
                     height: 60,
                     marginHorizontal: 5,
                     marginTop: 5,
-                    borderWidth: 1,
                     borderRadius: 50,
-                    borderColor: "black",
-                    backgroundColor: "#000"
+                    backgroundColor: "#ffce00"
                   }}
                 >
                   <Icon
                     name="ios-paw"
                     style={{
                       fontSize: 30,
-                      color: "#ffce00",
-                      backgroundColor: "#000"
+                      color: "#000",
+                      backgroundColor: "#ffce00"
                     }}
                   />
                 </Button>
@@ -86,18 +84,16 @@ class Home extends Component {
                     height: 60,
                     marginHorizontal: 5,
                     marginTop: 5,
-                    borderColor: "#000",
-                    borderWidth: 1,
                     borderRadius: 50,
-                    backgroundColor: "#000"
+                    backgroundColor: "#ffce00"
                   }}
                 >
                   <Icon
                     name="ios-medkit"
                     style={{
                       fontSize: 30,
-                      color: "#ffce00",
-                      backgroundColor: "#000"
+                      color: "#000",
+                      backgroundColor: "#ffce00"
                     }}
                   />
                 </Button>
@@ -108,18 +104,16 @@ class Home extends Component {
                     height: 60,
                     marginHorizontal: 5,
                     marginTop: 5,
-                    borderColor: "black",
-                    borderWidth: 1,
                     borderRadius: 50,
-                    backgroundColor: "black"
+                    backgroundColor: "#ffce00"
                   }}
                 >
                   <Icon
                     name="ios-school"
                     style={{
                       fontSize: 30,
-                      color: "#ffce00",
-                      backgroundColor: "black"
+                      color: "#000",
+                      backgroundColor: "#ffce00"
                     }}
                   />
                 </Button>
@@ -130,18 +124,16 @@ class Home extends Component {
                     height: 60,
                     marginHorizontal: 5,
                     marginTop: 5,
-                    borderColor: "black",
-                    borderWidth: 1,
                     borderRadius: 50,
-                    backgroundColor: "black"
+                    backgroundColor: "#ffce00"
                   }}
                 >
                   <Icon
                     name="ios-car"
                     style={{
                       fontSize: 30,
-                      color: "#ffce00",
-                      backgroundColor: "black"
+                      color: "#000",
+                      backgroundColor: "#ffce00"
                     }}
                   />
                 </Button>
@@ -152,18 +144,16 @@ class Home extends Component {
                     height: 60,
                     marginHorizontal: 5,
                     marginTop: 5,
-                    borderColor: "black",
-                    borderWidth: 1,
                     borderRadius: 50,
-                    backgroundColor: "black"
+                    backgroundColor: "#ffce00"
                   }}
                 >
                   <Icon
                     name="ios-bug"
                     style={{
                       fontSize: 30,
-                      color: "#ffce00",
-                      backgroundColor: "black"
+                      color: "#000",
+                      backgroundColor: "#ffce00"
                     }}
                   />
                 </Button>
@@ -175,71 +165,19 @@ class Home extends Component {
                     height: 60,
                     marginHorizontal: 5,
                     marginTop: 5,
-                    borderColor: "black",
-                    borderWidth: 1,
                     borderRadius: 50,
-                    backgroundColor: "black"
+                    backgroundColor: "#ffce00"
                   }}
                 >
                   <Icon
                     name="ios-key"
                     style={{
                       fontSize: 30,
-                      color: "#ffce00",
-                      backgroundColor: "black"
+                      color: "#000",
+                      backgroundColor: "#ffce00"
                     }}
                   />
                 </Button>
-
-                <Thumbnail
-                  style={{
-                    marginHorizontal: 5,
-                    borderColor: "grey",
-                    borderWidth: 1
-                  }}
-                  source={require("../../components/assets/StoriesHeaderThumbnails/2.jpg")}
-                />
-                <Thumbnail
-                  style={{
-                    marginHorizontal: 5,
-                    borderColor: "grey",
-                    borderWidth: 1
-                  }}
-                  source={require("../../components/assets/StoriesHeaderThumbnails/3.jpg")}
-                />
-                <Thumbnail
-                  style={{
-                    marginHorizontal: 5,
-                    borderColor: "grey",
-                    borderWidth: 1
-                  }}
-                  source={require("../../components/assets/StoriesHeaderThumbnails/4.jpg")}
-                />
-
-                <Thumbnail
-                  style={{
-                    marginHorizontal: 5,
-                    borderColor: "grey",
-                    borderWidth: 1
-                  }}
-                  source={require("../../components/assets/StoriesHeaderThumbnails/5.jpg")}
-                />
-                <Thumbnail
-                  style={{
-                    marginHorizontal: 5,
-                    borderColor: "grey",
-                    borderWidth: 1
-                  }}
-                  source={require("../../components/assets/StoriesHeaderThumbnails/6.jpg")}
-                />
-                <Thumbnail
-                  style={{
-                    marginHorizontal: 5,
-                    borderColor: "grey",
-                    borderWidth: 1
-                  }}
-                  source={require("../../components/assets/StoriesHeaderThumbnails/7.jpg")}
-                />
               </ScrollView>
             </View>
           </View>
