@@ -330,13 +330,13 @@ class Speech extends React.Component {
           style={
             this.state.buttonActive
               ? { backgroundColor: "#DD5144", marginBottom: 20 }
-              : { backgroundColor: "#000", marginBottom: 20 }
+              : { backgroundColor: "#ffce00", marginBottom: 20 }
           }
           position="bottomRight"
           onPressIn={this._startRecognizing.bind(this)}
           onPressOut={this._stopRecognizing.bind(this)}
         >
-          <Icon name="ios-mic" style={{ color: "#ffce00" }} />
+          <Icon name="ios-mic" style={{ color: "#000" }} />
         </Fab>
       </View>
     );

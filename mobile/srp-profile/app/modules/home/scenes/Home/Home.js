@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity
+} from "react-native";
 import {
   Container,
   Content,
@@ -15,6 +21,7 @@ import {
 } from "native-base";
 import CardComponent from "../../components/CardComponent/CardComponent";
 import Speech from "../Speech/Speech";
+import RoundButton from "../../components/RoundButton/RoundButton";
 
 class Home extends Component {
   constructor(props) {
@@ -57,127 +64,12 @@ class Home extends Component {
                   paddingEnd: 5
                 }}
               >
-                <Button
-                  transparent
-                  style={{
-                    alignItems: "center",
-                    height: 60,
-                    marginHorizontal: 5,
-                    marginTop: 5,
-                    borderRadius: 50,
-                    backgroundColor: "#ffce00"
-                  }}
-                >
-                  <Icon
-                    name="ios-paw"
-                    style={{
-                      fontSize: 30,
-                      color: "#000",
-                      backgroundColor: "#ffce00"
-                    }}
-                  />
-                </Button>
-                <Button
-                  transparent
-                  style={{
-                    alignItems: "center",
-                    height: 60,
-                    marginHorizontal: 5,
-                    marginTop: 5,
-                    borderRadius: 50,
-                    backgroundColor: "#ffce00"
-                  }}
-                >
-                  <Icon
-                    name="ios-medkit"
-                    style={{
-                      fontSize: 30,
-                      color: "#000",
-                      backgroundColor: "#ffce00"
-                    }}
-                  />
-                </Button>
-                <Button
-                  transparent
-                  style={{
-                    alignItems: "center",
-                    height: 60,
-                    marginHorizontal: 5,
-                    marginTop: 5,
-                    borderRadius: 50,
-                    backgroundColor: "#ffce00"
-                  }}
-                >
-                  <Icon
-                    name="ios-school"
-                    style={{
-                      fontSize: 30,
-                      color: "#000",
-                      backgroundColor: "#ffce00"
-                    }}
-                  />
-                </Button>
-                <Button
-                  transparent
-                  style={{
-                    alignItems: "center",
-                    height: 60,
-                    marginHorizontal: 5,
-                    marginTop: 5,
-                    borderRadius: 50,
-                    backgroundColor: "#ffce00"
-                  }}
-                >
-                  <Icon
-                    name="ios-car"
-                    style={{
-                      fontSize: 30,
-                      color: "#000",
-                      backgroundColor: "#ffce00"
-                    }}
-                  />
-                </Button>
-                <Button
-                  transparent
-                  style={{
-                    alignItems: "center",
-                    height: 60,
-                    marginHorizontal: 5,
-                    marginTop: 5,
-                    borderRadius: 50,
-                    backgroundColor: "#ffce00"
-                  }}
-                >
-                  <Icon
-                    name="ios-bug"
-                    style={{
-                      fontSize: 30,
-                      color: "#000",
-                      backgroundColor: "#ffce00"
-                    }}
-                  />
-                </Button>
-
-                <Button
-                  transparent
-                  style={{
-                    alignItems: "center",
-                    height: 60,
-                    marginHorizontal: 5,
-                    marginTop: 5,
-                    borderRadius: 50,
-                    backgroundColor: "#ffce00"
-                  }}
-                >
-                  <Icon
-                    name="ios-key"
-                    style={{
-                      fontSize: 30,
-                      color: "#000",
-                      backgroundColor: "#ffce00"
-                    }}
-                  />
-                </Button>
+                <RoundButton iconName="ios-paw" />
+                <RoundButton iconName="ios-medkit" />
+                <RoundButton iconName="ios-car" />
+                <RoundButton iconName="ios-school" />
+                <RoundButton iconName="ios-bug" />
+                <RoundButton iconName="ios-key" />
               </ScrollView>
             </View>
           </View>
