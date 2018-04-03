@@ -249,7 +249,7 @@ export default class extends React.Component {
                 title="Messages"
                 icon={({ focused }) => (
                   <Icon
-                    name="ios-chatboxes"
+                    name="ios-chatbubbles"
                     size={30}
                     iconStyle={{ width: 30, height: 30 }}
                     type="ionicon"

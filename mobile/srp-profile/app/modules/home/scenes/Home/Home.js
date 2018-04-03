@@ -70,6 +70,11 @@ class Home extends Component {
                 <RoundButton iconName="ios-school" />
                 <RoundButton iconName="ios-bug" />
                 <RoundButton iconName="ios-key" />
+                <RoundButton iconName="ios-bicycle" />
+                <RoundButton iconName="ios-outlet" />
+                <RoundButton iconName="ios-rose" />
+                <RoundButton iconName="ios-football" />
+                <RoundButton iconName="ios-apps" />
               </ScrollView>
             </View>
           </View>
