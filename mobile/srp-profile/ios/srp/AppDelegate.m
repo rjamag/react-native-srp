@@ -47,29 +47,34 @@
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
+  
+  BOOL handledFacebook = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                        openURL:url
+                                                              sourceApplication:sourceApplication
+                                                                     annotation:annotation
+                          ];
 
-  BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                                openURL:url
-                                                      sourceApplication:sourceApplication
-                                                             annotation:annotation
-                  ];
-  // Add any custom logic here.
-  return handled;
+  return handledFacebook;
 }
 
-//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-//  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-//
-//  return [[FBSDKApplicationDelegate sharedInstance] application:application
-//                                                        openURL:url
-//                                              sourceApplication:sourceApplication
-//                                                     annotation:annotation
-//          ]
-//  || [RNGoogleSignin application:application
-//                         openURL:url
-//               sourceApplication:sourceApplication
-//                      annotation:annotation
-//      ];
-//}
+/* - (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+        annotation:(id)annotation {
+  
+  BOOL handledFacebook = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                        openURL:url
+                                                              sourceApplication:sourceApplication
+                                                                     annotation:annotation
+                          ];
+  BOOL handledGoogle = [RNGoogleSignin application:application
+                                           openURL:url
+                                 sourceApplication:sourceApplication
+                                        annotation:annotation
+                        ];
+  // Add any custom logic here.
+  return handledFacebook || handledGoogle;
+}
+*/
 
 @end

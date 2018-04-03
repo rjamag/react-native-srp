@@ -54,9 +54,10 @@ class Welcome extends React.Component {
   async onSignInWithGoogle() {
     console.log("onSignInWithGoogle - inicio");
 
-    // await GoogleSignin.configure(
-    //   "iosClientId: 529919218490-j9oop63nr1uo14ub565bmvlqd337p2n4.apps.googleusercontent.com"
-    // );
+    // await GoogleSignin.configure({
+    //   iosClientId:
+    //     "529919218490-j9oop63nr1uo14ub565bmvlqd337p2n4.apps.googleusercontent.com"
+    // });
 
     // console.log("onSignInWithGoogle - 1");
 

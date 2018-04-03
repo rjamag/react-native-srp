@@ -36,7 +36,8 @@ class Home extends Component {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
-                paddingHorizontal: 5
+                paddingHorizontal: 10,
+                paddingTop: 5
               }}
             >
               <Text style={{ fontWeight: "bold" }}>Featured</Text>
@@ -56,14 +57,140 @@ class Home extends Component {
                   paddingEnd: 5
                 }}
               >
-                <Thumbnail
+                <Button
+                  transparent
                   style={{
+                    alignItems: "center",
+                    height: 60,
                     marginHorizontal: 5,
-                    borderColor: "grey",
-                    borderWidth: 1
+                    marginTop: 5,
+                    borderWidth: 1,
+                    borderRadius: 50,
+                    borderColor: "black",
+                    backgroundColor: "#000"
                   }}
-                  source={require("../../components/assets/StoriesHeaderThumbnails/7.jpg")}
-                />
+                >
+                  <Icon
+                    name="ios-paw"
+                    style={{
+                      fontSize: 30,
+                      color: "#ffce00",
+                      backgroundColor: "#000"
+                    }}
+                  />
+                </Button>
+                <Button
+                  transparent
+                  style={{
+                    alignItems: "center",
+                    height: 60,
+                    marginHorizontal: 5,
+                    marginTop: 5,
+                    borderColor: "#000",
+                    borderWidth: 1,
+                    borderRadius: 50,
+                    backgroundColor: "#000"
+                  }}
+                >
+                  <Icon
+                    name="ios-medkit"
+                    style={{
+                      fontSize: 30,
+                      color: "#ffce00",
+                      backgroundColor: "#000"
+                    }}
+                  />
+                </Button>
+                <Button
+                  transparent
+                  style={{
+                    alignItems: "center",
+                    height: 60,
+                    marginHorizontal: 5,
+                    marginTop: 5,
+                    borderColor: "black",
+                    borderWidth: 1,
+                    borderRadius: 50,
+                    backgroundColor: "black"
+                  }}
+                >
+                  <Icon
+                    name="ios-school"
+                    style={{
+                      fontSize: 30,
+                      color: "#ffce00",
+                      backgroundColor: "black"
+                    }}
+                  />
+                </Button>
+                <Button
+                  transparent
+                  style={{
+                    alignItems: "center",
+                    height: 60,
+                    marginHorizontal: 5,
+                    marginTop: 5,
+                    borderColor: "black",
+                    borderWidth: 1,
+                    borderRadius: 50,
+                    backgroundColor: "black"
+                  }}
+                >
+                  <Icon
+                    name="ios-car"
+                    style={{
+                      fontSize: 30,
+                      color: "#ffce00",
+                      backgroundColor: "black"
+                    }}
+                  />
+                </Button>
+                <Button
+                  transparent
+                  style={{
+                    alignItems: "center",
+                    height: 60,
+                    marginHorizontal: 5,
+                    marginTop: 5,
+                    borderColor: "black",
+                    borderWidth: 1,
+                    borderRadius: 50,
+                    backgroundColor: "black"
+                  }}
+                >
+                  <Icon
+                    name="ios-bug"
+                    style={{
+                      fontSize: 30,
+                      color: "#ffce00",
+                      backgroundColor: "black"
+                    }}
+                  />
+                </Button>
+
+                <Button
+                  transparent
+                  style={{
+                    alignItems: "center",
+                    height: 60,
+                    marginHorizontal: 5,
+                    marginTop: 5,
+                    borderColor: "black",
+                    borderWidth: 1,
+                    borderRadius: 50,
+                    backgroundColor: "black"
+                  }}
+                >
+                  <Icon
+                    name="ios-key"
+                    style={{
+                      fontSize: 30,
+                      color: "#ffce00",
+                      backgroundColor: "black"
+                    }}
+                  />
+                </Button>
+
                 <Thumbnail
                   style={{
                     marginHorizontal: 5,
@@ -116,7 +243,7 @@ class Home extends Component {
               </ScrollView>
             </View>
           </View>
-          <CardComponent imageSource="9" likes="101" />
+          <CardComponent imageSource="9" likes="10" />
           <CardComponent imageSource="1" likes="301" />
           <CardComponent imageSource="12" likes="201" />
           <CardComponent imageSource="6" likes="301" />

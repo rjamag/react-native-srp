@@ -33,13 +33,25 @@ class CardComponent extends Component {
       <Card>
         <CardItem>
           <Left>
-            <Thumbnail square source={require("../assets/me.jpg")} />
+            <Thumbnail
+              square
+              source={require("../assets/me.jpg")}
+              style={{ height: 35, width: 35 }}
+            />
             <Body>
               <Text style={{ fontWeight: "bold" }}>John Doe</Text>
-              <Text>Electrician</Text>
-              <Text note>Mar 12, 2018</Text>
+              <Text note>Electrician</Text>
             </Body>
           </Left>
+          <Right>
+            <Icon name="ios-more" style={{ color: "black" }} />
+          </Right>
+        </CardItem>
+        <CardItem>
+          <Text>
+            Ea do Lorem occaecat laborum do. Minim ullamco ipsum minim eiusmod
+            dolore cupidatat magna.
+          </Text>
         </CardItem>
         <CardItem cardBody>
           <Image
@@ -64,14 +76,6 @@ class CardComponent extends Component {
               {this.props.likes} comments
             </Text>
           </Right>
-        </CardItem>
-        <CardItem>
-          <Body>
-            <Text>
-              Ea do Lorem occaecat laborum do. Minim ullamco ipsum minim eiusmod
-              dolore cupidatat magna exercitation amet proident qui.
-            </Text>
-          </Body>
         </CardItem>
       </Card>
     );

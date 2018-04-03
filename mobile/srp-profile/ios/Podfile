@@ -12,8 +12,7 @@ target 'srp' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
-  #pod 'Google/SignIn'
-
+#  pod 'GoogleSignIn'
 
 
   # Pods for srp
