@@ -243,10 +243,38 @@ class Home extends Component {
               </ScrollView>
             </View>
           </View>
-          <CardComponent imageSource="9" likes="10" />
-          <CardComponent imageSource="1" likes="301" />
-          <CardComponent imageSource="12" likes="201" />
-          <CardComponent imageSource="6" likes="301" />
+          <CardComponent
+            avatarName="John Doe"
+            avatarTitle="Pet Care"
+            avatarImage="2"
+            imageSource="9"
+            likes="10"
+            textFeed="Bring your pet on Mondays and get a 20% discount!!! Coupon code: MONDAYPETS."
+          />
+          <CardComponent
+            avatarName="Jack Ripper"
+            avatarTitle="Dentist"
+            avatarImage="7"
+            imageSource="12"
+            likes="10"
+            textFeed="White teeth. Beautiful smile."
+          />
+          <CardComponent
+            avatarName="Mary Sugar"
+            avatarTitle="Cakemaker"
+            avatarImage="1"
+            imageSource="6"
+            likes="10"
+            textFeed="Marriage cakes with name."
+          />
+          <CardComponent
+            avatarName="Mick Taylor"
+            avatarTitle="Plumber"
+            avatarImage="6"
+            imageSource="1"
+            likes="10"
+            textFeed="Pipes and sinks fixed in one hour or less!"
+          />
         </Content>
 
         <Speech />

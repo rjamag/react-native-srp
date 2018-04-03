@@ -29,29 +29,41 @@ class CardComponent extends Component {
       "12": require("../assets/feed_images/12.jpg")
     };
 
+    const imagesAvatar = {
+      "1": require("../assets/StoriesHeaderThumbnails/1.jpg"),
+      "2": require("../assets/StoriesHeaderThumbnails/2.jpg"),
+      "3": require("../assets/StoriesHeaderThumbnails/3.jpg"),
+      "4": require("../assets/StoriesHeaderThumbnails/4.jpg"),
+      "5": require("../assets/StoriesHeaderThumbnails/5.jpg"),
+      "6": require("../assets/StoriesHeaderThumbnails/6.jpg"),
+      "7": require("../assets/StoriesHeaderThumbnails/7.jpg")
+    };
+
     return (
       <Card>
         <CardItem>
           <Left>
             <Thumbnail
               square
-              source={require("../assets/me.jpg")}
+              source={imagesAvatar[this.props.avatarImage]}
               style={{ height: 35, width: 35 }}
             />
             <Body>
-              <Text style={{ fontWeight: "bold" }}>John Doe</Text>
-              <Text note>Electrician</Text>
+              <Text style={{ fontWeight: "bold" }}>
+                {this.props.avatarName}
+              </Text>
+              <Text note>{this.props.avatarTitle}</Text>
             </Body>
           </Left>
           <Right>
             <Icon name="ios-more" style={{ color: "black" }} />
           </Right>
         </CardItem>
-        <CardItem>
-          <Text>
-            Ea do Lorem occaecat laborum do. Minim ullamco ipsum minim eiusmod
-            dolore cupidatat magna.
-          </Text>
+        <CardItem
+          cardBody
+          style={{ padding: 10, paddingBottom: 10, paddingTop: 5 }}
+        >
+          <Text>{this.props.textFeed}</Text>
         </CardItem>
         <CardItem cardBody>
           <Image
