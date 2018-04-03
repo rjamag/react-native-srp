@@ -336,7 +336,7 @@ class Speech extends React.Component {
           onPressIn={this._startRecognizing.bind(this)}
           onPressOut={this._stopRecognizing.bind(this)}
         >
-          <Icon name="ios-mic-outline" />
+          <Icon name="ios-mic" style={{ color: "#ffce00" }} />
         </Fab>
       </View>
     );
