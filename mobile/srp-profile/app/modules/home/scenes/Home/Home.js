@@ -19,9 +19,9 @@ import {
   Button,
   Spinner
 } from "native-base";
+import RoundButton from "../../components/RoundButton/RoundButton";
 import CardComponent from "../../components/CardComponent/CardComponent";
 import Speech from "../Speech/Speech";
-import RoundButton from "../../components/RoundButton/RoundButton";
 
 class Home extends Component {
   constructor(props) {
@@ -122,6 +122,6 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white"
+    backgroundColor: "#fff"
   }
 });

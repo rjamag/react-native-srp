@@ -74,13 +74,13 @@ class CardComponent extends Component {
         <CardItem style={{ height: 35 }}>
           <Left>
             <Button transparent>
-              <Icon name="ios-heart-outline" style={{ color: "black" }} />
+              <Icon name="ios-star-outline" style={{ color: "black" }} />
             </Button>
             <Button transparent>
-              <Icon name="ios-chatbubbles-outline" style={{ color: "black" }} />
+              <Icon name="ios-thumbs-up-outline" style={{ color: "black" }} />
             </Button>
             <Button transparent>
-              <Icon name="ios-send-outline" style={{ color: "black" }} />
+              <Icon name="ios-share-outline" style={{ color: "black" }} />
             </Button>
           </Left>
           <Right>
