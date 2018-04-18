@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import {
   View,
   Text,
@@ -6,6 +7,7 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
+
 import {
   Container,
   Content,
@@ -19,6 +21,7 @@ import {
   Button,
   Spinner
 } from "native-base";
+
 import RoundButton from "../../components/RoundButton/RoundButton";
 import CardComponent from "../../components/CardComponent/CardComponent";
 import Speech from "../Speech/Speech";
